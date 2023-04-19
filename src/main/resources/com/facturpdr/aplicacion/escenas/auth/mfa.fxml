@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.auth.controladores.MFAControlador">
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="601.0">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="905.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../imagenes/auth/auth-fondo.jpeg" />
+               </image>
+               <viewport>
+                  <Rectangle2D width="600.0" />
+               </viewport>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="600.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #171717;">
+         <children>
+            <Text fill="WHITE" layoutX="81.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Factur">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Text>
+            <Text fill="#84cc16" layoutX="228.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PDR">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+            </Text>
+            <TextField fx:id="codigo" layoutX="25.0" layoutY="271.0" prefHeight="40.0" prefWidth="348.0" promptText="Codigo" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Button onAction="#manejarBotonAcceder" layoutX="28.0" layoutY="322.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="348.0" style="-fx-background-color: #84CC16;" text="Acceder" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

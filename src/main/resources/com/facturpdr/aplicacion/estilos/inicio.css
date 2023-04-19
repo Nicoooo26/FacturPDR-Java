@@ -1,0 +1,47 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+/*Cabecero */
+
+#Cabecero {
+    -fx-padding: 10px;
+}
+
+#BotonSalir {
+    -fx-background-color: transparent;
+}
+
+/*Panel Lateral */
+
+#VBox_PL {
+    -fx-spacing: 10;
+    -fx-padding: 20px;
+}
+
+#Boton_Configuracion {
+	-fx-background-color: transparent; 
+}
+
+#Boton_ListadoFacturas {
+	-fx-background-color: transparent;
+}
+
+#Boton_ListadoEmpleados {
+	-fx-background-color: transparent; 
+}
+
+#Boton_ListadoClientes {
+	-fx-background-color: transparent; 
+}
+#Boton_GestionVehiculos {
+	-fx-background-color: transparent; 
+}
+
+#Boton_Home {
+	-fx-background-color: transparent;
+    -fx-font-size: 16;
+}
+
+
+
+
