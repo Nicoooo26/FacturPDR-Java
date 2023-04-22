@@ -47,7 +47,7 @@ public class IniciarSesionControlador {
     public void manejarEscenaRegistrarse(ActionEvent event) {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
-        ventana.cambiarEscena("auth/registrarse.fxml");
+        ventana.cambiarEscena("configuracion/configuracion.fxml");
         ventana.cambiarTitulo("FacturPDR - Registrarse");
     }
 

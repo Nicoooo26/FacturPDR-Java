@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.facturpdr.aplicacion.inicio.controladores.lateralControlador;
+
 public class VentanaExtension {
     private Map<String, Scene> escenas = new HashMap<>();
     private Stage ventanaActual;
@@ -78,5 +80,16 @@ public class VentanaExtension {
         ventanaActual.setScene(nuevaEscena);
         ventanaActual.setResizable(false);
         ventanaActual.show();
+    }
+
+    public static void cambiaInicio(String escena ) {
+        try {
+            FXMLLoader loader = new FXMLLoader(VentanaExtension.class.getResource(escena));
+            Parent root = loader.load();
+            lateralControlador.getControlador().getBorderPane().setCenter(root);
+        } catch (IOException e) {
+          return;
+        }
+
     }
 }
