@@ -33,7 +33,7 @@ public class IniciarSesionControlador {
             return;
         }
 
-        boolean contresenaValido = contrasena.getText().matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\\d!@#$%^&*()_+]{8,}$");
+        boolean contresenaValido = contrasena.getText().matches("^(?=.*[A-Z](?=).*\\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\\d!@#$%^&*()_+]{8,}$");
         if (!contresenaValido) {
             AlertaUtilidad.error("La contraseña debe ser valida", "La contraseña debe tener al menos 8 caracteres, una mayúscula como mínimo, un número como mínimo.");
             return;
@@ -47,7 +47,7 @@ public class IniciarSesionControlador {
     public void manejarEscenaRegistrarse(ActionEvent event) {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
-        ventana.cambiarEscena("configuracion/configuracion.fxml");
+        ventana.cambiarEscena("auth/registrarse.fxml");
         ventana.cambiarTitulo("FacturPDR - Registrarse");
     }
 

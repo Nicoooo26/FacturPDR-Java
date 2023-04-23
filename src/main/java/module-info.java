@@ -9,6 +9,7 @@ module com.facturpdr.aplicacion {
 
     opens com.facturpdr.aplicacion to javafx.graphics,javafx.fxml;
     opens com.facturpdr.aplicacion.inicio.controladores to javafx.fxml;
+    opens com.facturpdr.aplicacion.configuracion.controladores to javafx.fxml;
     exports com.facturpdr.aplicacion;
     exports com.facturpdr.aplicacion.auth.controladores;
 }
