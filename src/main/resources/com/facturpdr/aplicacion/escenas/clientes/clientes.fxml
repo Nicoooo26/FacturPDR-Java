@@ -1,56 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.auth.controladores.IniciarSesionControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="601.0">
-         <children>
-            <ImageView fitHeight="600.0" fitWidth="905.0" pickOnBounds="true" preserveRatio="true">
+      <ScrollPane layoutX="14.0" layoutY="178.0" prefHeight="408.0" prefWidth="826.0">
+         <content>
+            <TableView prefHeight="406.0" prefWidth="811.0" style="-fx-background-color: WHITE;">
+               <columns>
+                  <TableColumn prefWidth="134.0" style="-fx-background-color: WHITE;" />
+                  <TableColumn prefWidth="139.0" style="-fx-background-color: WHITE;" text="DNI" />
+                  <TableColumn prefWidth="129.0" style="-fx-background-color: WHITE;" text="Nombre Completo" />
+                  <TableColumn prefWidth="165.0" style="-fx-background-color: WHITE;" text="Teléfono" />
+                  <TableColumn prefWidth="243.0" style="-fx-background-color: WHITE;" text="Nº de Cuenta" />
+               </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Button layoutX="851.0" layoutY="178.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: WHITE; -fx-border-color: #84cc16; -fx-border-radius: 10,10,10,10;" text="   Añadir ">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../imagenes/auth/auth-fondo.jpeg" />
+                  <Image url="@../fotos/añadircliente.png" />
                </image>
-               <viewport>
-                  <Rectangle2D width="600.0" />
-               </viewport>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="851.0" layoutY="279.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: WHITE; -fx-border-color: ORANGE; -fx-border-radius: 10,10,10,10;" text="  Modificar">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="33.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../fotos/modificarcliente.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="851.0" layoutY="227.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: WHITE; -fx-border-color: RED; -fx-border-radius: 10,10,10,10;" text="  Eliminar ">
+         <graphic>
+            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../fotos/eliminarcliente.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <GridPane layoutX="629.0" layoutY="129.0" prefHeight="32.0" prefWidth="211.0" style="-fx-border-color: #84cc16; -fx-border-radius: 10,10,10,10;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="178.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="31.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <TextField prefHeight="25.0" prefWidth="136.0" style="-fx-border-color: white;" />
+            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@../fotos/lupa.png" />
+               </image>
             </ImageView>
          </children>
-      </AnchorPane>
-      <AnchorPane layoutX="600.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #171717;">
+      </GridPane>
+      <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="83.0" prefWidth="1000.0" style="-fx-background-color: #333337;">
          <children>
-            <Text fill="WHITE" layoutX="81.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Factur">
+            <Label layoutX="14.0" layoutY="20.0" prefHeight="48.0" prefWidth="198.0" text="Listado de Clientes" textFill="#84cc16">
                <font>
-                  <Font name="System Bold" size="40.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
-            </Text>
-            <Text fill="#84cc16" layoutX="228.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PDR">
-               <font>
-                  <Font name="System Bold" size="40.0" />
-               </font>
-            </Text>
-            <TextField fx:id="correo" layoutX="25.0" layoutY="221.0" prefHeight="40.0" prefWidth="348.0" promptText="Correo electronico" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </TextField>
-            <PasswordField fx:id="contrasena" layoutX="25.0" layoutY="273.0" prefHeight="40.0" prefWidth="348.0" promptText="Contraseña" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;" />
-            <Button layoutX="28.0" layoutY="360.0" mnemonicParsing="false" onAction="#manejarBotonAcceder" prefHeight="40.0" prefWidth="348.0" style="-fx-background-color: #84CC16;" text="Acceder" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Hyperlink onAction="#manejarEscenaOlvidarContrasena" alignment="CENTER" layoutX="26.0" layoutY="327.0" prefHeight="22.0" prefWidth="348.0" text="¿Has olvidado tu contraseña?" textAlignment="RIGHT" textFill="#84cc16" />
-            <Hyperlink onAction="#manejarEscenaRegistrarse" alignment="CENTER" layoutX="28.0" layoutY="412.0" prefHeight="22.0" prefWidth="348.0" text="¿No eres miembro? Registrate ahora" textAlignment="RIGHT" textFill="#84cc16" />
+            </Label>
          </children>
       </AnchorPane>
    </children>
