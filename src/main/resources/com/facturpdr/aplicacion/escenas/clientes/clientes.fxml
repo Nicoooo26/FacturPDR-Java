@@ -33,7 +33,7 @@
          <graphic>
             <ImageView fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../fotos/añadircliente.png" />
+                  <Image url="@../../imagenes/clientes/añadircliente.png" />
                </image>
             </ImageView>
          </graphic>
@@ -47,7 +47,7 @@
          <graphic>
             <ImageView fitHeight="33.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../fotos/modificarcliente.png" />
+                  <Image url="@../../imagenes/clientes/modificarcliente.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -55,7 +55,7 @@
          <graphic>
             <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../fotos/eliminarcliente.png" />
+                  <Image url="@../../imagenes/clientes/eliminarcliente.png" />
                </image>
             </ImageView>
          </graphic>
@@ -74,7 +74,7 @@
             <TextField prefHeight="25.0" prefWidth="136.0" style="-fx-border-color: white;" />
             <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                <image>
-                  <Image url="@../fotos/lupa.png" />
+                  <Image url="@../../imagenes/clientes/lupa.png" />
                </image>
             </ImageView>
          </children>
