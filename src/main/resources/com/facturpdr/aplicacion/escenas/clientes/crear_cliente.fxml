@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="82.0" fitWidth="132.0" layoutX="293.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../fotos/iconogrande.png" />
+            <Image url="@../../imagenes/clientes/iconogrande.png" />
          </image>
       </ImageView>
       <GridPane layoutX="14.0" layoutY="167.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
