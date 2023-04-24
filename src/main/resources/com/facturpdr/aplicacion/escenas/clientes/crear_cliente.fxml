@@ -1,57 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.auth.controladores.IniciarSesionControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="718.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="601.0">
+      <ImageView fitHeight="82.0" fitWidth="132.0" layoutX="293.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../fotos/iconogrande.png" />
+         </image>
+      </ImageView>
+      <GridPane layoutX="14.0" layoutY="167.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
-            <ImageView fitHeight="600.0" fitWidth="905.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../imagenes/auth/auth-fondo.jpeg" />
-               </image>
-               <viewport>
-                  <Rectangle2D width="600.0" />
-               </viewport>
-            </ImageView>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Nombre " />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="14.0" layoutY="225.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Apellidos" />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="263.0" layoutY="167.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="14.0" prefWidth="132.0" text="DNI" />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="500.0" layoutY="167.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="14.0" prefWidth="132.0" text="Móvil" />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="500.0" layoutY="225.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="14.0" prefWidth="132.0" text="Teléfono Fijo" />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="263.0" layoutY="225.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="14.0" prefWidth="132.0" text="Email" />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="14.0" layoutY="383.0" prefHeight="58.0" prefWidth="328.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Nº de Cuenta Bancaria" />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="376.0" layoutY="383.0" prefHeight="58.0" prefWidth="328.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Dirección" />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="14.0" layoutY="300.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="País" />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="263.0" layoutY="300.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Código Postal" />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="500.0" layoutY="300.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Ciudad" />
+            <TextField GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <Button layoutX="178.0" layoutY="475.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="CANCELAR" textFill="#84cc16">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <AnchorPane prefHeight="76.0" prefWidth="718.0" style="-fx-background-color: #333337;">
+         <children>
+            <Label layoutX="23.0" layoutY="13.0" prefHeight="50.0" prefWidth="218.0" text=" Nuevo Cliente" textFill="#84cc16">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../fotos/clienteIcono.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="600.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #171717;">
-         <children>
-            <Text fill="WHITE" layoutX="81.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Factur">
-               <font>
-                  <Font name="System Bold" size="40.0" />
-               </font>
-            </Text>
-            <Text fill="#84cc16" layoutX="228.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PDR">
-               <font>
-                  <Font name="System Bold" size="40.0" />
-               </font>
-            </Text>
-            <TextField fx:id="correo" layoutX="25.0" layoutY="221.0" prefHeight="40.0" prefWidth="348.0" promptText="Correo electronico" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </TextField>
-            <PasswordField fx:id="contrasena" layoutX="25.0" layoutY="273.0" prefHeight="40.0" prefWidth="348.0" promptText="Contraseña" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;" />
-            <Button layoutX="28.0" layoutY="360.0" mnemonicParsing="false" onAction="#manejarBotonAcceder" prefHeight="40.0" prefWidth="348.0" style="-fx-background-color: #84CC16;" text="Acceder" textFill="WHITE">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Button>
-            <Hyperlink onAction="#manejarEscenaOlvidarContrasena" alignment="CENTER" layoutX="26.0" layoutY="327.0" prefHeight="22.0" prefWidth="348.0" text="¿Has olvidado tu contraseña?" textAlignment="RIGHT" textFill="#84cc16" />
-            <Hyperlink onAction="#manejarEscenaRegistrarse" alignment="CENTER" layoutX="28.0" layoutY="412.0" prefHeight="22.0" prefWidth="348.0" text="¿No eres miembro? Registrate ahora" textAlignment="RIGHT" textFill="#84cc16" />
-         </children>
-      </AnchorPane>
+      <Button layoutX="376.0" layoutY="475.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="AÑADIR CLIENTE" textFill="#84cc16">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
