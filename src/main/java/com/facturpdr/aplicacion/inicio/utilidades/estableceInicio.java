@@ -33,14 +33,16 @@ public class estableceInicio {
     }
 
     /* Imagenes oscuras */
-    public static void ImagenesOscuras(ImageView imageView) {
+    public static void ImagenesOscuras(ImageView... imagen) {
         // Crea un objeto ColorAdjust y establece la saturación y brillo a cero
         ColorAdjust colorAdjust = new ColorAdjust();
         colorAdjust.setSaturation(-1.0); // Establece la saturación a cero
         colorAdjust.setBrightness(-1.0); // Establece el brillo a cero
 
-        // Establece el efecto ColorAdjust en el ImageView
-        imageView.setEffect(colorAdjust);
+        // Establece el efecto ColorAdjust en cada objeto ImageView proporcionado
+        for (ImageView img : imagen) {
+            img.setEffect(colorAdjust);
+        }
     }
 
     public static void setColorCabecero(HBox superior , String color) {

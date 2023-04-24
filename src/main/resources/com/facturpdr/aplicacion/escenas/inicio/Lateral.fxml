@@ -24,26 +24,26 @@
                     <Image url="@../../imagenes/inicio/icono-inicio.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="35.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ImagenConfiguracion" fitHeight="24.0" fitWidth="25.0" layoutX="35.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../../imagenes/inicio/icono-configuracion.png" />
                 </image>
             </ImageView>
             <Text fx:id="TextGestionClientes" layoutX="40.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Gestión de clientes" />
             <Text fx:id="TextGestionEmpleados" layoutX="42.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Gestión de empleados" />
-            <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="19.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ImagenCliente" fitHeight="20.0" fitWidth="27.0" layoutX="19.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../../imagenes/inicio/icono-cliente.png" />
                 </image>
             </ImageView>
-            <ImageView fitHeight="20.0" fitWidth="27.0" layoutX="22.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ImagenEmpleados" fitHeight="20.0" fitWidth="27.0" layoutX="22.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../../imagenes/inicio/icono-empleado.png" />
                 </image>
             </ImageView>
 
             <Text fx:id="TextGestionFacturas" layoutX="47.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestión de Facturas" />
-            <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="21.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="ImagenFactura" fitHeight="25.0" fitWidth="24.0" layoutX="21.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../../imagenes/inicio/icono-factura.png" />
                 </image>

@@ -20,7 +20,7 @@ public class inicioControlador {
     @FXML
     public void initialize() {
 
-        Temas.Seleccion("Default");
+        Temas.Seleccion("Dark");
         MuestraConfiguracion();
         }
 }

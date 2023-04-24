@@ -12,7 +12,7 @@ public class Temas {
         switch (tema) {
             case "Dark":
                 temaActual = "Dark";
-                Temas.Dark(lateralControlador.getControlador() , cabeceroControlador.getControlador() );
+                 Temas.Dark(lateralControlador.getControlador() , cabeceroControlador.getControlador() );
                 break;
             case "Light":
                 temaActual = "Light";
@@ -35,66 +35,38 @@ public class Temas {
         return temaActual;
     }
 
-    /* Colores por defecto del panel lateral*/
-    public static void Default(lateralControlador pl , cabeceroControlador cabecero) {
 
-        estableceInicio.setColorCabecero(cabecero.getCabecero(), Colores.getColorgreen() ) ;
+    public static void establecerColor(lateralControlador pl , cabeceroControlador cabecero ,
+                                      String superior , String Lateral , String Botones,String Texto){
+
+        estableceInicio.setColorCabecero(cabecero.getCabecero(), superior ) ;
 
         //Colores del Panel Lateral.
-        estableceInicio.setColorPanelLateral(pl.getPanel_Lateral() , Colores.getColorclarogris() );
+        estableceInicio.setColorPanelLateral(pl.getPanel_Lateral() , Lateral );
 
-        estableceInicio.setColorBotones(pl.getBoton_Home() , Colores.getColorblanco() );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoFacturas() , Colores.getColorverde() );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoEmpleados() , Colores.getColorverde() );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoClientes() , Colores.getColorverde() );
-        estableceInicio.setColorBotones(pl.getBoton_Configuracion() , Colores.getColorverde() );
+        estableceInicio.setColorBotones(pl.getBoton_Home() , Botones );
+        estableceInicio.setColorBotones(pl.getBoton_ListadoFacturas() , Botones );
+        estableceInicio.setColorBotones(pl.getBoton_ListadoEmpleados() , Botones );
+        estableceInicio.setColorBotones(pl.getBoton_ListadoClientes() , Botones );
+        estableceInicio.setColorBotones(pl.getBoton_Configuracion() , Botones );
 
         //Color de los textos del panel lateral.
-        estableceInicio.setColorTexto(pl.getTextGestionClientes() , Colores.getColorblanco());
-        estableceInicio.setColorTexto(pl.getTextGestionEmpleados(), Colores.getColorblanco());
-        estableceInicio.setColorTexto(pl.getTextGestionFacturas() , Colores.getColorblanco());
+        estableceInicio.setColorTexto(pl.getTextGestionClientes() , Texto );
+        estableceInicio.setColorTexto(pl.getTextGestionEmpleados(), Texto);
+        estableceInicio.setColorTexto(pl.getTextGestionFacturas() , Texto);
     }
 
-    public static void Light(lateralControlador pl , cabeceroControlador cabecero) {
-        // Colores del cabecero
-        estableceInicio.setColorCabecero(cabecero.getCabecero(), Colores.getColorblanco() ) ;
-
-        // Colores del Panel Lateral
-        estableceInicio.setColorPanelLateral(pl.getPanel_Lateral() , Colores.getColorblanco() );
-        estableceInicio.setColorBotones(pl.getBoton_Home() , Colores.getColoroscurogris() );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoFacturas() , Colores.getColoroscurogris() );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoEmpleados() , Colores.getColoroscurogris() );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoClientes() , Colores.getColoroscurogris() );
-        estableceInicio.setColorBotones(pl.getBoton_Configuracion() , Colores.getColoroscurogris() );
-
-        // Color de los textos del panel lateral
-        estableceInicio.setColorTexto(pl.getTextGestionClientes() , Colores.getColorclarogris());
-        estableceInicio.setColorTexto(pl.getTextGestionEmpleados(), Colores.getColorclarogris());
-        estableceInicio.setColorTexto(pl.getTextGestionFacturas() , Colores.getColorclarogris());
+    public static void Default(lateralControlador pl , cabeceroControlador cabecero) {
+        establecerColor(pl, cabecero, Colores.ColorVerde , Colores.ColorClaroGris, Colores.ColorVerde ,Colores.ColorBlanco);
     }
 
+    public static void Light(lateralControlador pl, cabeceroControlador cabecero) {
+        establecerColor(pl, cabecero, Colores.ColorBlancoG, Colores.ColorGrisClaroG, Colores.ColorGrey, Colores.ColorGrisOscuroG);
+    }
 
     public static void Dark(lateralControlador pl , cabeceroControlador cabecero) {
-        // Colores del cabecero
-        estableceInicio.setColorCabecero(cabecero.getCabecero() , Colores.getColorgrey() );
-
-        // Colores del panel lateral
-        estableceInicio.setColorPanelLateral(pl.getPanel_Lateral() , Colores.getColorgrey());
-
-        estableceInicio.setColorBotones(pl.getBoton_Home(), Colores.getColorgreen() );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoFacturas(), Colores.getColorgreen() );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoEmpleados(), Colores.getColorgreen() );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoClientes(), Colores.getColorgreen() );
-        estableceInicio.setColorBotones(pl.getBoton_Configuracion(), Colores.getColorgreen() );
-
-        // Color de los textos del panel lateral
-        estableceInicio.setColorTexto(pl.getTextGestionClientes() , Colores.getColornegro());
-        estableceInicio.setColorTexto(pl.getTextGestionEmpleados(), Colores.getColornegro());
-        estableceInicio.setColorTexto(pl.getTextGestionFacturas() , Colores.getColornegro());
-
-        //Convertimos todas las imagenes al color negro
-        //Como tal lo que hacemos es establecer el brillo y saturacion a cero.
-
+        establecerColor(pl , cabecero , Colores.ColorGrey , Colores.ColorGrey , Colores.ColorGreen , Colores.ColorNegro);
+        estableceInicio.ImagenesOscuras(pl.getImagenHome() , pl.getImagenCliente() , pl.getImagenConfiguracion() , pl.getImagenEmpleados() , pl.getImagenFactura());
     }
-}
 
+}

@@ -1,79 +1,33 @@
 package com.facturpdr.aplicacion.inicio.controladores;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.scene.Node;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
-
-import javafx.fxml.Initializable;
 
 public class lateralControlador implements Initializable {
 
     private static lateralControlador instancia = null;
     private static lateralControlador controlador = null;
 
-    @FXML
-    private BorderPane borderPane;
+    @FXML private BorderPane borderPane;
 
-    @FXML
-    private AnchorPane centerPane;
+    @FXML private AnchorPane Panel_Lateral ;
 
-    /* Elementos del Panel Lateral.*/
-    @FXML
-    private AnchorPane Panel_Lateral ;
+    @FXML private Button Boton_Configuracion , Boton_ListadoFacturas , Boton_ListadoEmpleados , Boton_ListadoClientes , Boton_Home;
 
-    /* Botones del panel lateral.*/
-    @FXML
-    private Button Boton_Configuracion ;
+    @FXML private Text TextGestionClientes , TextGestionEmpleados , TextGestionFacturas;
 
-    @FXML
-    private Button Boton_ListadoFacturas ;
-
-    @FXML
-    private Button Boton_ListadoEmpleados ;
-
-    @FXML
-    private Button Boton_ListadoClientes ;
-
-    @FXML
-    private Button Boton_GestionVehiculos ;
-
-    @FXML
-    private Button Boton_Home ;
-
-    /* Texto del panel lateral. */
-    @FXML
-    private Text TextGestionClientes ;
-
-    @FXML
-    private Text TextGestionEmpleados ;
-
-    @FXML
-    private Text TextGestionFacturas ;
-
-    @FXML
-    private Text TextGestionVehiculos ;
-
+    @FXML private ImageView ImagenHome , ImagenConfiguracion , ImagenEmpleados , ImagenFactura , ImagenCliente;
 
     public BorderPane getBorderPane() {
         return borderPane;
-    }
-
-    public  AnchorPane getCenterPane() {
-        return centerPane;
     }
 
     public AnchorPane getPanel_Lateral() {
@@ -102,34 +56,22 @@ public class lateralControlador implements Initializable {
         return Boton_Home;
     }
 
-    public Button getBoton_GestionVehiculos() {
-        return Boton_GestionVehiculos;
-    }
-    /* Getters de los textos. */
-    public Text getTextGestionVehiculos() {
-        return TextGestionVehiculos;
-    }
+    /* Getters de los textos */
+    public Text getTextGestionClientes() {return TextGestionClientes;}
+    public Text getTextGestionEmpleados() {return TextGestionEmpleados;}
+    public Text getTextGestionFacturas() {return TextGestionFacturas;}
 
-    public Text getTextGestionClientes() {
-        return TextGestionClientes;
-    }
+    /* Getters de las imagenes*/
+    public ImageView getImagenHome(){ return ImagenHome;}
+    public ImageView getImagenCliente(){ return ImagenCliente;}
+    public ImageView getImagenEmpleados(){ return ImagenEmpleados;}
+    public ImageView getImagenConfiguracion(){ return ImagenConfiguracion;}
+    public ImageView getImagenFactura(){ return ImagenFactura;}
 
-    public Text getTextGestionEmpleados() {
-        return TextGestionEmpleados;
-    }
 
-    public Text getTextGestionFacturas() {
-        return TextGestionFacturas;
-    }
+    public void setControlador(lateralControlador Controlador) {this.controlador = Controlador;}
 
-    public void setControlador(lateralControlador Controlador) {
-        this.controlador = Controlador;
-    }
-
-    public static lateralControlador getControlador() {
-        getInstancia();
-        return controlador;
-    }
+    public static lateralControlador getControlador() { getInstancia(); return controlador; }
 
     public static lateralControlador getInstancia() {
         if (instancia == null) {
@@ -143,4 +85,3 @@ public class lateralControlador implements Initializable {
         setControlador(this);
     }
 }
-

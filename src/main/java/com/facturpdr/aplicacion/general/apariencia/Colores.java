@@ -3,46 +3,31 @@ package com.facturpdr.aplicacion.general.apariencia;
 
 public class Colores {
 
-    static private final String ColorBlanco = "#FFFFFF" ;
+    /* Colores del Tema Default */
 
-    static private final String ColorVerde = "#84cc16" ;
+    static public final String ColorVerde = "#84cc16" ;
 
-    static private final String ColorOscuroGris = "#171717" ;
 
     static private final String ColorClaroGris  = "#262626";
 
-    static private final String ColorNegro = "#000000";
+    /* Colores del Tema Light */
 
-    static private final String ColorGrey = "#808080" ;
+    static public final String ColorBlancoG = "#F9FAFB" ;
 
-    static private final String  ColorGreen = "#00FF00"; // verde
+    static public final String ColorGrisClaroG = "F0F2F5" ;
 
-    public static String getColorblanco() {
-        return ColorBlanco;
-    }
+    static public String ColorGrisOscuroG = "2D3748";
 
-    public static String getColorverde() {
-        return ColorVerde;
-    }
+    static public final String ColorGrey = "#808080" ;
 
-    public static String getColoroscurogris() {
-        return ColorOscuroGris;
-    }
+    /* Color del Tema Dark */
 
-    public static String getColorclarogris() {
-        return ColorClaroGris;
-    }
+    static public final String ColorNegro = "#000000";
 
-    public static String getColornegro() {
-        return ColorNegro;
-    }
 
-    public static String getColorgrey() {
-        return ColorGrey;
-    }
+    static public final String  ColorGreen = "#00FF00";
 
-    public static String getColorgreen() {
-        return ColorGreen;
-    }
+    /* Se utiliza tambien el ColorGrey del Tema Light */
+
 }
 
