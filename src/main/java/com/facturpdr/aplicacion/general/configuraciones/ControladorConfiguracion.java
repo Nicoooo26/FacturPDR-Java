@@ -1,11 +1,11 @@
-package com.facturpdr.aplicacion.configuracion.controladores;
+package com.facturpdr.aplicacion.general.configuraciones;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
-public class configuracionControlador {
+public class ControladorConfiguracion {
 
     @FXML
     private ComboBox<Label> temas;
