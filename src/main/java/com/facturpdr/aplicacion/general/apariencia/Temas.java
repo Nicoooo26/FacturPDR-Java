@@ -12,15 +12,15 @@ public class Temas {
         switch (tema) {
             case "Dark":
                 temaActual = "Dark";
-                 Temas.Dark(lateralControlador.getControlador() , cabeceroControlador.getControlador() );
+                 Temas.Dark(lateralControlador.getControlador(), cabeceroControlador.getControlador() );
                 break;
             case "Light":
                 temaActual = "Light";
-                Temas.Light(lateralControlador.getControlador() , cabeceroControlador.getControlador());
+                Temas.Light(lateralControlador.getControlador(), cabeceroControlador.getControlador());
                 break;
             default:
                 temaActual = "Default";
-                Temas.Default(lateralControlador.getControlador() ,  cabeceroControlador.getControlador());
+                Temas.Default(lateralControlador.getControlador(), cabeceroControlador.getControlador());
                 break;
         }
     }
@@ -36,37 +36,36 @@ public class Temas {
     }
 
 
-    public static void establecerColor(lateralControlador pl , cabeceroControlador cabecero ,
-                                      String superior , String Lateral , String Botones,String Texto){
+    public static void establecerColor(lateralControlador pl, cabeceroControlador cabecero, String superior, String lateral, String botones, String texto){
 
-        estableceInicio.setColorCabecero(cabecero.getCabecero(), superior ) ;
+        estableceInicio.setColorCabecero(cabecero.getCabecero(), superior);
 
         //Colores del Panel Lateral.
-        estableceInicio.setColorPanelLateral(pl.getPanel_Lateral() , Lateral );
+        estableceInicio.setColorPanelLateral(pl.getPanel_Lateral(), lateral);
 
-        estableceInicio.setColorBotones(pl.getBoton_Home() , Botones );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoFacturas() , Botones );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoEmpleados() , Botones );
-        estableceInicio.setColorBotones(pl.getBoton_ListadoClientes() , Botones );
-        estableceInicio.setColorBotones(pl.getBoton_Configuracion() , Botones );
+        estableceInicio.setColorBotones(pl.getBoton_Home(), botones);
+        estableceInicio.setColorBotones(pl.getBoton_ListadoFacturas(), botones);
+        estableceInicio.setColorBotones(pl.getBoton_ListadoEmpleados(), botones);
+        estableceInicio.setColorBotones(pl.getBoton_ListadoClientes(), botones);
+        estableceInicio.setColorBotones(pl.getBoton_Configuracion(), botones);
 
         //Color de los textos del panel lateral.
-        estableceInicio.setColorTexto(pl.getTextGestionClientes() , Texto );
-        estableceInicio.setColorTexto(pl.getTextGestionEmpleados(), Texto);
-        estableceInicio.setColorTexto(pl.getTextGestionFacturas() , Texto);
+        estableceInicio.setColorTexto(pl.getTextGestionClientes(), texto);
+        estableceInicio.setColorTexto(pl.getTextGestionEmpleados(), texto);
+        estableceInicio.setColorTexto(pl.getTextGestionFacturas(), texto);
     }
 
-    public static void Default(lateralControlador pl , cabeceroControlador cabecero) {
-        establecerColor(pl, cabecero, Colores.ColorVerde , Colores.ColorClaroGris, Colores.ColorVerde ,Colores.ColorBlanco);
+    public static void Default(lateralControlador pl, cabeceroControlador cabecero) {
+        establecerColor(pl, cabecero, Colores.ColorVerde, Colores.ColorClaroGris, Colores.ColorVerde, Colores.ColorBlancoG);
     }
 
     public static void Light(lateralControlador pl, cabeceroControlador cabecero) {
         establecerColor(pl, cabecero, Colores.ColorBlancoG, Colores.ColorGrisClaroG, Colores.ColorGrey, Colores.ColorGrisOscuroG);
     }
 
-    public static void Dark(lateralControlador pl , cabeceroControlador cabecero) {
-        establecerColor(pl , cabecero , Colores.ColorGrey , Colores.ColorGrey , Colores.ColorGreen , Colores.ColorNegro);
-        estableceInicio.ImagenesOscuras(pl.getImagenHome() , pl.getImagenCliente() , pl.getImagenConfiguracion() , pl.getImagenEmpleados() , pl.getImagenFactura());
+    public static void Dark(lateralControlador pl, cabeceroControlador cabecero) {
+        establecerColor(pl, cabecero, Colores.ColorGrey, Colores.ColorGrey, Colores.ColorGreen, Colores.ColorNegro);
+        estableceInicio.ImagenesOscuras(pl.getImagenHome(), pl.getImagenCliente(), pl.getImagenConfiguracion(), pl.getImagenEmpleados(), pl.getImagenFactura());
     }
 
 }

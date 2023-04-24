@@ -8,7 +8,7 @@ public class Colores {
     static public final String ColorVerde = "#84cc16" ;
 
 
-    static private final String ColorClaroGris  = "#262626";
+    static public final String ColorClaroGris  = "#262626";
 
     /* Colores del Tema Light */
 
