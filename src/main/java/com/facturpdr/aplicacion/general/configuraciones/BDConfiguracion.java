@@ -31,7 +31,7 @@ public class BDConfiguracion {
         }
     }
 
-    public static List<Map<String, ?>> selecionar(String consulta, Object... parametros) {
+    public static List<Map<String, Object>> selecionar(String consulta, Object... parametros) {
         try {
             conectarse();
 
@@ -44,12 +44,15 @@ public class BDConfiguracion {
             ResultSetMetaData metadatos = resultado.getMetaData();
 
             int columnas = metadatos.getColumnCount();
-            List<Map<String, ?>> datos = new ArrayList<Map<String, ?>>();
+            List<Map<String, Object>> datos = new ArrayList<Map<String, Object>>();
+            Map<String, Object> fila = new HashMap<String, Object>();
 
             while (resultado.next()) {
-                Map<String, Object> fila = new HashMap<String, Object>();
+                fila.clear();
                 for (int i = 1; i <= columnas; i++) {
-                    fila.put(metadatos.getColumnLabel(i).toLowerCase(), resultado.getObject(i));
+                    String nombreColumna = metadatos.getColumnLabel(i).toLowerCase();
+                    Object valorColumna = resultado.getObject(i);
+                    fila.put(nombreColumna, valorColumna);
                 }
                 datos.add(fila);
             }
