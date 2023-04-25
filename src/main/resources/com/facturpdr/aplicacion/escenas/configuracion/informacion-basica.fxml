@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox alignment="CENTER" spacing="20" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox id="personal-info-box" spacing="10">
+    <VBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="959.0">
+        <children>
+            <Label styleClass="title" text="Información básica" />
+        </children>
+    </VBox>
+    <HBox spacing="10">
+        <Label text="Nombre de usuario: " />
+        <VBox />
+    </HBox>
+    <VBox prefHeight="0.0" prefWidth="959.0">
+        <children>
+            <Button fx:id="ButtonNombreUsuario" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="966.0" styleClass="value" text="NameUser" />
+        </children>
+    </VBox>
+    <Separator />
+    <HBox spacing="10">
+        <Label text="Nombre: " />
+        <HBox />
+    </HBox>
+    <VBox prefHeight="0.0" prefWidth="959.0">
+        <children>
+            <Button fx:id="ButtonNombre" text="Name" />
+        </children>
+    </VBox>
+    <Separator />
+    <HBox spacing="10">
+        <Label text="Fecha de nacimiento: " />
+        <HBox />
+    </HBox>
+    <VBox prefHeight="0.0" prefWidth="959.0">
+        <children>
+            <Button fx:id="ButtonFechaNacimiento" text="No definido." />
+        </children>
+    </VBox>
+    <VBox.margin>
+        <Insets top="10.0" />
+    </VBox.margin>
+</VBox>
+<VBox id="contact-info-box" spacing="10">
+    <VBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="959.0">
+        <children>
+            <Label styleClass="title" text="Información de contacto" />
+        </children>
+    </VBox>
+    <HBox spacing="10">
+        <Label text="Correo electrónico: " />
+        <VBox />
+    </HBox>
+    <VBox prefHeight="0.0" prefWidth="959.0">
+        <children>
+            <Button fx:id="ButtonCorreoElectronico" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="966.0" styleClass="value" text="email" />
+        </children>
+    </VBox>
+    <Separator />
+    <HBox spacing="10">
+        <Label text="Teléfono: " />
+        <HBox />
+    </HBox>
+    <VBox prefHeight="0.0" prefWidth="959.0">
+        <children>
+            <Button fx:id="ButtonTelefono" alignment="TOP_LEFT" prefHeight="30.0" prefWidth="961.0" text="No definido." />
+        </children>
+    </VBox>
+    <Separator />
+</VBox>
+<VBox id="contact-info-box" layoutX="10.0" layoutY="441.0" spacing="10">
+    <children>
+        <VBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="959.0">
+            <children>
+                <Label styleClass="title" text="Contraseña" />
+            </children>
+        </VBox>
+        <HBox spacing="10">
+            <children>
+                <Label text="Contraseña:" />
+                <VBox />
+            </children>
+        </HBox>
+        <VBox prefHeight="0.0" prefWidth="959.0">
+            <children>
+                <Button fx:id="ButtonCorreoElectronico1" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="966.0" styleClass="value" />
+            </children>
+        </VBox>
+        <Separator />
+        <HBox spacing="10">
+            <children>
+                <HBox />
+            </children>
+        </HBox>
+        <VBox prefHeight="0.0" prefWidth="959.0" />
+    </children>
+</VBox>
+</VBox>
