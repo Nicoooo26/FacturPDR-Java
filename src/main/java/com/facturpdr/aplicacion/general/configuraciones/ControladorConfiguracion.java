@@ -1,20 +1,26 @@
 package com.facturpdr.aplicacion.general.configuraciones;
 
-import javafx.event.ActionEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.text.Font;
 
 public class ControladorConfiguracion {
 
-    @FXML
-    private ComboBox<Label> temas;
+    @FXML private ChoiceBox<String> fuenteSelecionado;
 
-    @FXML
+    /*@FXML
     private void onTemaSelected(ActionEvent event) {
         Label selectedTema = temas.getSelectionModel().getSelectedItem();
 
+    }*/
+
+        @FXML
+        public void initialize() {
+            ObservableList<String> families = FXCollections.observableArrayList(Font.getFamilies());
+            fuenteSelecionado.setItems(families);
+        }
+
+        // ...
     }
-    public void initialize() {
-    }
-}
