@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="523.0" prefWidth="800.0" spacing="10.0" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<Label text="Configuración de apariencia">
+    <VBox.margin>
+        <Insets top="-220.0" />
+    </VBox.margin>
+</Label>
+<Separator />
+<Label text="Personalización de temas" />
+<HBox prefHeight="4.0" prefWidth="795.0">
+    <children>
+        <Label text=" • Selecciona un tema: " textAlignment="CENTER">
+            <HBox.margin>
+                <Insets top="5.0" />
+            </HBox.margin>
+        </Label>
+        <ChoiceBox fx:id="temaSelecionado" value="Default">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Default" />
+                    <String fx:value="Light" />
+                    <String fx:value="Dark" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </children>
+    <VBox.margin>
+        <Insets left="5.0" />
+    </VBox.margin>
+</HBox>
+<HBox prefHeight="20.0" prefWidth="795.0">
+    <VBox.margin>
+        <Insets left="5.0" />
+    </VBox.margin>
+</HBox>
+<Separator layoutX="10.0" layoutY="150.0" />
+<Label layoutX="373.0" layoutY="157.0" text="Personalización de tamaño de letra" />
+<HBox layoutX="15.0" layoutY="197.0" prefHeight="0.0" prefWidth="800.0">
+    <children>
+        <Label text=" • Tamaño de letra: " textAlignment="CENTER">
+            <HBox.margin>
+                <Insets top="5.0" />
+            </HBox.margin>
+        </Label>
+        <ChoiceBox fx:id="tamanoSelecionado" value="Default">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Default" />
+                    <String fx:value="Default" />
+                    <String fx:value="Default" />
+                    <String fx:value="Default" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </children>
+</HBox>
+<Separator layoutX="10.0" layoutY="220.0" />
+<Label layoutX="390.0" layoutY="204.0" text="Personalización de fuente de letra" />
+<HBox layoutX="10.0" layoutY="258.0" prefHeight="1.0" prefWidth="800.0" />
+   <HBox layoutX="10.0" layoutY="336.0" prefHeight="0.0" prefWidth="800.0">
+      <children>
+         <Label text=" • Fuente de letra : " textAlignment="CENTER">
+            <HBox.margin>
+               <Insets top="5.0" />
+            </HBox.margin>
+         </Label>
+         <ChoiceBox fx:id="fuenteSelecionado" value="Default">
+            <items>
+               <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="" />
+                  <String fx:value="" />
+               </FXCollections>
+            </items>
+         </ChoiceBox>
+      </children>
+   </HBox>
+<HBox layoutX="10.0" layoutY="310.0" prefHeight="0.0" prefWidth="800.0">
+    <children>
+        <Label text=" • Letra en negrita : " textAlignment="CENTER">
+            <HBox.margin>
+                <Insets top="5.0" />
+            </HBox.margin>
+        </Label>
+        <ChoiceBox fx:id="negritaSelecionado" value="No">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Si" />
+                    <String fx:value="No" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </children>
+</HBox>
+<HBox layoutX="10.0" layoutY="332.0" prefHeight="0.0" prefWidth="800.0">
+    <children>
+        <Label text=" • Letra en cursiva : " textAlignment="CENTER">
+            <HBox.margin>
+                <Insets top="5.0" />
+            </HBox.margin>
+        </Label>
+        <ChoiceBox fx:id="cursivaSelecionado" value="No">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="No" />
+                    <String fx:value="Si" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+    </children>
+</HBox>
+<Separator layoutX="10.0" layoutY="319.0" prefHeight="2.0" prefWidth="800.0" />
+<HBox alignment="TOP_RIGHT" prefHeight="96.0" prefWidth="800.0">
+    <children>
+        <Button mnemonicParsing="false" fx:id="botonValoresDefecto" text="Restablecer valores predeterminados">
+            <HBox.margin>
+                <Insets right="20.0" top="40.0" />
+            </HBox.margin>
+        </Button>
+        <Button fx:id="botonPersonalizacionA" text="Personalización avanzada">
+            <HBox.margin>
+                <Insets right="20.0" top="40.0" />
+            </HBox.margin>
+        </Button>
+        <Button fx:id="botonGuardarCambios" text="Guardar Cambios">
+            <HBox.margin>
+                <Insets right="10.0" top="40.0" />
+            </HBox.margin>
+        </Button>
+    </children>
+    <VBox.margin>
+        <Insets bottom="-40.0" top="-10.0" />
+    </VBox.margin>
+</HBox>
+<padding>
+    <Insets top="200.0" />
+</padding>
+</VBox>
