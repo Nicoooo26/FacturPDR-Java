@@ -45,10 +45,9 @@ public class BDConfiguracion {
 
             int columnas = metadatos.getColumnCount();
             List<Map<String, Object>> datos = new ArrayList<Map<String, Object>>();
-            Map<String, Object> fila = new HashMap<String, Object>();
 
             while (resultado.next()) {
-                fila.clear();
+                Map<String, Object> fila = new HashMap<String, Object>();
                 for (int i = 1; i <= columnas; i++) {
                     String nombreColumna = metadatos.getColumnLabel(i).toLowerCase();
                     Object valorColumna = resultado.getObject(i);
