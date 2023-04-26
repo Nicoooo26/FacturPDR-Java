@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="AnchorPaneConfiguracion" prefHeight="600.0" prefWidth="805.0" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.general.configuraciones.ControladorConfiguracion">
+<AnchorPane fx:id="AnchorPaneConfiguracion" prefHeight="600.0" prefWidth="805.0" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.general.configuraciones.controladores.ControladorConfiguracion">
 <TabPane layoutX="5.0" layoutY="6.0" prefHeight="535.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
     <Tab text="Información personal">
         <ScrollPane fitToHeight="true" fitToWidth="true" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">

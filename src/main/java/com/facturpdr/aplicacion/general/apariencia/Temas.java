@@ -1,5 +1,6 @@
 package com.facturpdr.aplicacion.general.apariencia;
 
+import com.facturpdr.aplicacion.general.apariencia.modelos.Colores;
 import com.facturpdr.aplicacion.inicio.controladores.lateralControlador;
 import com.facturpdr.aplicacion.inicio.controladores.cabeceroControlador;
 import com.facturpdr.aplicacion.inicio.utilidades.estableceInicio;
@@ -65,7 +66,7 @@ public class Temas {
 
     public static void Dark(lateralControlador pl, cabeceroControlador cabecero) {
         establecerColor(pl, cabecero, Colores.ColorGrey, Colores.ColorGrey, Colores.ColorGreen, Colores.ColorNegro);
-        estableceInicio.ImagenesOscuras(pl.getImagenHome(), pl.getImagenCliente(), pl.getImagenConfiguracion(), pl.getImagenEmpleados(), pl.getImagenFactura());
+        estableceInicio.aplicarEfectoImagenOscura(pl.getImagenHome(), pl.getImagenCliente(), pl.getImagenConfiguracion(), pl.getImagenEmpleados(), pl.getImagenFactura());
     }
 
 }

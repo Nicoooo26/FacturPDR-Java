@@ -1,4 +1,4 @@
-package com.facturpdr.aplicacion.general.apariencia;
+package com.facturpdr.aplicacion.general.apariencia.modelos;
 
 
 public class Colores {

@@ -10,56 +10,74 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class estableceInicio {
 
-    /*ColorPicker te devuelve los colores en formato hexadecimal
-     * Con este metodo , convertimos el color hexadecimal en RGB */
-
-    public static String ConvertirRGB(ColorPicker color) {
-        String rgb = "#" + color.getValue().toString().substring(2);
-        return rgb ;
+    /* Método que convierte un color en formato hexadecimal a RGB */
+    public static String convertirHexadecimalA_RGB(ColorPicker colorPicker) {
+        String rgb = "#" + colorPicker.getValue().toString().substring(2);
+        return rgb;
     }
 
-    public static void CambiarColorLateral(lateralControlador pl ,ColorPicker colorpiker) {
-        String rgb = ConvertirRGB(colorpiker);
-        pl.getPanel_Lateral().setStyle("-fx-background-color: " + rgb + ";");
+    /* Cambia el color de fondo del panel lateral según el color seleccionado en el ColorPicker */
+    public static void cambiarColorLateral(lateralControlador lateralControlador, ColorPicker colorPicker) {
+        String rgb = convertirHexadecimalA_RGB(colorPicker);
+        lateralControlador.getPanel_Lateral().setStyle("-fx-background-color: " + rgb + ";");
     }
 
-    public static void CambiarColorCabecero(cabeceroControlador cabecero , ColorPicker color) {
-        String rgb = ConvertirRGB(color);
-        cabecero.getCabecero().setStyle("-fx-background-color: " + rgb + ";");
+    /* Cambia el color de fondo del cabecero según el color seleccionado en el ColorPicker */
+    public static void cambiarColorCabecero(cabeceroControlador cabeceroControlador, ColorPicker colorPicker) {
+        String rgb = convertirHexadecimalA_RGB(colorPicker);
+        cabeceroControlador.getCabecero().setStyle("-fx-background-color: " + rgb + ";");
     }
 
-    /* Imagenes oscuras */
-    public static void ImagenesOscuras(ImageView... imagen) {
-        // Crea un objeto ColorAdjust y establece la saturación y brillo a cero
+    /* Aplica un efecto de imagen oscura a un conjunto de ImageView */
+    public static void aplicarEfectoImagenOscura(ImageView... imagen) {
         ColorAdjust colorAdjust = new ColorAdjust();
-        colorAdjust.setSaturation(-1.0); // Establece la saturación a cero
-        colorAdjust.setBrightness(-1.0); // Establece el brillo a cero
+        colorAdjust.setSaturation(-1.0);
+        colorAdjust.setBrightness(-1.0);
 
-        // Establece el efecto ColorAdjust en cada objeto ImageView proporcionado
         for (ImageView img : imagen) {
             img.setEffect(colorAdjust);
         }
     }
 
-    public static void setColorCabecero(HBox superior , String color) {
-        superior.setStyle("-fx-background-color: " + color + ";");
-
+    /* Cambia el color de fondo de un HBox */
+    public static void setColorCabecero(HBox hbox, String color) {
+        hbox.setStyle("-fx-background-color: " + color + ";");
     }
 
-    public static void setColorPanelLateral(AnchorPane Lateral , String color) {
-        Lateral.setStyle("-fx-background-color: " + color + ";");
-
-    }
-    public static void setColorTexto(Text texto , String color) {
-        Paint Color = Paint.valueOf(color);
-        texto.setFill(Color);
+    /* Cambia el color de fondo de un AnchorPane */
+    public static void setColorPanelLateral(AnchorPane anchorPane, String color) {
+        anchorPane.setStyle("-fx-background-color: " + color + ";");
     }
 
-    public static void setColorBotones(Button boton , String color ) {
+    /* Cambia el color de un Text */
+    public static void setColorTexto(Text texto, String color) {
+        Paint colorTexto = Paint.valueOf(color);
+        texto.setFill(colorTexto);
+    }
+
+    /* Cambia el color de texto de un Button */
+    public static void setColorBotones(Button boton, String color) {
         boton.setStyle("-fx-text-fill: " + color + ";");
     }
+
+    public static void estableFuenteFamilia(String fuente , Object... object ) {
+        for ( Object objecto : object) {
+            if(objecto instanceof  Button) {
+                Button fuentePersonalizado = (Button) objecto ;
+                fuentePersonalizado.setStyle("-fx-font-family: '" + fuente + "'; ");
+            }
+            else {
+                Text fuentePersonalizado = (Text) objecto ;
+                fuentePersonalizado.setStyle("-fx-font-family: '" + fuente + "'; ");
+            }
+        }
+
+
+    }
+
 }

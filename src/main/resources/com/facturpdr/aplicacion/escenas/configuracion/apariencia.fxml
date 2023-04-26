@@ -1,41 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="523.0" prefWidth="800.0" spacing="10.0" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="523.0" prefWidth="800.0" spacing="10.0" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.general.configuraciones.controladores.ControladorApariencia">
 <Label text="Configuración de apariencia">
     <VBox.margin>
         <Insets top="-220.0" />
     </VBox.margin>
+      <font>
+         <Font name="Segoe UI" size="13.29230785369873" />
+      </font>
 </Label>
 <Separator />
-<Label text="Personalización de temas" />
-<HBox prefHeight="4.0" prefWidth="795.0">
+<Label text="Personalización de temas">
+      <font>
+         <Font name="Segoe UI" size="13.29230785369873" />
+      </font></Label>
+<HBox prefHeight="18.0" prefWidth="795.0">
     <children>
         <Label text=" • Selecciona un tema: " textAlignment="CENTER">
             <HBox.margin>
                 <Insets top="5.0" />
             </HBox.margin>
         </Label>
-        <ChoiceBox fx:id="temaSelecionado" value="Default">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Default" />
-                    <String fx:value="Light" />
-                    <String fx:value="Dark" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
+        <ChoiceBox fx:id="theme" onAction="#controlTema" prefHeight="30.0" prefWidth="86.0" value="Default" />
     </children>
-    <VBox.margin>
-        <Insets left="5.0" />
-    </VBox.margin>
-</HBox>
-<HBox prefHeight="20.0" prefWidth="795.0">
     <VBox.margin>
         <Insets left="5.0" />
     </VBox.margin>
@@ -48,17 +40,11 @@
             <HBox.margin>
                 <Insets top="5.0" />
             </HBox.margin>
+            <font>
+               <Font size="13.2" />
+            </font>
         </Label>
-        <ChoiceBox fx:id="tamanoSelecionado" value="Default">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Default" />
-                    <String fx:value="Default" />
-                    <String fx:value="Default" />
-                    <String fx:value="Default" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
+        <ChoiceBox fx:id="tamanoSelecionado" value="Default" />
     </children>
 </HBox>
 <Separator layoutX="10.0" layoutY="220.0" />
@@ -71,14 +57,7 @@
                <Insets top="5.0" />
             </HBox.margin>
          </Label>
-         <ChoiceBox fx:id="fuenteSelecionado" value="Default">
-            <items>
-               <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="" />
-                  <String fx:value="" />
-               </FXCollections>
-            </items>
-         </ChoiceBox>
+         <ChoiceBox fx:id="fuenteSelecionado" value="Default" />
       </children>
    </HBox>
 <HBox layoutX="10.0" layoutY="310.0" prefHeight="0.0" prefWidth="800.0">
@@ -88,14 +67,7 @@
                 <Insets top="5.0" />
             </HBox.margin>
         </Label>
-        <ChoiceBox fx:id="negritaSelecionado" value="No">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Si" />
-                    <String fx:value="No" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
+        <ChoiceBox fx:id="negritaSelecionado" value="No" />
     </children>
 </HBox>
 <HBox layoutX="10.0" layoutY="332.0" prefHeight="0.0" prefWidth="800.0">
@@ -105,32 +77,25 @@
                 <Insets top="5.0" />
             </HBox.margin>
         </Label>
-        <ChoiceBox fx:id="cursivaSelecionado" value="No">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="No" />
-                    <String fx:value="Si" />
-                </FXCollections>
-            </items>
-        </ChoiceBox>
+        <ChoiceBox fx:id="cursivaSelecionado" value="No" />
     </children>
 </HBox>
 <Separator layoutX="10.0" layoutY="319.0" prefHeight="2.0" prefWidth="800.0" />
-<HBox alignment="TOP_RIGHT" prefHeight="96.0" prefWidth="800.0">
+<HBox alignment="TOP_RIGHT" prefHeight="57.0" prefWidth="800.0">
     <children>
-        <Button mnemonicParsing="false" fx:id="botonValoresDefecto" text="Restablecer valores predeterminados">
+        <Button fx:id="botonValoresDefecto" mnemonicParsing="false" text="Restablecer valores predeterminados" onAction="#restableceValoresDefault">
             <HBox.margin>
-                <Insets right="20.0" top="40.0" />
+                <Insets right="20.0" top="20.0" />
             </HBox.margin>
         </Button>
         <Button fx:id="botonPersonalizacionA" text="Personalización avanzada">
             <HBox.margin>
-                <Insets right="20.0" top="40.0" />
+                <Insets right="20.0" top="20.0" />
             </HBox.margin>
         </Button>
-        <Button fx:id="botonGuardarCambios" text="Guardar Cambios">
+        <Button fx:id="botonGuardarCambios"  text="Guardar Cambios">
             <HBox.margin>
-                <Insets right="10.0" top="40.0" />
+                <Insets right="10.0" top="20.0" />
             </HBox.margin>
         </Button>
     </children>
