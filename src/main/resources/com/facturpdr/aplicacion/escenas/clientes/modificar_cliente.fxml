@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.clientes.controladores.modificar_clienteControlador">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="53.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -167,12 +167,12 @@
             <TextField GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="282.0" layoutY="493.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="290.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="BACK" textFill="#84cc16">
+      <Button fx:id="btnCancelar" layoutX="282.0" layoutY="493.0" mnemonicParsing="false" onAction="#clickCancelar" prefHeight="38.0" prefWidth="290.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="CANCELAR" textFill="#84cc16">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="595.0" layoutY="493.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="290.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="GUARDAR CAMBIOS" textFill="#84cc16">
+      <Button fx:id="btnGuardar" layoutX="595.0" layoutY="493.0" mnemonicParsing="false" onAction="#clickGuardar" prefHeight="38.0" prefWidth="290.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="GUARDAR CAMBIOS" textFill="#84cc16">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

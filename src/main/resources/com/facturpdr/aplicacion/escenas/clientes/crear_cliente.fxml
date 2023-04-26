@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="718.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="718.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.clientes.controladores.crear_clienteControlador">
    <children>
       <ImageView fitHeight="82.0" fitWidth="132.0" layoutX="293.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -155,7 +155,7 @@
             <TextField fx:id="textCiudad" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="178.0" layoutY="475.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="CANCELAR" textFill="#84cc16">
+      <Button fx:id="btnCancelar" layoutX="178.0" layoutY="475.0" mnemonicParsing="false" onAction="#clickCancelar" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="CANCELAR" textFill="#84cc16">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -176,7 +176,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Button layoutX="376.0" layoutY="475.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="AÑADIR CLIENTE" textFill="#84cc16">
+      <Button fx:id="btnAnnadir" layoutX="376.0" layoutY="475.0" mnemonicParsing="false" onAction="#clickAnnadir" prefHeight="25.0" prefWidth="155.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="AÑADIR CLIENTE" textFill="#84cc16">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
