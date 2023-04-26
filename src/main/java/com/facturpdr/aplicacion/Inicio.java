@@ -1,11 +1,18 @@
 package com.facturpdr.aplicacion;
 
+import com.facturpdr.aplicacion.auth.repositorios.AuthRepositorio;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class Inicio extends Application {
+
+    @Override
+    public void init() {
+
+    }
+
     @Override
     public void start(Stage escenarioPrincipal) {
         String sistema = System.getProperty("os.name");
@@ -20,7 +27,12 @@ public class Inicio extends Application {
         ventana.cambiarTitulo("FacturPDR - Iniciar Sesion");
     }
 
+    @Override
+    public void stop() {
+
+    }
+
     public static void main(String[] args) {
-        launch();
+        launch(Inicio.class, args);
     }
 }
