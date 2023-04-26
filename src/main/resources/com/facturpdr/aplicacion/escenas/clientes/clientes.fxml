@@ -9,13 +9,13 @@
    <children>
       <ScrollPane layoutX="14.0" layoutY="178.0" prefHeight="408.0" prefWidth="826.0">
          <content>
-            <TableView prefHeight="406.0" prefWidth="811.0" style="-fx-background-color: WHITE;">
+            <TableView fx:id="tablaClientes" prefHeight="406.0" prefWidth="811.0" style="-fx-background-color: WHITE;">
                <columns>
-                  <TableColumn prefWidth="134.0" style="-fx-background-color: WHITE;" />
-                  <TableColumn prefWidth="139.0" style="-fx-background-color: WHITE;" text="DNI" />
-                  <TableColumn prefWidth="129.0" style="-fx-background-color: WHITE;" text="Nombre Completo" />
-                  <TableColumn prefWidth="165.0" style="-fx-background-color: WHITE;" text="Teléfono" />
-                  <TableColumn prefWidth="243.0" style="-fx-background-color: WHITE;" text="Nº de Cuenta" />
+                  <TableColumn fx:id="columnaFoto" prefWidth="134.0" style="-fx-background-color: WHITE;" />
+                  <TableColumn fx:id="columnaDNI" prefWidth="139.0" style="-fx-background-color: WHITE;" text="DNI" />
+                  <TableColumn fx:id="columnaNombre" prefWidth="129.0" style="-fx-background-color: WHITE;" text="Nombre Completo" />
+                  <TableColumn fx:id="columnaTelefono" prefWidth="165.0" style="-fx-background-color: WHITE;" text="Teléfono" />
+                  <TableColumn fx:id="columnaCuenta" prefWidth="243.0" style="-fx-background-color: WHITE;" text="Nº de Cuenta" />
                </columns>
             </TableView>
          </content>
