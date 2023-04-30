@@ -1,7 +1,5 @@
 package com.facturpdr.aplicacion.auth.controladores;
 
-import com.facturpdr.aplicacion.auth.repositorios.AuthRepositorio;
-import com.facturpdr.aplicacion.auth.servicios.RegistrarseServicio;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import javafx.event.ActionEvent;

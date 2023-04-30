@@ -1,6 +1,5 @@
 package com.facturpdr.aplicacion;
 
-import com.facturpdr.aplicacion.auth.repositorios.AuthRepositorio;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import javafx.application.Application;

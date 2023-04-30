@@ -10,8 +10,6 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.facturpdr.aplicacion.inicio.controladores.lateralControlador;
-
 public class VentanaExtension {
     private Map<String, Scene> escenas = new HashMap<>();
     private Stage ventanaActual;
