@@ -80,15 +80,5 @@ public class VentanaExtension {
         ventanaActual.show();
     }
 
-    public void cambiaInicio(String nombreEscena) {
-        try {
-            String path = getClass().getResource("").toString().replace("general/extensiones/", "escenas/");
-            FXMLLoader loader = new FXMLLoader(new URL(path + nombreEscena));
-            Parent root = loader.load();
-            lateralControlador.getControlador().getBorderPane().setCenter(root);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 }

@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../estilos/inicio.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../estilos/inicio.css"
+      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.inicio.controladores.InicioControlador">
     <children>
         <VBox prefHeight="600.0" prefWidth="292.0" styleClass="vboxPrincipal">
             <children>
@@ -86,7 +87,7 @@
                   <Insets left="60.0" />
                </padding>
                 </Button>
-                <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="273.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="292.0" styleClass="CerrarSesion" text="Cerrar Sesión">
+                <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="273.0" mnemonicParsing="false" onAction="#manejarCerrarSesion" prefHeight="31.0" prefWidth="292.0" styleClass="CerrarSesion" text="Cerrar Sesión">
                     <graphic>
                         <FontAwesomeIconView glyphName="SIGN_OUT" rotate="180.0" />
                     </graphic>
