@@ -17,7 +17,7 @@
                 <Pane prefHeight="112.0" prefWidth="292.0" styleClass="paneLateral">
                     <children>
                         <FontAwesomeIconView glyphName="XING" layoutX="50.0" layoutY="75.0" size="40" wrappingWidth="35.55766582489014" />
-                        <Label id="" layoutX="86.0" layoutY="45.0" prefHeight="31.0" prefWidth="119.0" style="-fx-font-size: 18;" text="FACTUR PDR" />
+                        <Label layoutX="86.0" layoutY="45.0" prefHeight="31.0" prefWidth="119.0" style="-fx-font-size: 18;" text="FACTUR PDR" />
                     </children>
                 </Pane>
                 <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="350.0" text="Home">
@@ -150,7 +150,7 @@
                   </Label>
                </children>
             </Pane>
-            <FontAwesomeIconView fill="#9a9a9a" glyphName="QUESTION_CIRCLE" layoutX="713.0" layoutY="30.0" size="20" wrappingWidth="21.428571701049805" />
+            <FontAwesomeIconView fx:id="IconoHelp" fill="#9a9a9a" glyphName="QUESTION_CIRCLE" layoutX="713.0" layoutY="30.0" size="20" wrappingWidth="21.428571701049805" />
             <FontAwesomeIconView fill="#9a9a9a" glyphName="GEAR" layoutX="685.0" layoutY="30.0" size="20" text="" wrappingWidth="21.428571701049805" />
             <FontAwesomeIconView fill="#9a9a9a" glyphName="BELL" layoutX="655.0" layoutY="30.0" size="20" wrappingWidth="21.428571701049805" />
          </children></AnchorPane>
