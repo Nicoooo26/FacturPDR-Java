@@ -25,3 +25,10 @@
     -fx-background-color: #FF0000;
     -fx-cursor: hand;
 }
+
+.PaneNumeroClientes,
+.PaneNumeroEmpleados,
+.PaneNumeroFacturas {
+    -fx-background-radius: 20px;
+    -fx-background-color: #FFFF;
+}

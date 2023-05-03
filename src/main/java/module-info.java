@@ -7,6 +7,7 @@ module com.facturpdr.aplicacion {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.mariadb.jdbc;
+    requires de.jensd.fx.glyphs.fontawesome;
 
 
     opens com.facturpdr.aplicacion to javafx.graphics,javafx.fxml;

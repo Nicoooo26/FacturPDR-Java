@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="523.0" prefWidth="800.0" spacing="10.0" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.general.configuraciones.controladores.ControladorApariencia">
+<VBox alignment="CENTER" prefHeight="523.0" prefWidth="800.0" spacing="10.0" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
 <Label text="Configuración de apariencia">
     <VBox.margin>
         <Insets top="-220.0" />
@@ -26,7 +26,7 @@
                 <Insets top="5.0" />
             </HBox.margin>
         </Label>
-        <ChoiceBox fx:id="theme" onAction="#controlTema" prefHeight="30.0" prefWidth="86.0" value="Default" />
+        <ChoiceBox fx:id="theme"  prefHeight="30.0" prefWidth="86.0" value="Default" />
     </children>
     <VBox.margin>
         <Insets left="5.0" />
@@ -83,7 +83,7 @@
 <Separator layoutX="10.0" layoutY="319.0" prefHeight="2.0" prefWidth="800.0" />
 <HBox alignment="TOP_RIGHT" prefHeight="57.0" prefWidth="800.0">
     <children>
-        <Button fx:id="botonValoresDefecto" mnemonicParsing="false" text="Restablecer valores predeterminados" onAction="#restableceValoresDefault">
+        <Button fx:id="botonValoresDefecto" mnemonicParsing="false" text="Restablecer valores predeterminados">
             <HBox.margin>
                 <Insets right="20.0" top="20.0" />
             </HBox.margin>
