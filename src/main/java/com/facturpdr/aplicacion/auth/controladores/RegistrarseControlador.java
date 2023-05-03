@@ -16,7 +16,6 @@ import javafx.scene.control.TextField;
 import java.util.Objects;
 
 public class RegistrarseControlador {
-
     @FXML
     public TextField correoElectronico, nombreUsuario;
 
@@ -51,7 +50,7 @@ public class RegistrarseControlador {
             return;
         }
 
-        boolean contresenaValido = contrasena.getText().matches("^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\\d!@#$%^&*()_+]{8,}$");
+        boolean contresenaValido = contrasena.getText().matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)([A-Za-z\\d$@!%*?&]|[^ ]){8,}$");
         if (!contresenaValido) {
             AlertaUtilidad.error("La contraseña debe ser valida", "La contraseña debe tener al menos 8 caracteres, una mayúscula como mínimo, un número como mínimo.");
             return;
