@@ -1,12 +1,9 @@
 package com.facturpdr.aplicacion.general.apariencia;
 
 import com.facturpdr.aplicacion.general.apariencia.modelos.Colores;
-import com.facturpdr.aplicacion.inicio.controladores.lateralControlador;
-import com.facturpdr.aplicacion.inicio.controladores.cabeceroControlador;
-import com.facturpdr.aplicacion.inicio.utilidades.estableceInicio;
 
 public class Temas {
-
+/*
     static private String temaActual;
 
     public static void Seleccion(String tema) {
@@ -69,4 +66,6 @@ public class Temas {
         estableceInicio.aplicarEfectoImagenOscura(pl.getImagenHome(), pl.getImagenCliente(), pl.getImagenConfiguracion(), pl.getImagenEmpleados(), pl.getImagenFactura());
     }
 
+}
+*/
 }

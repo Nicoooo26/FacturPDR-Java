@@ -36,8 +36,7 @@ public class AlertaUtilidad {
         alert.setHeaderText(texto);
         alert.setContentText(mensaje);
         alert.getButtonTypes().setAll(botones);
-        alert.getDialogPane().setPrefHeight(200); // Establece el ancho preferido de la alerta
+        alert.getDialogPane().setPrefHeight(100);
         return alert.showAndWait();
-
     }
 }
