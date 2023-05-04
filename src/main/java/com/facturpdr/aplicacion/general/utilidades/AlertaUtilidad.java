@@ -30,7 +30,7 @@ public class AlertaUtilidad {
         alert.showAndWait();
     }
 
-    public static Optional<ButtonType> mostrarAlertaConfirmacion(String titulo, String texto ,String mensaje, ButtonType... botones) {
+    public static Optional<ButtonType> confirmacion(String titulo, String texto, String mensaje, ButtonType... botones) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(titulo);
         alert.setHeaderText(texto);
