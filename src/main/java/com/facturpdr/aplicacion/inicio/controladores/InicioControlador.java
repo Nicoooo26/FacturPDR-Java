@@ -20,7 +20,6 @@ import java.util.Optional;
 public class InicioControlador implements Initializable {
 
     @FXML private FontAwesomeIconView IconoHelp;
-    @FXML private FontAwesomeIconView IconoConfiguracion ;
     public void MensajeToolTip() {
         Tooltip informacion = new Tooltip("Nombre del proyecto: FacturPDR\nDesarrollado en: JavaFX\nCompilador: Gradle\nBase de datos: Oracle\n" +
                                                "Fecha de lanzamiento:30/05/2023 \nVersión actual: 1.0");

@@ -57,6 +57,7 @@
             <FontAwesomeIconView fx:id="IconoHelp" fill="#9a9a9a" glyphName="QUESTION_CIRCLE" layoutX="713.0" layoutY="30.0" size="20" wrappingWidth="21.428571701049805" />
             <FontAwesomeIconView fx:id="IconoConfiguracion" fill="#9a9a9a" glyphName="GEAR" layoutX="685.0" layoutY="30.0" size="20" text="" wrappingWidth="21.428571701049805" />
             <FontAwesomeIconView fill="#9a9a9a" glyphName="BELL" layoutX="655.0" layoutY="30.0" size="20" wrappingWidth="21.428571701049805" />
+
          </children></AnchorPane>
     </children>
 </HBox>

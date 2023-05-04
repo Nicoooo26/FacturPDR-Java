@@ -13,6 +13,13 @@ import java.util.Optional;
 
 public class LateralControlador {
 
+    @FXML public void manejarHome(ActionEvent event ) {
+        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+
+        ventana.cambiarEscena("inicio/inicio.fxml");
+        ventana.cambiarTitulo("FacturPDR - Configurafcion");
+    }
+
     @FXML public void manejarCerrarSesion(ActionEvent event) {
         Optional<ButtonType> cerrarsesion = AlertaUtilidad.mostrarAlertaConfirmacion("Cerrar Sesión ", null, "¿Estás seguro de que deseas cerrar sesión?",
                 ButtonType.YES, ButtonType.NO);
@@ -26,6 +33,6 @@ public class LateralControlador {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
         ventana.cambiarEscena("configuracion/configuracion.fxml");
-        ventana.cambiarTitulo("FacturPDR - Configurafcion");
+        ventana.cambiarTitulo("FacturPDR - Configuracion");
     }
 }
