@@ -3,10 +3,6 @@ package com.facturpdr.aplicacion.general.configuraciones;
 import org.mariadb.jdbc.Connection;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class BDConfiguracion {
     private static final String url = "jdbc:mariadb://83.171.249.116:3306/facturpdr";
