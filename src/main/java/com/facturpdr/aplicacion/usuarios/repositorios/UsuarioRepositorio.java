@@ -79,13 +79,18 @@ public class UsuarioRepositorio {
         return BDConfiguracion.actualizar(sql, nombreUsuario, correoElectronico, contrasena);
     }
 
-    public boolean eliminarUsuario(int id) {
+    public boolean eliminarUsuario(int id_usuario) {
         String sql = "delete from usuarios where id = ?";
-        return BDConfiguracion.actualizar(sql, id);
+        return BDConfiguracion.actualizar(sql, id_usuario);
     }
 
-    public boolean verificarUsuario(int id) {
+    public boolean verificarUsuario(int id_usuario) {
         String sql = "update usuarios set esta_verificado = 1 where id = ?";
-        return BDConfiguracion.actualizar(sql, id);
+        return BDConfiguracion.actualizar(sql, id_usuario);
+    }
+
+    public boolean cammbiarContrasena(String contrasena, int id_usuario) {
+        String sql = "update usuarios set contrasena = ? where id = ?";
+        return BDConfiguracion.actualizar(sql, contrasena, id_usuario);
     }
 }
