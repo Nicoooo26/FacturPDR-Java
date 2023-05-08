@@ -9,13 +9,34 @@ import java.util.Date;
 
 public class UsuarioRepositorio {
 
-    public Usuario obtenerUsuario(String atributo, Object valor) {
+    public Usuario obtenerUsuarioCorreo(String correo) {
         try {
-            String sql = String.format("select * from usuarios where %s = ?", atributo);
-            ResultSet resultado = BDConfiguracion.selecionar(sql, valor);
+            String sql = "select * from usuarios where correo_electronico = ?";
+            ResultSet resultado = BDConfiguracion.selecionar(sql, correo);
 
             if (resultado != null && resultado.next()) {
                 int id = resultado.getInt("id");
+                String nombreUsuario = resultado.getString("nombre_usuario");
+                String correoElectronico = resultado.getString("correo_electronico");
+                String contrasena = resultado.getString("contrasena");
+                boolean estaVerificado = resultado.getBoolean("esta_verificado");
+                Date fechaCreacion = resultado.getDate("fecha_creacion");
+
+                return new Usuario(id, nombreUsuario, correoElectronico, contrasena, estaVerificado, fechaCreacion);
+            }
+
+            return null;
+        } catch (SQLException e) {
+            return null;
+        }
+    }
+
+    public Usuario obtenerUsuarioID(int id) {
+        try {
+            String sql = "select * from usuarios where id = ?";
+            ResultSet resultado = BDConfiguracion.selecionar(sql, id);
+
+            if (resultado != null && resultado.next()) {
                 String nombreUsuario = resultado.getString("nombre_usuario");
                 String correoElectronico = resultado.getString("correo_electronico");
                 String contrasena = resultado.getString("contrasena");
