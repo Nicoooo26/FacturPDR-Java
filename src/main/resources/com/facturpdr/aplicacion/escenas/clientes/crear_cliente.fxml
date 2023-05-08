@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="718.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.clientes.controladores.crear_clienteControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="718.0" style="-fx-background-color: WHITE; -fx-border-color: #84cc16;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.crear_clienteControlador">
    <children>
       <ImageView fitHeight="82.0" fitWidth="132.0" layoutX="293.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -34,7 +40,7 @@
             <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Apellidos" />
+            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Apellidos *" />
             <TextField fx:id="textApellidos" GridPane.rowIndex="1" />
          </children>
       </GridPane>
