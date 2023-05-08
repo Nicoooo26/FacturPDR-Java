@@ -4,6 +4,8 @@ import com.facturpdr.aplicacion.auth.excepciones.NoVerificadoException;
 import com.facturpdr.aplicacion.auth.servicios.AuthServicio;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
+import com.facturpdr.aplicacion.sesiones.servicios.SesionServicio;
+import com.facturpdr.aplicacion.sesiones.utilidades.ConfiguracionUtilidad;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -18,8 +20,7 @@ public class IniciarSesionControlador {
     @FXML
     public void manejarBotonAcceder(ActionEvent event) {
         AuthServicio authServicio = new AuthServicio();
-
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+        SesionServicio sesionServicio = new SesionServicio();
 
         if (correoElectronico.getText().isEmpty()) {
             AlertaUtilidad.error("Debes introducir un correo electrónico", "Por favor, introduce tu correo electrónico.");
@@ -49,13 +50,11 @@ public class IniciarSesionControlador {
                 AlertaUtilidad.error("Error de autenticación", "El correo electronico o la contraseña no son validos, vuelve a intentarlo.");
                 return;
             }
+
+            sesionServicio.iniciarSesion(token);
         } catch (NoVerificadoException e) {
             AlertaUtilidad.advertencia("Verificación de cuenta pendiente", "Por favor, verifica tu cuenta para completar esta acción. Hemos enviado un correo electrónico a tu cuenta con instrucciones sobre cómo hacerlo. ¡Gracias por tu comprensión!");
-            return;
         }
-
-        ventana.cambiarEscena("inicio/inicio.fxml");
-        ventana.cambiarTitulo("FacturPDR - Inicio");
     }
 
     @FXML

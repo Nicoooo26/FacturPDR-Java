@@ -2,6 +2,7 @@ package com.facturpdr.aplicacion.inicio.controladores;
 
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
+import com.facturpdr.aplicacion.sesiones.servicios.SesionServicio;
 import com.facturpdr.aplicacion.sesiones.utilidades.ConfiguracionUtilidad;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,12 +24,11 @@ public class LateralControlador {
 
     @FXML
     public void manejarCerrarSesion(ActionEvent event) {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+        SesionServicio sesionServicio = new SesionServicio();
 
         Optional<ButtonType> cerrarSesion = AlertaUtilidad.confirmacion("Cerrar Sesión", null, "¿Estás seguro de que deseas cerrar sesión?", ButtonType.YES, ButtonType.NO);
         if (cerrarSesion.isPresent() && cerrarSesion.get() == ButtonType.YES) {
-            ConfiguracionUtilidad.eliminarPrefencias();
-            ventana.cerrar();
+            sesionServicio.cerrarSesion();
         }
     }
     @FXML
