@@ -9,9 +9,11 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class JWTUtilidad {
     private static final String secreto = "pu2e0b*!%z3%F6&PN1F0";
+    private static final String editor = "facturpdr";
 
     public static String generar(String tipo, int tiempoExpiracion) {
         Algorithm algoritmo = Algorithm.HMAC256(secreto);
@@ -43,7 +45,10 @@ public class JWTUtilidad {
             if (fechaCreacion == null || fechaCreacion.after(fechaAhora)) return null;
 
             String tipoToken = jwt.getClaim("tipo").asString();
-            if (tipoToken == null || !tipoToken.equals(tipo)) return null;
+            if (tipoToken.equals(tipo)) return null;
+
+            String editorToken = jwt.getIssuer();
+            if (editorToken.equals(editor)) return null;
 
             return jwt;
         } catch (JWTVerificationException e) {
