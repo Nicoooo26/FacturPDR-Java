@@ -18,7 +18,7 @@ public class LateralControlador {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
         ventana.cambiarEscena("inicio/inicio.fxml");
-        ventana.cambiarTitulo("FacturPDR - Configurafcion");
+        ventana.cambiarTitulo("FacturPDR - Inicio");
     }
 
     @FXML
