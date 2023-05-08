@@ -49,12 +49,18 @@ public class VentanaExtension {
         return ventanaActual;
     }
 
-    public void cerrar(String nombreEscena) {
+    public void eliminar(String nombreEscena) {
         if (!escenas.containsKey(nombreEscena)) {
             return;
         }
 
         escenas.remove(nombreEscena);
+    }
+
+    public void cerrar() {
+        if (ventanaActual != null) {
+            ventanaActual.close();
+        }
     }
 
     public void cambiarTitulo(String titulo) {
@@ -77,6 +83,7 @@ public class VentanaExtension {
 
         ventanaActual.setScene(nuevaEscena);
         ventanaActual.setResizable(false);
+
         ventanaActual.show();
     }
 
