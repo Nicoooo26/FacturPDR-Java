@@ -10,6 +10,7 @@ module com.facturpdr.aplicacion {
     requires de.jensd.fx.glyphs.fontawesome;
     requires com.auth0.jwt;
     requires java.prefs;
+    requires com.jfoenix;
 
     opens com.facturpdr.aplicacion to javafx.graphics,javafx.fxml;
     opens com.facturpdr.aplicacion.inicio.controladores to javafx.fxml;
