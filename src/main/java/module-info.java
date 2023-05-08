@@ -9,6 +9,7 @@ module com.facturpdr.aplicacion {
     requires org.mariadb.jdbc;
     requires de.jensd.fx.glyphs.fontawesome;
     requires com.auth0.jwt;
+    requires java.prefs;
 
     opens com.facturpdr.aplicacion to javafx.graphics,javafx.fxml;
     opens com.facturpdr.aplicacion.inicio.controladores to javafx.fxml;
