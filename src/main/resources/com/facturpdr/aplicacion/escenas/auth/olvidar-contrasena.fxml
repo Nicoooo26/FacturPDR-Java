@@ -37,7 +37,7 @@
                   <Font name="System Bold" size="40.0" />
                </font>
             </Text>
-            <TextField fx:id="correo" layoutX="25.0" layoutY="249.0" prefHeight="40.0" prefWidth="348.0" promptText="Correo electronico" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;">
+            <TextField fx:id="correoElectronico" layoutX="25.0" layoutY="249.0" prefHeight="40.0" prefWidth="348.0" promptText="Correo electronico" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

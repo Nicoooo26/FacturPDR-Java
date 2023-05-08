@@ -7,16 +7,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class OlvidarContrasenaControlador {
-    public TextField correo;
+    public TextField correoElectronico;
 
     @FXML
     public void manejarBotonRecuperar(ActionEvent event) {
-        if (correo.getText().isEmpty()) {
+        if (correoElectronico.getText().isEmpty()) {
             AlertaUtilidad.error("Debes introducir un correo electrónico", "Por favor, introduce tu correo electrónico.");
             return;
         }
 
-        boolean correoValido = correo.getText().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+        boolean correoValido = correoElectronico.getText().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
         if (!correoValido) {
             AlertaUtilidad.error("El correo electrónico debe ser válido", "Por favor, introduce un correo electrónico válido.");
             return;

@@ -20,10 +20,7 @@ public class RegistrarseControlador {
     public TextField correoElectronico, nombreUsuario;
 
     @FXML
-    public PasswordField contrasena;
-
-    @FXML
-    public PasswordField confirmarContrasena;
+    public PasswordField contrasena, confirmarContrasena;
 
     @FXML
     public CheckBox politicasTerminos;
