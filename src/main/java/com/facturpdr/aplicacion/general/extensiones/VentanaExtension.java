@@ -63,7 +63,7 @@ public class VentanaExtension {
         }
     }
 
-    public void cambiarTitulo(String titulo) {
+    private void cambiarTitulo(String titulo) {
         if (ventanaActual != null) {
             ventanaActual.setTitle(titulo);
         }
@@ -83,6 +83,10 @@ public class VentanaExtension {
 
         ventanaActual.setScene(nuevaEscena);
         ventanaActual.setResizable(false);
+
+        String titulo = nombreEscena.substring(nombreEscena.indexOf("/") + 1, nombreEscena.lastIndexOf(".")).replace("-", " ");
+        titulo = Character.toUpperCase(titulo.charAt(0)) + titulo.substring(1);
+        this.cambiarTitulo("FacturPDR - " + titulo);
 
         ventanaActual.show();
     }

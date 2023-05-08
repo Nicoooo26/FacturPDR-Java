@@ -77,8 +77,6 @@ public class RegistrarseControlador {
         }
 
         ventana.cambiarEscena("auth/iniciar-sesion.fxml");
-        ventana.cambiarTitulo("FacturPDR - Iniciar Sesion");
-
         AlertaUtilidad.informacion("¡Bienvenido! Confirma tu correo electronico", "Te hemos enviado un correo electrónico de verificación para activar tu cuenta. Por favor, revisa tu bandeja de entrada y sigue los pasos indicados.");
     }
 
@@ -87,6 +85,5 @@ public class RegistrarseControlador {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
         ventana.cambiarEscena("auth/iniciar-sesion.fxml");
-        ventana.cambiarTitulo("FacturPDR - Iniciar Sesion");
     }
 }

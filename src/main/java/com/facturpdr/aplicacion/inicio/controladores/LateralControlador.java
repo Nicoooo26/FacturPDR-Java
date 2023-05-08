@@ -19,7 +19,6 @@ public class LateralControlador {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
         ventana.cambiarEscena("inicio/inicio.fxml");
-        ventana.cambiarTitulo("FacturPDR - Inicio");
     }
 
     @FXML
@@ -36,6 +35,5 @@ public class LateralControlador {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
         ventana.cambiarEscena("configuracion/configuracion.fxml");
-        ventana.cambiarTitulo("FacturPDR - Configuracion");
     }
 }

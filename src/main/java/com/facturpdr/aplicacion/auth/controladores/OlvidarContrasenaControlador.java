@@ -30,6 +30,5 @@ public class OlvidarContrasenaControlador {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
         ventana.cambiarEscena("auth/iniciar-sesion.fxml");
-        ventana.cambiarTitulo("FacturPDR - Iniciar Sesion");
     }
 }
