@@ -34,13 +34,23 @@ public class AuthServicio {
 
         if (!usuario.getEstaVerificado()) throw new NoVerificadoException();
 
-        return "123456";
+        return JWTUtilidad.generar("auth", 3600);
     }
 
-    public boolean estaVerificado(int id) {
-        Usuario usuario = usuarioRepositorio.obtenerUsuarioID(id);
+    public boolean estaVerificado(int id_usuario) {
+        Usuario usuario = usuarioRepositorio.obtenerUsuarioID(id_usuario);
         if (usuario == null) return false;
 
         return usuario.getEstaVerificado();
+    }
+
+    public boolean cambiarContrasena(String contrasenaNueva, int id_usuario) {
+        Usuario usuario = usuarioRepositorio.obtenerUsuarioID(id_usuario);
+        if (usuario == null) return false;
+
+        String contrasenaHash = HashUtilidad.sha256(contrasenaNueva);
+        if (usuario.getContrasena().equals(contrasenaHash)) return false;
+
+        return usuarioRepositorio.cammbiarContrasena(contrasenaHash, id_usuario);
     }
 }

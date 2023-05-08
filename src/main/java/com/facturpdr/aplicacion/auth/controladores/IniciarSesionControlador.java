@@ -62,7 +62,6 @@ public class IniciarSesionControlador {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
         ventana.cambiarEscena("auth/registrarse.fxml");
-        ventana.cambiarTitulo("FacturPDR - Registrarse");
     }
 
     @FXML
@@ -70,6 +69,5 @@ public class IniciarSesionControlador {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
         ventana.cambiarEscena("auth/olvidar-contrasena.fxml");
-        ventana.cambiarTitulo("FacturPDR - Olvidar contraseña");
     }
 }
