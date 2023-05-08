@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="718.0" style="-fx-background-color: WHITE; -fx-border-color: #84cc16;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.crear_clienteControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="718.0" style="-fx-background-color: WHITE; -fx-border-color: #84cc16;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.clientes.controladores.crear_clienteControlador">
    <children>
       <ImageView fitHeight="82.0" fitWidth="132.0" layoutX="293.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>

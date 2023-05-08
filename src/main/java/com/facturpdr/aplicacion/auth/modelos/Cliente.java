@@ -1,4 +1,4 @@
-package com.facturpdr.aplicacion.clientes.modelo;
+package com.facturpdr.aplicacion.auth.modelos;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;

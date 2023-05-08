@@ -8,7 +8,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import modelo.Cliente;
+import com.facturpdr.aplicacion.auth.modelos.Cliente;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import SQL.SQLConected;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -57,7 +56,7 @@ public class clientesControlador implements Initializable{
     public void initialize(URL location, ResourceBundle resources){
 
         // Conexión a la base de datos y consulta SQL
-        SQLConected.conectar();
+        BDConfiguracion
         Connection conn = SQLConected.conn;
 
         String selectSQL="SELECT NOMBRE_COMPLETO,DNI,MOVIL,CUENTA FROM CLIENTES";
