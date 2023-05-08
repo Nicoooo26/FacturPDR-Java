@@ -60,14 +60,12 @@ public class IniciarSesionControlador {
     @FXML
     public void manejarEscenaRegistrarse(ActionEvent event) {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-
-        ventana.cambiarEscena("auth/registrarse.fxml");
+        ventana.cambiarEscena("auth/registrarse");
     }
 
     @FXML
     public void manejarEscenaOlvidarContrasena(ActionEvent event) {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-
-        ventana.cambiarEscena("auth/olvidar-contrasena.fxml");
+        ventana.cambiarEscena("auth/olvidar-contrasena");
     }
 }

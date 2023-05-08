@@ -28,7 +28,6 @@ public class OlvidarContrasenaControlador {
     @FXML
     public void manejarEscenaIniciarSesion(ActionEvent event) {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-
-        ventana.cambiarEscena("auth/iniciar-sesion.fxml");
+        ventana.cambiarEscena("auth/iniciar-sesion");
     }
 }

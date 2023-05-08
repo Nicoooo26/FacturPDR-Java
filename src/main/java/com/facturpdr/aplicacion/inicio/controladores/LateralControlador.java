@@ -18,7 +18,7 @@ public class LateralControlador {
     public void manejarInicio(ActionEvent event) {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
-        ventana.cambiarEscena("inicio/inicio.fxml");
+        ventana.cambiarEscena("inicio/inicio");
     }
 
     @FXML
@@ -34,6 +34,6 @@ public class LateralControlador {
     public void manejarConfiguracion(ActionEvent event) {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
-        ventana.cambiarEscena("configuracion/configuracion.fxml");
+        ventana.cambiarEscena("configuracion/configuracion");
     }
 }

@@ -76,14 +76,13 @@ public class RegistrarseControlador {
             return;
         }
 
-        ventana.cambiarEscena("auth/iniciar-sesion.fxml");
+        ventana.cambiarEscena("auth/iniciar-sesion");
         AlertaUtilidad.informacion("¡Bienvenido! Confirma tu correo electronico", "Te hemos enviado un correo electrónico de verificación para activar tu cuenta. Por favor, revisa tu bandeja de entrada y sigue los pasos indicados.");
     }
 
     @FXML
     public void manejarEscenaIniciarSesion(ActionEvent event) {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-
-        ventana.cambiarEscena("auth/iniciar-sesion.fxml");
+        ventana.cambiarEscena("auth/iniciar-sesion");
     }
 }

@@ -4,12 +4,11 @@ import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.sesiones.utilidades.ConfiguracionUtilidad;
 
 public class SesionServicio {
-
     public void cerrarSesion() {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
         ConfiguracionUtilidad.eliminarPrefencias();
-        ventana.cerrar();
+        ventana.cambiarEscena("auth/iniciar-sesion");
     }
 
     public void iniciarSesion(String token) {
@@ -18,7 +17,6 @@ public class SesionServicio {
         ConfiguracionUtilidad.eliminarPrefencias();
         ConfiguracionUtilidad.establecerJWT(token);
 
-        ventana.cambiarEscena("inicio/inicio.fxml");
-        ventana.cambiarTitulo("FacturPDR - Inicio");
+        ventana.cambiarEscena("inicio/inicio");
     }
 }

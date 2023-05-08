@@ -32,9 +32,9 @@ public class VentanaExtension {
 
         String path = getClass().getResource("").toString().replace("general/extensiones/", "escenas/");
 
-        Parent cargar = null;
+        Parent cargar;
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(new URL(path + nombreEscena));
+            FXMLLoader fxmlLoader = new FXMLLoader(new URL(path + nombreEscena + ".fxml"));
             cargar = fxmlLoader.load();
         } catch (IOException e) {
             return;
@@ -84,7 +84,7 @@ public class VentanaExtension {
         ventanaActual.setScene(nuevaEscena);
         ventanaActual.setResizable(false);
 
-        String titulo = nombreEscena.substring(nombreEscena.indexOf("/") + 1, nombreEscena.lastIndexOf(".")).replace("-", " ");
+        String titulo = nombreEscena.replaceAll("-", " ").split("/")[1];
         titulo = Character.toUpperCase(titulo.charAt(0)) + titulo.substring(1);
         this.cambiarTitulo("FacturPDR - " + titulo);
 
