@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class crear_clienteControlador {
+public class crearClienteControlador {
 
     @FXML
     public TextField textNombre;
