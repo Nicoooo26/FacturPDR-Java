@@ -39,13 +39,13 @@
                   <Font name="System Bold" size="40.0" />
                </font>
             </Text>
-            <TextField fx:id="correoElectronico" layoutX="25.0" layoutY="189.0" prefHeight="40.0" prefWidth="348.0" promptText="Correo electronico" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;" text="raul.diego@varimadrid.es">
+            <TextField fx:id="correoElectronico" layoutX="25.0" layoutY="189.0" prefHeight="40.0" prefWidth="348.0" promptText="Correo electronico" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </TextField>
-            <PasswordField fx:id="contrasena" layoutX="25.0" layoutY="290.0" prefHeight="40.0" prefWidth="348.0" promptText="Contraseña" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;" text="SupeRChorrA30@" />
-            <PasswordField fx:id="confirmarContrasena" layoutX="25.0" layoutY="341.0" prefHeight="40.0" prefWidth="348.0" promptText="Confirmar contraseña" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;" text="SupeRChorrA30@" />
+            <PasswordField fx:id="contrasena" layoutX="25.0" layoutY="290.0" prefHeight="40.0" prefWidth="348.0" promptText="Contraseña" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;" />
+            <PasswordField fx:id="confirmarContrasena" layoutX="25.0" layoutY="341.0" prefHeight="40.0" prefWidth="348.0" promptText="Confirmar contraseña" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;" />
             <Button layoutX="27.0" layoutY="437.0" mnemonicParsing="false" onAction="#manejarBotonRegistrarse" prefHeight="40.0" prefWidth="348.0" style="-fx-background-color: #84CC16;" text="Registrarse" textFill="WHITE">
                <font>
                   <Font size="15.0" />
@@ -53,7 +53,7 @@
             </Button>
             <Hyperlink alignment="CENTER" layoutX="27.0" layoutY="489.0" onAction="#manejarEscenaIniciarSesion" prefHeight="22.0" prefWidth="348.0" text="¿Ya eres miembro? Accede ahora" textAlignment="RIGHT" textFill="#84cc16" />
             <CheckBox fx:id="politicasTerminos" layoutX="25.0" layoutY="400.0" mnemonicParsing="false" selected="true" text="Aceptas las politicas y terminos de servicio" textFill="WHITE" />
-            <TextField fx:id="nombreUsuario" layoutX="25.0" layoutY="239.0" prefHeight="40.0" prefWidth="348.0" promptText="Nombre de usuario" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;" text="raulsuper30">
+            <TextField fx:id="nombreUsuario" layoutX="25.0" layoutY="239.0" prefHeight="40.0" prefWidth="348.0" promptText="Nombre de usuario" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
