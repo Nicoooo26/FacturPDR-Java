@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class modificar_clienteControlador {
+public class modificarClienteControlador {
     @FXML
     public Button btnCancelar;
     @FXML

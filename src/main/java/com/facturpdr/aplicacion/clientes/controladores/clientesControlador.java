@@ -156,7 +156,7 @@ public class clientesControlador implements Initializable{
     public void clickModificar(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/modificar_cliente.fxml"));
         Parent root = loader.load();
-        modificar_clienteControlador controladora = loader.getController();
+        modificarClienteControlador controladora = loader.getController();
 
         int selectedIndex = tablaClientes.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
