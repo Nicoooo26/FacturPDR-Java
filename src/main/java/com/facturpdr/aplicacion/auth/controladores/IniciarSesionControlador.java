@@ -5,7 +5,6 @@ import com.facturpdr.aplicacion.auth.servicios.AuthServicio;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import com.facturpdr.aplicacion.sesiones.servicios.SesionServicio;
-import com.facturpdr.aplicacion.sesiones.utilidades.ConfiguracionUtilidad;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -18,7 +17,7 @@ public class IniciarSesionControlador {
     public PasswordField contrasena;
 
     @FXML
-    public void manejarBotonAcceder(ActionEvent event) {
+    public void manejarBotonAcceder() {
         AuthServicio authServicio = new AuthServicio();
         SesionServicio sesionServicio = new SesionServicio();
 

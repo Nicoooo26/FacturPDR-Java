@@ -26,7 +26,7 @@ public class RegistrarseControlador {
     public CheckBox politicasTerminos;
 
     @FXML
-    public void manejarBotonRegistrarse(ActionEvent event) {
+    public void manejarBotonRegistrarse() {
         AuthServicio authServicio = new AuthServicio();
 
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
@@ -81,7 +81,7 @@ public class RegistrarseControlador {
     }
 
     @FXML
-    public void manejarEscenaIniciarSesion(ActionEvent event) {
+    public void manejarEscenaIniciarSesion() {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("auth/iniciar-sesion");
     }

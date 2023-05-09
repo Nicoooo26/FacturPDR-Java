@@ -10,7 +10,7 @@ public class OlvidarContrasenaControlador {
     public TextField correoElectronico;
 
     @FXML
-    public void manejarBotonRecuperar(ActionEvent event) {
+    public void manejarBotonRecuperar() {
         if (correoElectronico.getText().isEmpty()) {
             AlertaUtilidad.error("Debes introducir un correo electrónico", "Por favor, introduce tu correo electrónico.");
             return;
@@ -26,7 +26,7 @@ public class OlvidarContrasenaControlador {
     }
 
     @FXML
-    public void manejarEscenaIniciarSesion(ActionEvent event) {
+    public void manejarEscenaIniciarSesion() {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("auth/iniciar-sesion");
     }
