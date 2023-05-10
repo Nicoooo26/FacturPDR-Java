@@ -19,7 +19,7 @@ public class JWTUtilidad {
     public static String generar(String tipo, int tiempoExpiracion) {
         Algorithm algoritmo = Algorithm.HMAC256(secreto);
         JWTCreator.Builder jwt = JWT.create()
-                .withIssuer("facturpdr")
+                .withIssuer(editor)
                 .withIssuedAt(new Date())
                 .withExpiresAt(tiempoExpiracion > 0 ? new Date(System.currentTimeMillis() + tiempoExpiracion * 1000L) : null)
                 .withClaim("tipo", tipo);
