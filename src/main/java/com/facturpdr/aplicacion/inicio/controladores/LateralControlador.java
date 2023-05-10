@@ -12,13 +12,13 @@ import java.util.Optional;
 public class LateralControlador {
 
     @FXML
-    public void manejarInicio(ActionEvent event) {
+    public void manejarInicio() {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("inicio/inicio");
     }
 
     @FXML
-    public void manejarCerrarSesion(ActionEvent event) {
+    public void manejarCerrarSesion() {
         SesionServicio sesionServicio = new SesionServicio();
 
         Optional<ButtonType> cerrarSesion = AlertaUtilidad.confirmacion("Cerrar Sesión", null, "¿Estás seguro de que deseas cerrar sesión?", ButtonType.YES, ButtonType.NO);
@@ -27,7 +27,7 @@ public class LateralControlador {
         }
     }
     @FXML
-    public void manejarConfiguracion(ActionEvent event) {
+    public void manejarConfiguracion() {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("configuracion/configuracion");
     }
