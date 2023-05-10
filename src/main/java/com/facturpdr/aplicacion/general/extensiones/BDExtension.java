@@ -1,11 +1,11 @@
-package com.facturpdr.aplicacion.general.configuraciones;
+package com.facturpdr.aplicacion.general.extensiones;
 
 import com.facturpdr.aplicacion.general.utilidades.ConfiguracionUtilidad;
 import org.mariadb.jdbc.Connection;
 
 import java.sql.*;
 
-public class BDConfiguracion {
+public class BDExtension {
     private static final String url = ConfiguracionUtilidad.obtenerValor("bd.url");
     private static final String usuario = ConfiguracionUtilidad.obtenerValor("bd.usuario");
     private static final String contrasena = ConfiguracionUtilidad.obtenerValor("bd.contrasena");

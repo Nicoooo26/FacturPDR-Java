@@ -1,7 +1,7 @@
 package com.facturpdr.aplicacion.usuarios.repositorios;
 
 import com.facturpdr.aplicacion.auth.modelos.Usuario;
-import com.facturpdr.aplicacion.general.configuraciones.BDConfiguracion;
+import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +12,7 @@ public class UsuarioRepositorio {
     public Usuario obtenerUsuarioCorreo(String correo) {
         try {
             String sql = "select * from usuarios where correo_electronico = ?";
-            ResultSet resultado = BDConfiguracion.selecionar(sql, correo);
+            ResultSet resultado = BDExtension.selecionar(sql, correo);
 
             if (resultado != null && resultado.next()) {
                 int id = resultado.getInt("id");
@@ -34,7 +34,7 @@ public class UsuarioRepositorio {
     public Usuario obtenerUsuarioID(int id) {
         try {
             String sql = "select * from usuarios where id = ?";
-            ResultSet resultado = BDConfiguracion.selecionar(sql, id);
+            ResultSet resultado = BDExtension.selecionar(sql, id);
 
             if (resultado != null && resultado.next()) {
                 String nombreUsuario = resultado.getString("nombre_usuario");
@@ -55,7 +55,7 @@ public class UsuarioRepositorio {
     public boolean existeNombreUsuario(String nombreUsuario) {
         try {
             String sql = "select * from usuarios where nombre_usuario = ?";
-            ResultSet resultado = BDConfiguracion.selecionar(sql, nombreUsuario);
+            ResultSet resultado = BDExtension.selecionar(sql, nombreUsuario);
 
             return resultado != null && resultado.next();
         } catch (SQLException e) {
@@ -66,7 +66,7 @@ public class UsuarioRepositorio {
     public boolean existeCorreoElectronico(String correoElectronico) {
         try {
             String sql = "select * from usuarios where correo_electronico = ?";
-            ResultSet resultado = BDConfiguracion.selecionar(sql, correoElectronico);
+            ResultSet resultado = BDExtension.selecionar(sql, correoElectronico);
 
             return resultado != null && resultado.next();
         } catch (SQLException e) {
@@ -76,21 +76,21 @@ public class UsuarioRepositorio {
 
     public boolean crearUsuario(String nombreUsuario, String correoElectronico, String contrasena) {
         String sql = "insert into usuarios (nombre_usuario, correo_electronico, contrasena) values (?, ?, ?)";
-        return BDConfiguracion.actualizar(sql, nombreUsuario, correoElectronico, contrasena);
+        return BDExtension.actualizar(sql, nombreUsuario, correoElectronico, contrasena);
     }
 
     public boolean eliminarUsuario(int id_usuario) {
         String sql = "delete from usuarios where id = ?";
-        return BDConfiguracion.actualizar(sql, id_usuario);
+        return BDExtension.actualizar(sql, id_usuario);
     }
 
     public boolean verificarUsuario(int id_usuario) {
         String sql = "update usuarios set esta_verificado = 1 where id = ?";
-        return BDConfiguracion.actualizar(sql, id_usuario);
+        return BDExtension.actualizar(sql, id_usuario);
     }
 
     public boolean cammbiarContrasena(String contrasena, int id_usuario) {
         String sql = "update usuarios set contrasena = ? where id = ?";
-        return BDConfiguracion.actualizar(sql, contrasena, id_usuario);
+        return BDExtension.actualizar(sql, contrasena, id_usuario);
     }
 }
