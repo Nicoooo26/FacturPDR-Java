@@ -10,9 +10,7 @@ public class ConfiguracionUtilidad {
     static {
         try (InputStream entrada = ConfiguracionUtilidad.class.getResourceAsStream("/com/facturpdr/aplicacion/configuracion.properties")) {
             propiedades.load(entrada);
-        } catch (IOException e) {
-            System.out.println(e);
-        }
+        } catch (IOException ignore) { }
     }
 
     public static String obtenerValor(String nombrePropiedad) {
