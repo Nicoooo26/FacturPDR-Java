@@ -7,13 +7,14 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.facturpdr.aplicacion.general.utilidades.ConfiguracionUtilidad;
 
 import java.util.Date;
 import java.util.Objects;
 
 public class JWTUtilidad {
-    private static final String secreto = "pu2e0b*!%z3%F6&PN1F0";
-    private static final String editor = "facturpdr";
+    private static final String secreto = ConfiguracionUtilidad.obtenerValor("jwt.secreto");
+    private static final String editor = ConfiguracionUtilidad.obtenerValor("jwt.editor");
 
     public static String generar(String tipo, int tiempoExpiracion) {
         Algorithm algoritmo = Algorithm.HMAC256(secreto);
