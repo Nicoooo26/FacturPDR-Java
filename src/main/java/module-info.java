@@ -11,6 +11,7 @@ module com.facturpdr.aplicacion {
     requires com.auth0.jwt;
     requires java.prefs;
     requires com.jfoenix;
+    requires java.mail;
 
     opens com.facturpdr.aplicacion to javafx.graphics,javafx.fxml;
     opens com.facturpdr.aplicacion.inicio.controladores to javafx.fxml;
