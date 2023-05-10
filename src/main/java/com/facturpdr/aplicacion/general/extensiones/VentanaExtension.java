@@ -30,11 +30,9 @@ public class VentanaExtension {
             return;
         }
 
-        String path = getClass().getResource("").toString().replace("general/extensiones/", "escenas/");
-
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/facturpdr/aplicacion/escenas/" + nombreEscena + ".fxml"));
         Parent cargar;
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(new URL(path + nombreEscena + ".fxml"));
             cargar = fxmlLoader.load();
         } catch (IOException e) {
             return;
