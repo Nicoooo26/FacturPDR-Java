@@ -13,7 +13,12 @@ public class ConfiguracionUtilidad {
         } catch (IOException ignore) { }
     }
 
+    public static boolean existeArchivo() {
+        return ConfiguracionUtilidad.class.getResourceAsStream("/com/facturpdr/aplicacion/configuracion.properties") != null;
+    }
+
     public static String obtenerValor(String nombrePropiedad) {
         return propiedades.getProperty(nombrePropiedad);
     }
+
 }
