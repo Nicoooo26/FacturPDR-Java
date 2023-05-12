@@ -3,7 +3,6 @@ package com.facturpdr.aplicacion.inicio.controladores;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import com.facturpdr.aplicacion.sesiones.servicios.SesionServicio;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ButtonType;
 

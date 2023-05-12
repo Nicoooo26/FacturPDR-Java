@@ -5,7 +5,6 @@ import com.facturpdr.aplicacion.auth.servicios.AuthServicio;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import com.facturpdr.aplicacion.sesiones.servicios.SesionServicio;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;

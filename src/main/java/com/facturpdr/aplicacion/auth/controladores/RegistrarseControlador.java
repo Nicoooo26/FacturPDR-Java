@@ -4,10 +4,8 @@ import com.facturpdr.aplicacion.auth.excepciones.CorreoElectronicoExistenteExcep
 import com.facturpdr.aplicacion.auth.excepciones.CrearUsuarioException;
 import com.facturpdr.aplicacion.auth.excepciones.NombreUsuarioExistenteException;
 import com.facturpdr.aplicacion.auth.servicios.AuthServicio;
-import com.facturpdr.aplicacion.auth.utilidades.HashUtilidad;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
