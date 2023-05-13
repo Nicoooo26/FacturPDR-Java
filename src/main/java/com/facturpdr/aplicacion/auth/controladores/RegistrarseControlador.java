@@ -40,6 +40,17 @@ public class RegistrarseControlador {
             return;
         }
 
+        if (nombreUsuario.getText().isEmpty()) {
+            AlertaUtilidad.error("Debes introducir un nombre de usuario", "Por favor, introduce el nombre de usuario");
+            return;
+        }
+
+        boolean nombreUsuarioValido = nombreUsuario.getText().matches("^[a-zA-Z0-9_]{4,15}$");
+        if (!nombreUsuarioValido) {
+            AlertaUtilidad.error("El nombre de usuario debe ser válido", " Por favor, intenta con otro nombre de usuario que tenga entre 4 y 15 caracteres, y que esté compuesto solo por letras mayúsculas o minúsculas, números y guiones bajos.");
+            return;
+        }
+
         if (contrasena.getText().isEmpty()) {
             AlertaUtilidad.error("Debes introducir una contraseña", "Por favor, introduce una contraseña.");
             return;
