@@ -8,9 +8,11 @@ import com.facturpdr.aplicacion.auth.modelos.Usuario;
 import com.facturpdr.aplicacion.auth.utilidades.HashUtilidad;
 import com.facturpdr.aplicacion.sesiones.utilidades.JWTUtilidad;
 import com.facturpdr.aplicacion.usuarios.repositorios.UsuarioRepositorio;
+import com.facturpdr.aplicacion.usuarios.servicios.UsuarioServicio;
 
 public class AuthServicio {
     UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
+    UsuarioServicio usuarioServicio = new UsuarioServicio();
 
     public void registrar(String nombreUsuario, String correoElectronico, String contrasena) throws NombreUsuarioExistenteException, CorreoElectronicoExistenteException, CrearUsuarioException {
         boolean existeCorreoElectronico = usuarioRepositorio.existeCorreoElectronico(correoElectronico);
@@ -32,25 +34,9 @@ public class AuthServicio {
         String contrasenaHash = HashUtilidad.sha256(contrasena);
         if (!usuario.getContrasena().equals(contrasenaHash)) return null;
 
-        if (!usuario.getEstaVerificado()) throw new NoVerificadoException();
+        boolean estaVerificado = usuarioServicio.estaVerificado(usuario.getId());
+        if (!estaVerificado) throw new NoVerificadoException();
 
         return JWTUtilidad.generar("auth", 3600);
-    }
-
-    public boolean estaVerificado(int id_usuario) {
-        Usuario usuario = usuarioRepositorio.obtenerUsuarioID(id_usuario);
-        if (usuario == null) return false;
-
-        return usuario.getEstaVerificado();
-    }
-
-    public boolean cambiarContrasena(String contrasenaNueva, int id_usuario) {
-        Usuario usuario = usuarioRepositorio.obtenerUsuarioID(id_usuario);
-        if (usuario == null) return false;
-
-        String contrasenaHash = HashUtilidad.sha256(contrasenaNueva);
-        if (usuario.getContrasena().equals(contrasenaHash)) return false;
-
-        return usuarioRepositorio.cambiarContrasena(contrasenaHash, id_usuario);
     }
 }

@@ -5,9 +5,33 @@ import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class UsuarioRepositorio {
+    public List<Usuario> obtenerUsuarios() {
+        List<Usuario> usuarios = new ArrayList<>();
+        try {
+            String sql = "select * from usuarios";
+            ResultSet resultado = BDExtension.selecionar(sql);
+
+            if (resultado != null && resultado.next()) {
+                int id = resultado.getInt("id");
+                String nombreUsuario = resultado.getString("nombre_usuario");
+                String correoElectronico = resultado.getString("correo_electronico");
+                String contrasena = resultado.getString("contrasena");
+                boolean estaVerificado = resultado.getBoolean("esta_verificado");
+                Date fechaCreacion = resultado.getDate("fecha_creacion");
+
+                usuarios.add(new Usuario(id, nombreUsuario, correoElectronico, contrasena, estaVerificado, fechaCreacion));
+            }
+
+            return usuarios;
+        } catch (SQLException e) {
+            return null;
+        }
+    }
 
     public Usuario obtenerUsuarioCorreo(String correo) {
         try {
