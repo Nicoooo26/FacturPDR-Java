@@ -89,7 +89,7 @@ public class UsuarioRepositorio {
         return BDExtension.actualizar(sql, id_usuario);
     }
 
-    public boolean cammbiarContrasena(String contrasena, int id_usuario) {
+    public boolean cambiarContrasena(String contrasena, int id_usuario) {
         String sql = "update usuarios set contrasena = ? where id = ?";
         return BDExtension.actualizar(sql, contrasena, id_usuario);
     }

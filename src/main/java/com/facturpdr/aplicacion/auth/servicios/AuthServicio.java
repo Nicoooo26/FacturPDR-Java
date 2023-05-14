@@ -51,6 +51,6 @@ public class AuthServicio {
         String contrasenaHash = HashUtilidad.sha256(contrasenaNueva);
         if (usuario.getContrasena().equals(contrasenaHash)) return false;
 
-        return usuarioRepositorio.cammbiarContrasena(contrasenaHash, id_usuario);
+        return usuarioRepositorio.cambiarContrasena(contrasenaHash, id_usuario);
     }
 }
