@@ -1,181 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.clientes.controladores.clienteControlador">
-   <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="53.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../imagenes/clientes/iconogrande.png" />
-         </image>
-      </ImageView>
-      <GridPane layoutX="282.0" layoutY="156.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.clientes.controladores.ClienteControlador">
          <children>
-            <Label fx:id="labelNombre" prefHeight="24.0" prefWidth="193.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Nombre " />
+            <VBox prefHeight="600.0" prefWidth="0.0" />
+               <fx:include source="../inicio/panelateral.fxml" />
+            <VBox prefHeight="600.0" prefWidth="755.0">
+               <children>
+                  <Pane prefHeight="604.0" prefWidth="752.0" style="-fx-background-color: WHITE;">
+                     <children>
+                        <GridPane layoutX="522.0" layoutY="229.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelCiudad" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Ciudad" />
+                           </children>
+                        </GridPane>
+                        <Label layoutX="56.0" layoutY="52.0" prefHeight="38.0" prefWidth="204.0" text="  Información Básica" textFill="#84cc16">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../imagenes/clientes/clienteIcono.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnBack" layoutX="569.0" layoutY="27.0" mnemonicParsing="false" onAction="#clickBack" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="BACK" textFill="#84cc16">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <GridPane layoutX="28.0" layoutY="145.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelNombre" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: black;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Nombre " />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="269.0" layoutY="145.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelApellidos" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Apellidos" />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="522.0" layoutY="145.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelEmail" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Email" />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="424.0" layoutY="412.0" prefHeight="58.0" prefWidth="290.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelDireccion" prefHeight="22.0" prefWidth="290.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Dirección" />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="269.0" layoutY="305.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelFijo" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Teléfono Fijo" />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="522.0" layoutY="305.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelCodigo" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Código Postal" />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="28.0" layoutY="305.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelMovil" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: black;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Móvil" />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="269.0" layoutY="229.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelPais" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="País" />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="56.0" layoutY="412.0" prefHeight="58.0" prefWidth="328.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelCuenta" prefHeight="24.0" prefWidth="290.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Nº de Cuenta Bancaria" />
+                           </children>
+                        </GridPane>
+                        <GridPane layoutX="28.0" layoutY="229.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label fx:id="labelDNI" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: black;" GridPane.rowIndex="1" />
+                              <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="DNI" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
          </children>
-      </GridPane>
-      <Label layoutX="282.0" layoutY="101.0" prefHeight="38.0" prefWidth="204.0" text="  Información Básica" textFill="#84cc16">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../imagenes/clientes/clienteIcono.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <GridPane layoutX="282.0" layoutY="225.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="labelApellidos" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Apellidos" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="500.0" layoutY="156.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="labelDNI" prefHeight="24.0" prefWidth="263.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="14.0" prefWidth="132.0" text="DNI" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="723.0" layoutY="156.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="labelMovil" prefHeight="24.0" prefWidth="277.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="14.0" prefWidth="132.0" text="Móvil" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="723.0" layoutY="225.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="labelFijo" prefHeight="24.0" prefWidth="246.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="14.0" prefWidth="132.0" text="Teléfono Fijo" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="500.0" layoutY="225.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="labelEmail" prefHeight="24.0" prefWidth="210.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="14.0" prefWidth="132.0" text="Email" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="282.0" layoutY="383.0" prefHeight="58.0" prefWidth="328.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="labelCuenta" prefHeight="24.0" prefWidth="290.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Nº de Cuenta Bancaria" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="596.0" layoutY="383.0" prefHeight="58.0" prefWidth="328.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="labelDireccion" prefHeight="24.0" prefWidth="290.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Dirección" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="282.0" layoutY="300.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="labelPais" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="País" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="500.0" layoutY="300.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="labelCodigo" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Código Postal" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="723.0" layoutY="300.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints maxHeight="24.0" minHeight="10.0" prefHeight="22.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="labelCiudad" prefHeight="24.0" prefWidth="198.0" style="-fx-border-color: BLACK;" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Ciudad" />
-         </children>
-      </GridPane>
-      <Button fx:id="btnBack" layoutX="811.0" layoutY="52.0" mnemonicParsing="false" onAction="#clickBack" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="BACK" textFill="#84cc16">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-   </children>
-</AnchorPane>
+</HBox>
