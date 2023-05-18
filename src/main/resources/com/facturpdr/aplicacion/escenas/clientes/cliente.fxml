@@ -11,9 +11,10 @@
                <fx:include source="../inicio/panelateral.fxml" />
             <VBox prefHeight="600.0" prefWidth="755.0">
                <children>
-                  <Pane prefHeight="604.0" prefWidth="752.0" style="-fx-background-color: WHITE;">
+            <Pane prefHeight="236.0" prefWidth="752.0" style="-fx-background-color: #639b23;" />
+                  <Pane prefHeight="612.0" prefWidth="752.0" style="-fx-background-color: WHITE;">
                      <children>
-                        <GridPane layoutX="522.0" layoutY="229.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="491.0" layoutY="225.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -26,7 +27,7 @@
                               <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Ciudad" />
                            </children>
                         </GridPane>
-                        <Label layoutX="56.0" layoutY="52.0" prefHeight="38.0" prefWidth="204.0" text="  Información Básica" textFill="#84cc16">
+                        <Label layoutX="236.0" layoutY="55.0" prefHeight="38.0" prefWidth="204.0" text="  Información Básica" textFill="#84cc16">
                            <graphic>
                               <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -38,12 +39,12 @@
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Button fx:id="btnBack" layoutX="569.0" layoutY="27.0" mnemonicParsing="false" onAction="#clickBack" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="BACK" textFill="#84cc16">
+                        <Button fx:id="btnBack" layoutX="594.0" layoutY="42.0" mnemonicParsing="false" onAction="#clickBack" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #333337; -fx-border-radius: 10,10,10,10;" text="BACK" textFill="#84cc16">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <GridPane layoutX="28.0" layoutY="145.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="21.0" layoutY="205.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -56,7 +57,7 @@
                               <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Nombre " />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="269.0" layoutY="145.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="242.0" layoutY="140.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -69,7 +70,7 @@
                               <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Apellidos" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="522.0" layoutY="145.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="491.0" layoutY="140.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -82,7 +83,7 @@
                               <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Email" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="424.0" layoutY="412.0" prefHeight="58.0" prefWidth="290.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="425.0" layoutY="400.0" prefHeight="58.0" prefWidth="290.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -95,7 +96,7 @@
                               <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Dirección" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="269.0" layoutY="305.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="242.0" layoutY="309.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -108,7 +109,7 @@
                               <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Teléfono Fijo" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="522.0" layoutY="305.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="491.0" layoutY="309.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -121,7 +122,7 @@
                               <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Código Postal" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="28.0" layoutY="305.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="21.0" layoutY="321.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -134,7 +135,7 @@
                               <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Móvil" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="269.0" layoutY="229.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="242.0" layoutY="225.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -147,7 +148,7 @@
                               <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="País" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="56.0" layoutY="412.0" prefHeight="58.0" prefWidth="328.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="92.0" layoutY="400.0" prefHeight="58.0" prefWidth="301.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -160,7 +161,7 @@
                               <Label layoutX="10.0" layoutY="40.0" prefHeight="17.0" prefWidth="132.0" text="Nº de Cuenta Bancaria" />
                            </children>
                         </GridPane>
-                        <GridPane layoutX="28.0" layoutY="229.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
+                        <GridPane layoutX="21.0" layoutY="263.0" prefHeight="58.0" prefWidth="192.0" style="-fx-background-color: WHITE;">
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
