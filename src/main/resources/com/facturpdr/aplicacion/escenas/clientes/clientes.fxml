@@ -5,89 +5,102 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-color: WHITE; -fx-border-color: #84cc16;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.clientes.controladores.ClientesControlador">
-   <children>
-      <ScrollPane layoutX="14.0" layoutY="178.0" prefHeight="408.0" prefWidth="826.0">
-         <content>
-            <TableView fx:id="tablaClientes" prefHeight="406.0" prefWidth="811.0" style="-fx-background-color: WHITE;">
-               <placeholder>
-                  <Label text="No existen coincidencias" />
-               </placeholder>
-               <columns>
-                  <TableColumn fx:id="columnaDNI" prefWidth="150.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="DNI" />
-                  <TableColumn fx:id="columnaNombreCompleto" prefWidth="262.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Nombre Completo" />
-                  <TableColumn fx:id="columnaTelefono" prefWidth="148.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Teléfono" />
-                  <TableColumn fx:id="columnaCuenta" prefWidth="250.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Nº de Cuenta" />
-               </columns>
-            </TableView>
-         </content>
-      </ScrollPane>
-      <Button fx:id="btnNuevo" layoutX="851.0" layoutY="178.0" mnemonicParsing="false" onAction="#clickNuevo" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: WHITE; -fx-border-color: #84cc16; -fx-border-radius: 10,10,10,10;" text="Añadir">
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../imagenes/clientes/añadircliente.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <Button fx:id="btnModificar" layoutX="851.0" layoutY="279.0" mnemonicParsing="false" onAction="#clickModificar" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: WHITE; -fx-border-color: ORANGE; -fx-border-radius: 10,10,10,10;" text="Modificar">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <graphic>
-            <ImageView fitHeight="33.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../imagenes/clientes/modificarcliente.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button fx:id="btnEliminar" layoutX="851.0" layoutY="227.0" mnemonicParsing="false" onAction="#clickEliminar" prefHeight="42.0" prefWidth="147.0" style="-fx-background-color: WHITE; -fx-border-color: RED; -fx-border-radius: 10,10,10,10;" text="Eliminar">
-         <graphic>
-            <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../imagenes/clientes/eliminarcliente.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <GridPane layoutX="621.0" layoutY="129.0" prefHeight="32.0" prefWidth="219.0" style="-fx-border-color: #84cc16; -fx-border-radius: 10,10,10,10;">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="178.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="31.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.clientes.controladores.ClientesControlador">
          <children>
-            <TextField fx:id="textBuscar" alignment="CENTER" prefHeight="27.0" prefWidth="152.0" style="-fx-border-color: white; -fx-background-color: WHITE;" />
-            <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-               <image>
-                  <Image url="@../../imagenes/clientes/lupa.png" />
-               </image>
-            </ImageView>
-         </children>
-      </GridPane>
-      <AnchorPane layoutX="1.0" layoutY="-1.0" prefHeight="83.0" prefWidth="1000.0" style="-fx-background-color: #333337;">
-         <children>
-            <Label layoutX="14.0" layoutY="20.0" prefHeight="48.0" prefWidth="198.0" text="Gestion de Clientes" textFill="#84cc16">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <Button layoutX="22.0" layoutY="133.0" mnemonicParsing="false" onAction="#clickActualizar" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-border-radius: 10,10,10,10;" text="Actualizar">
-         <graphic>
-            <ImageView fitHeight="32.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../imagenes/clientes/actualizar.jpg" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-   </children>
-</AnchorPane>
+            <VBox prefHeight="510.0" prefWidth="0.0" />
+            <fx:include source="../inicio/panelateral.fxml" />
+            <VBox prefHeight="600.0" prefWidth="750.0">
+               <children>
+                  <Pane prefHeight="111.0" prefWidth="749.0" style="-fx-background-color: #333337;">
+                     <children>
+                        <Label layoutX="35.0" layoutY="49.0" prefHeight="48.0" prefWidth="198.0" text="Gestion de Clientes" textFill="#84cc16">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="493.0" prefWidth="749.0">
+                     <children>
+                        <ScrollPane layoutX="14.0" layoutY="83.0" prefHeight="384.0" prefWidth="607.0">
+                     <content>
+                              <TableView fx:id="tablaClientes" prefHeight="382.0" prefWidth="606.0" style="-fx-background-color: WHITE;">
+                                 <placeholder>
+                                    <Label text="No existen coincidencias" />
+                                 </placeholder>
+                                 <columns>
+                                    <TableColumn fx:id="columnaDNI" prefWidth="124.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="DNI" />
+                                    <TableColumn fx:id="columnaNombreCompleto" prefWidth="205.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Nombre Completo" />
+                                    <TableColumn fx:id="columnaTelefono" prefWidth="144.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Teléfono" />
+                                    <TableColumn fx:id="columnaCuenta" prefWidth="180.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Nº de Cuenta" />
+                                 </columns>
+                              </TableView>
+                     </content>
+                        </ScrollPane>
+                        <Button layoutX="23.0" layoutY="43.0" mnemonicParsing="false" onAction="#clickActualizar" style="-fx-background-color: WHITE; -fx-border-color: BLACK; -fx-border-radius: 10,10,10,10;" text="Actualizar">
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../imagenes/clientes/actualizar.jpg" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="btnEliminar" layoutX="630.0" layoutY="205.0" mnemonicParsing="false" onAction="#clickEliminar" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-border-color: RED; -fx-border-radius: 10,10,10,10;" text="Eliminar">
+                           <graphic>
+                              <ImageView fitHeight="31.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../imagenes/clientes/eliminarcliente.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnNuevo" layoutX="630.0" layoutY="155.0" mnemonicParsing="false" onAction="#clickNuevo" prefHeight="32.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-border-color: #84cc16; -fx-border-radius: 10,10,10,10;" text="Añadir">
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../imagenes/clientes/añadircliente.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnModificar" layoutX="630.0" layoutY="102.0" mnemonicParsing="false" onAction="#clickModificar" prefHeight="43.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-border-color: ORANGE; -fx-border-radius: 10,10,10,10;" text="Modificar">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../imagenes/clientes/modificarcliente.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <GridPane layoutX="402.0" layoutY="43.0" prefHeight="32.0" prefWidth="219.0" style="-fx-border-color: #84cc16; -fx-border-radius: 10,10,10,10;">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="178.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="31.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextField fx:id="textBuscar" alignment="CENTER" prefHeight="27.0" prefWidth="152.0" style="-fx-border-color: white; -fx-background-color: WHITE;" />
+                              <ImageView fitHeight="25.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                                 <image>
+                                    <Image url="@../../imagenes/clientes/lupa.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </GridPane>
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </children></HBox>
