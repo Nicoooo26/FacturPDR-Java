@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="600.0" prefWidth="252.0" styleClass="vboxPrincipal" stylesheets="@../../estilos/inicio.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.inicio.controladores.LateralControlador">
+<VBox prefHeight="600.0" prefWidth="252.0" styleClass="vboxPrincipal" stylesheets="@../../estilos/inicio.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.inicio.controladores.LateralControlador">
 
         <children>
             <Pane prefHeight="112.0" prefWidth="292.0" styleClass="paneLateral">
@@ -29,7 +29,7 @@
                     <Insets left="60.0" />
                 </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="350.0" text="Gestion de clientes">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#manejarClientes" prefHeight="37.0" prefWidth="350.0" text="Gestion de clientes">
                 <graphic>
                     <FontAwesomeIconView glyphName="USERS" />
                 </graphic>
@@ -71,7 +71,7 @@
                     <Insets left="60.0" />
                 </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="123.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="350.0" onAction="#manejarConfiguracion" text="Configuración" >
+            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="123.0" mnemonicParsing="false" onAction="#manejarConfiguracion" prefHeight="37.0" prefWidth="350.0" text="Configuración">
                 <graphic>
                     <FontAwesomeIconView glyphName="GEAR" />
                 </graphic>

@@ -11,7 +11,7 @@
             <fx:include source="../inicio/panelateral.fxml" />
             <VBox prefHeight="600.0" prefWidth="750.0">
                <children>
-                  <Pane prefHeight="111.0" prefWidth="749.0" style="-fx-background-color: #333337;">
+                  <Pane prefHeight="117.0" prefWidth="749.0" style="-fx-background-color: #333337;">
                      <children>
                         <Label layoutX="35.0" layoutY="49.0" prefHeight="48.0" prefWidth="198.0" text="Gestion de Clientes" textFill="#84cc16">
                            <font>

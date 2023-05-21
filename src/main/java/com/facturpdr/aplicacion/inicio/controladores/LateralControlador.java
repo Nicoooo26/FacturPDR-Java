@@ -30,4 +30,10 @@ public class LateralControlador {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("configuracion/configuracion");
     }
+
+    @FXML
+    public void manejarClientes() {
+        VentanaExtension ventana =VentanaExtension.obtenerInstancia();
+        ventana.cambiarEscena("clientes/clientes");
+    }
 }
