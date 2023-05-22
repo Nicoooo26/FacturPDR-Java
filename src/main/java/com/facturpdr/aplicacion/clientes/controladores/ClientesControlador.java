@@ -1,3 +1,4 @@
+package com.facturpdr.aplicacion.clientes.controladores;
 
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import javafx.fxml.*;
@@ -45,7 +46,11 @@ public class ClientesControlador implements Initializable{
     public void initialize(URL location, ResourceBundle resources){
 
         // Conexión a la base de datos y consulta SQL
-        BDExtension.conectarse();
+        try {
+            BDExtension.conectarse();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         Connection conn = BDExtension.conexion;
 
         String selectSQL="SELECT NOMBRE_COMPLETO,DNI,MOVIL,CUENTA FROM CLIENTES";
@@ -71,7 +76,7 @@ public class ClientesControlador implements Initializable{
         columnaCuenta.setCellValueFactory(new PropertyValueFactory<>("cuenta"));
         tablaClientes.setItems(clientes);
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/cliente.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/com.facturpdr.aplicacion/clientes/cliente.fxml"));
             Parent root = loader.load();
             ClienteControlador controladora = loader.getController();
 
@@ -81,7 +86,11 @@ public class ClientesControlador implements Initializable{
                     Cliente clienteSeleccionado = tablaClientes.getSelectionModel().getSelectedItem();
                     if (clienteSeleccionado != null) {
                         String dni = clienteSeleccionado.getDNI();
-                        controladora.cargarDatos(dni);
+                        try {
+                            controladora.cargarDatos(dni);
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
                         Scene scene = new Scene(root);
                         Stage stage = new Stage();
                         stage.setScene(scene);
@@ -137,7 +146,7 @@ public class ClientesControlador implements Initializable{
     }
 
     @FXML
-    public void clickEliminar(ActionEvent event) {
+    public void clickEliminar(ActionEvent event) throws SQLException {
         // Obtener el índice de la fila seleccionada
         int selectedIndex = tablaClientes.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) { // Se ha seleccionado una fila

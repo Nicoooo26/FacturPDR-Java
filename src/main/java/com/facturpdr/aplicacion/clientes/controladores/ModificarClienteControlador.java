@@ -1,4 +1,218 @@
 package com.facturpdr.aplicacion.clientes.controladores;
 
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.facturpdr.aplicacion.general.extensiones.BDExtension;
+import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+
 public class ModificarClienteControlador {
+
+    @FXML
+    public TextField textNombre;
+    @FXML
+    public TextField textDNI;
+    @FXML
+    public TextField textMovil;
+    @FXML
+    public TextField textApellidos;
+    @FXML
+    public TextField textEmail;
+    @FXML
+    public TextField textCuenta;
+    @FXML
+    public TextField textCiudad;
+    @FXML
+    public TextField textDireccion;
+    @FXML
+    public TextField textPais;
+    @FXML
+    public TextField textFijo;
+    @FXML
+    public TextField textCodigo;
+
+    @FXML
+    public Button btnCancelar;
+    @FXML
+    public Button btnGuardar;
+    @FXML
+    public void clickCancelar(ActionEvent event) throws IOException {
+        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+        ventana.cambiarEscena("clientes/clientes");
+
+    }
+    @FXML
+    public void clickGuardar(ActionEvent event) throws IOException, NumberFormatException, SQLException {
+        if(datosValidos()) {
+            // Obtener los nuevos valores de los campos de texto
+            String nuevoNombre = textNombre.getText();
+            String nuevoApellidos = textApellidos.getText();
+            int nuevoMovil = Integer.parseInt(textMovil.getText());
+            String nuevoDNI = textDNI.getText();
+            String nuevoEmail = textEmail.getText();
+            String nuevaCuenta = textCuenta.getText();
+            String nuevaCiudad = textCiudad.getText();
+            String nuevaDireccion = textDireccion.getText();
+            String nuevoPais = textPais.getText();
+
+
+            String nuevoNombreCompleto = nuevoNombre +" "+nuevoApellidos;
+            // Ejecutar una consulta UPDATE para actualizar los datos en la base de datos
+            BDExtension.conectarse();
+            Connection conn=BDExtension.conexion;
+            // Realizar la consulta SQL con el DNI almacenado en la variable 'dni'
+            String consulta = "UPDATE CLIENTES SET DNI = ?, MOVIL = ?, NOMBRE = ?, APELLIDOS = ?, CUENTA = ?, EMAIL = ?, CIUDAD = ?, DIRECCION = ?, PAIS = ?, FIJO = ?, CODIGOPOSTAL = ?,NOMBRE_COMPLETO= ? WHERE DNI = ?";
+            PreparedStatement ps = conn.prepareStatement(consulta);
+            ps.setString(1, nuevoDNI);
+            ps.setInt(2, nuevoMovil);
+            ps.setString(3, nuevoNombre);
+            ps.setString(4, nuevoApellidos);
+            ps.setString(5, nuevaCuenta);
+            ps.setString(6, nuevoEmail);
+            ps.setString(7, nuevaCiudad);
+            ps.setString(8, nuevaDireccion);
+            ps.setString(9, nuevoPais);
+            if(textFijo.getText()=="0") {
+                ps.setNull(10, java.sql.Types.INTEGER);
+            }
+            else if (!textFijo.getText().isEmpty()) {
+                int nuevoFijo = Integer.parseInt(textFijo.getText());
+                ps.setInt(10, nuevoFijo);
+            }
+            if(textCodigo.getText()=="0"){
+                ps.setNull(11, java.sql.Types.INTEGER);
+            }
+            else if (!textCodigo.getText().isEmpty()) {
+                int nuevoCodigo = Integer.parseInt(textCodigo.getText());
+                ps.setInt(11, nuevoCodigo);
+            }
+            ps.setString(12, nuevoNombreCompleto);
+            ps.setString(13, nuevoDNI);
+
+            ps.executeUpdate();
+            ps.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/clientes.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            //Cierra la pantalla actual
+            Stage currentStage = (Stage) btnCancelar.getScene().getWindow();
+            currentStage.close();
+        }
+
+    }
+
+    public void cargarDatos(String dni) throws SQLException {
+        BDExtension.conectarse();
+        Connection conn=BDExtension.conexion;
+        // Realizar la consulta SQL con el DNI almacenado en la variable 'dni'
+        String query = "SELECT NOMBRE,APELLIDOS,DNI,MOVIL,CUENTA,EMAIL,CIUDAD,DIRECCION,PAIS,FIJO,CODIGOPOSTAL FROM CLIENTES WHERE DNI = ?";
+        try {
+            PreparedStatement pstmt = conn.prepareStatement(query);
+            pstmt.setString(1, dni);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                // Asignar los datos del cliente a los labels correspondientes
+                textDNI.setText(rs.getString("DNI"));
+                textApellidos.setText(rs.getString("APELLIDOS"));
+                textNombre.setText(rs.getString("NOMBRE"));
+
+                textMovil.setText(Integer.toString(rs.getInt("MOVIL")));
+
+                textEmail.setText(rs.getString("EMAIL"));
+                textCuenta.setText(rs.getString("CUENTA"));
+                textCiudad.setText(rs.getString("CIUDAD"));
+                textDireccion.setText(rs.getString("DIRECCION"));
+                textPais.setText(rs.getString("PAIS"));
+
+                textFijo.setText(Integer.toString(rs.getInt("FIJO")));
+
+
+                textCodigo.setText(Integer.toString(rs.getInt("CODIGOPOSTAL")));
+
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+
+    }
+    private boolean datosValidos() throws SQLException{
+
+        //Inicializo string paramensajes
+        String mensajeError = "";
+
+        //Compruebo los campos
+        if (textNombre.getText().isEmpty()) {
+            mensajeError += "El campo 'nombre' es obligatorio.\n";
+        }
+        if (textApellidos.getText().isEmpty()) {
+            mensajeError += "El campo 'apellidos' es obligatorio.\n";
+        }
+        if (textCuenta.getText().isEmpty()) {
+            mensajeError += "El campo 'cuenta' es obligatorio.\n";
+        }
+        else if(!textCuenta.getText().isEmpty() && !textCuenta.getText().matches("[A-Z]{2}\\d{22}")) {
+            mensajeError += "El formato 'cuenta' no es válido.\n";
+        }
+        if (textDNI.getText().isEmpty()) {
+            mensajeError += "El campo 'DNI' es obligatorio.\n";
+        }
+        else if(!textDNI.getText().isEmpty() && !textDNI.getText().matches("\\d{8}[A-HJ-NP-TV-Z]")) {
+            mensajeError += "El formato 'DNI' no es válido.\n";
+        }
+        if (textMovil.getText().isEmpty()) {
+            mensajeError += "El campo 'Movil' es obligatorio.\n";
+        }
+        else if(!textMovil.getText().isEmpty() && !textMovil.getText().matches("^6\\d{8}$")) {
+            mensajeError += "El formato 'movil' no es válido.\n";
+        }
+
+        if(!textEmail.getText().matches("[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}") && !textEmail.getText().isEmpty()) {
+            mensajeError += "El formato 'email' no es válido.\n";
+        }
+
+        if(textCodigo.getText()!="0" || !textCodigo.getText().matches("^\\d{5}$")) {
+            mensajeError += "El formato 'codigo postal' no es válido.\n";
+        }
+
+        if(textFijo.getText()!="0" || !textFijo.getText().matches("^9\\d{8}$")) {
+            mensajeError += "El formato 'fijo' no es válido.\n";
+        }
+
+
+        //Si no hay errores devuelvo true, si no, una alerta con los errores y false
+        if (mensajeError.length() == 0) {
+            return true;
+        } else {
+            //Muestro alerta y devuelvo false
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setTitle("Error");
+            alerta.setHeaderText("Datos no válidos");
+            alerta.setContentText("Por favor, corrige los errores");
+            alerta.setContentText(mensajeError);
+            alerta.showAndWait();
+            return false;
+        }
+
+    }
+
 }
