@@ -10,10 +10,10 @@ public class BDExtension {
     private static final String usuario = ConfiguracionUtilidad.obtenerValor("bd.usuario");
     private static final String contrasena = ConfiguracionUtilidad.obtenerValor("bd.contrasena");
 
-    private static Connection conexion = null;
+    public static Connection conexion = null;
     private static PreparedStatement sentencia = null;
 
-    private static void conectarse() throws SQLException {
+    public static void conectarse() throws SQLException {
         if (conexion == null || conexion.isClosed()) {
             conexion = (Connection) DriverManager.getConnection(url, usuario, contrasena);
         }
