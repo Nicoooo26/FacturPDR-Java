@@ -8,6 +8,8 @@ import javafx.scene.control.TextField;
 public class OlvidarContrasenaControlador {
     public TextField correoElectronico;
 
+    private final VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+
     @FXML
     public void manejarBotonRecuperar() {
         if (correoElectronico.getText().isEmpty()) {
@@ -26,7 +28,6 @@ public class OlvidarContrasenaControlador {
 
     @FXML
     public void manejarEscenaIniciarSesion() {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("auth/iniciar-sesion");
     }
 }

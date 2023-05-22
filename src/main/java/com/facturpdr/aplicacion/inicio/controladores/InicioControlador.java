@@ -12,8 +12,15 @@ public class InicioControlador implements Initializable {
 
     @FXML private FontAwesomeIconView IconoHelp;
     public void MensajeToolTip() {
-        Tooltip informacion = new Tooltip("Nombre del proyecto: FacturPDR\nDesarrollado en: JavaFX\nCompilador: Gradle\nBase de datos: Oracle\n" + "Fecha de lanzamiento:30/05/2023 \nVersión actual: 1.0");
+        Tooltip informacion = new Tooltip("Nombre del proyecto: FacturPDR\n" +
+                "Desarrollado en: JavaFX\n" +
+                "Compilador: Gradle\n" +
+                "Base de datos: Oracle\n" +
+                "Fecha de lanzamiento: 30/05/2023\n" +
+                "Versión actual: 1.0");
+
         Tooltip.install(IconoHelp, informacion);
+
         IconoHelp.setOnMouseClicked(event -> {
             if(!informacion.isShowing()) {
                 informacion.show(IconoHelp, event.getScreenX() + 30, event.getScreenY() + 30);
@@ -23,7 +30,6 @@ public class InicioControlador implements Initializable {
             }
         });
     }
-
 
     public void initialize(URL url, ResourceBundle rb) {
         MensajeToolTip();

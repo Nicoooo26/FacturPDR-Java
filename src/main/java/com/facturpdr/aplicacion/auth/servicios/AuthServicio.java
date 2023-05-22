@@ -11,8 +11,8 @@ import com.facturpdr.aplicacion.usuarios.repositorios.UsuarioRepositorio;
 import com.facturpdr.aplicacion.usuarios.servicios.UsuarioServicio;
 
 public class AuthServicio {
-    UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
-    UsuarioServicio usuarioServicio = new UsuarioServicio();
+    private final UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
+    private final UsuarioServicio usuarioServicio = new UsuarioServicio();
 
     public void registrar(String nombreUsuario, String correoElectronico, String contrasena) throws NombreUsuarioExistenteException, CorreoElectronicoExistenteException, CrearUsuarioException {
         boolean existeCorreoElectronico = usuarioRepositorio.existeCorreoElectronico(correoElectronico);
@@ -37,6 +37,6 @@ public class AuthServicio {
         boolean estaVerificado = usuarioServicio.estaVerificado(usuario.getId());
         if (!estaVerificado) throw new NoVerificadoException();
 
-        return JWTUtilidad.generar("auth", 3600);
+        return JWTUtilidad.generar(usuario.getId(), 3600);
     }
 }

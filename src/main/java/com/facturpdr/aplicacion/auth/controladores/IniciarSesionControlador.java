@@ -10,16 +10,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class IniciarSesionControlador {
-
     public TextField correoElectronico;
 
     public PasswordField contrasena;
 
+    private final AuthServicio authServicio = new AuthServicio();
+    private final SesionServicio sesionServicio = new SesionServicio();
+
     @FXML
     public void manejarBotonAcceder() {
-        AuthServicio authServicio = new AuthServicio();
-        SesionServicio sesionServicio = new SesionServicio();
-
         if (correoElectronico.getText().isEmpty()) {
             AlertaUtilidad.error("Debes introducir un correo electrónico", "Por favor, introduce tu correo electrónico.");
             return;

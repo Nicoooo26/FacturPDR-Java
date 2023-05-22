@@ -23,12 +23,11 @@ public class RegistrarseControlador {
     @FXML
     public CheckBox politicasTerminos;
 
+    private final AuthServicio authServicio = new AuthServicio();
+    private final VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+
     @FXML
     public void manejarBotonRegistrarse() {
-        AuthServicio authServicio = new AuthServicio();
-
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-
         if (correoElectronico.getText().isEmpty()) {
             AlertaUtilidad.error("Debes introducir un correo electrónico", "Por favor, introduce tu correo electrónico");
             return;
@@ -93,7 +92,6 @@ public class RegistrarseControlador {
 
     @FXML
     public void manejarEscenaIniciarSesion() {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("auth/iniciar-sesion");
     }
 }
