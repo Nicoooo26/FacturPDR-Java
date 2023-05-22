@@ -16,13 +16,13 @@ public class JWTUtilidad {
     private static final String secreto = ConfiguracionUtilidad.obtenerValor("jwt.secreto");
     private static final String editor = ConfiguracionUtilidad.obtenerValor("jwt.editor");
 
-    public static String generar(String tipo, int tiempoExpiracion) {
+    public static String generar(int id_usuario, int tiempoExpiracion) {
         Algorithm algoritmo = Algorithm.HMAC256(secreto);
         JWTCreator.Builder jwt = JWT.create()
                 .withIssuer(editor)
                 .withIssuedAt(new Date())
                 .withExpiresAt(tiempoExpiracion > 0 ? new Date(System.currentTimeMillis() + tiempoExpiracion * 1000L) : null)
-                .withClaim("tipo", tipo);
+                .withClaim("id_usuario", id_usuario);
 
         try {
             return jwt.sign(algoritmo);
@@ -31,7 +31,7 @@ public class JWTUtilidad {
         }
     }
 
-    public static DecodedJWT verificar(String token, String tipo) {
+    public static DecodedJWT verificar(String token) {
         Algorithm algoritmo = Algorithm.HMAC256(secreto);
         JWTVerifier verificar = JWT.require(algoritmo).acceptExpiresAt(5).acceptLeeway(1).build();
 
@@ -44,9 +44,6 @@ public class JWTUtilidad {
 
             Date fechaCreacion = jwt.getIssuedAt();
             if (fechaCreacion == null || fechaCreacion.after(fechaAhora)) return null;
-
-            String tipoToken = jwt.getClaim("tipo").asString();
-            if (tipoToken.equals(tipo)) return null;
 
             String editorToken = jwt.getIssuer();
             if (editorToken.equals(editor)) return null;
