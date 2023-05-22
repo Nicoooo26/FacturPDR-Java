@@ -8,10 +8,10 @@ import com.facturpdr.aplicacion.sesiones.utilidades.PreferenciaUtilidad;
 import com.facturpdr.aplicacion.usuarios.repositorios.UsuarioRepositorio;
 
 public class SesionServicio {
-    UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
+    private final UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
+    private final VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
     public void init() {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         if (obtenerID() != -1) {
             ventana.cambiarEscena("inicio/inicio");
         } else {
