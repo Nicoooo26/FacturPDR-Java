@@ -8,7 +8,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.*;
-import com.facturpdr.aplicacion.clientes.modelo.Cliente;
+import com.facturpdr.aplicacion.clientes.modelos.Cliente;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;

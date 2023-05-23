@@ -1,4 +1,4 @@
-package com.facturpdr.aplicacion.clientes.modelo;
+package com.facturpdr.aplicacion.clientes.modelos;
 
 import javafx.beans.property.*;
 
