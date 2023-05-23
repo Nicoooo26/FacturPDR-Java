@@ -140,10 +140,34 @@ public class ClientesControlador implements Initializable{
     }
 
     @FXML
-    public void clickModificar(ActionEvent event)  {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-        ventana.cambiarEscena("clientes/modificar-cliente");
-    }
+    public void clickModificar(ActionEvent event) throws SQLException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/modificar_cliente.fxml"));
+        Parent root = loader.load();
+        ModificarClienteControlador controladora = loader.getController();
+
+        int selectedIndex = tablaClientes.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            // Obtener el valor de DNI correspondiente a la fila seleccionada
+            String dni = columnaDNI.getCellData(selectedIndex);
+            controladora.cargarDatos(dni);
+            controladora.setDNI(dni);
+            // Abrir la pantalla de modificación
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            Stage currentStage = (Stage) tablaClientes.getScene().getWindow();
+            currentStage.close();
+        } else {
+            // Mostrar un mensaje de error si no se selecciona ninguna fila en la TableView
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No se ha seleccionado ninguna fila");
+            alert.setContentText("Por favor, seleccione una fila en la tabla");
+            alert.showAndWait();
+
+        }
 
     @FXML
     public void clickEliminar(ActionEvent event) throws SQLException {

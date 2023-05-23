@@ -48,6 +48,12 @@ public class ModificarClienteControlador {
     public Button btnCancelar;
     @FXML
     public Button btnGuardar;
+
+    private String dniAntiguo;
+
+    public void setDNI(String dni) {
+        this.dniAntiguo=dni;
+    }
     @FXML
     public void clickCancelar(ActionEvent event) throws IOException {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
@@ -56,8 +62,12 @@ public class ModificarClienteControlador {
     }
     @FXML
     public void clickGuardar(ActionEvent event) throws IOException, NumberFormatException, SQLException {
+        BDExtension.conectarse();
+        Connection conn=BDExtension.conexion;
+        String consulta = "UPDATE CLIENTES SET DNI = ?, MOVIL = ?, NOMBRE = ?, APELLIDOS = ?, CUENTA = ?, EMAIL = ?, CIUDAD = ?, DIRECCION = ?, PAIS = ?, FIJO = ?, CODIGOPOSTAL = ?,NOMBRE_COMPLETO= ? WHERE DNI = ?";
+        PreparedStatement ps = null;
+
         if(datosValidos()) {
-            // Obtener los nuevos valores de los campos de texto
             String nuevoNombre = textNombre.getText();
             String nuevoApellidos = textApellidos.getText();
             int nuevoMovil = Integer.parseInt(textMovil.getText());
@@ -67,15 +77,8 @@ public class ModificarClienteControlador {
             String nuevaCiudad = textCiudad.getText();
             String nuevaDireccion = textDireccion.getText();
             String nuevoPais = textPais.getText();
-
-
             String nuevoNombreCompleto = nuevoNombre +" "+nuevoApellidos;
-            // Ejecutar una consulta UPDATE para actualizar los datos en la base de datos
-            BDExtension.conectarse();
-            Connection conn=BDExtension.conexion;
-            // Realizar la consulta SQL con el DNI almacenado en la variable 'dni'
-            String consulta = "UPDATE CLIENTES SET DNI = ?, MOVIL = ?, NOMBRE = ?, APELLIDOS = ?, CUENTA = ?, EMAIL = ?, CIUDAD = ?, DIRECCION = ?, PAIS = ?, FIJO = ?, CODIGOPOSTAL = ?,NOMBRE_COMPLETO= ? WHERE DNI = ?";
-            PreparedStatement ps = conn.prepareStatement(consulta);
+            ps = conn.prepareStatement(consulta);
             ps.setString(1, nuevoDNI);
             ps.setInt(2, nuevoMovil);
             ps.setString(3, nuevoNombre);
@@ -85,22 +88,24 @@ public class ModificarClienteControlador {
             ps.setString(7, nuevaCiudad);
             ps.setString(8, nuevaDireccion);
             ps.setString(9, nuevoPais);
-            if(textFijo.getText()=="0") {
-                ps.setNull(10, java.sql.Types.INTEGER);
-            }
-            else if (!textFijo.getText().isEmpty()) {
+            if(!textFijo.getText().isEmpty()) {
                 int nuevoFijo = Integer.parseInt(textFijo.getText());
                 ps.setInt(10, nuevoFijo);
+
             }
-            if(textCodigo.getText()=="0"){
-                ps.setNull(11, java.sql.Types.INTEGER);
+            else  {
+                ps.setNull(10, java.sql.Types.INTEGER);
             }
-            else if (!textCodigo.getText().isEmpty()) {
+            if(!textCodigo.getText().isEmpty()){
                 int nuevoCodigo = Integer.parseInt(textCodigo.getText());
                 ps.setInt(11, nuevoCodigo);
+
+            }
+            else  {
+                ps.setNull(11, java.sql.Types.INTEGER);
             }
             ps.setString(12, nuevoNombreCompleto);
-            ps.setString(13, nuevoDNI);
+            ps.setString(13, dniAntiguo);
 
             ps.executeUpdate();
             ps.close();
@@ -131,20 +136,24 @@ public class ModificarClienteControlador {
                 textDNI.setText(rs.getString("DNI"));
                 textApellidos.setText(rs.getString("APELLIDOS"));
                 textNombre.setText(rs.getString("NOMBRE"));
-
                 textMovil.setText(Integer.toString(rs.getInt("MOVIL")));
-
                 textEmail.setText(rs.getString("EMAIL"));
                 textCuenta.setText(rs.getString("CUENTA"));
                 textCiudad.setText(rs.getString("CIUDAD"));
                 textDireccion.setText(rs.getString("DIRECCION"));
                 textPais.setText(rs.getString("PAIS"));
-
-                textFijo.setText(Integer.toString(rs.getInt("FIJO")));
-
-
-                textCodigo.setText(Integer.toString(rs.getInt("CODIGOPOSTAL")));
-
+                String codigo=rs.getString("CODIGOPOSTAL");
+                String fijo=rs.getString("FIJO");
+                if (fijo != null && !fijo.isEmpty()) {
+                    textFijo.setText(Integer.toString(rs.getInt("FIJO")));
+                } else {
+                    textFijo.setText("");
+                }
+                if (codigo != null && !codigo.isEmpty()) {
+                    textCodigo.setText(Integer.toString(rs.getInt("CODIGOPOSTAL")));
+                } else {
+                    textCodigo.setText("");
+                }
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
