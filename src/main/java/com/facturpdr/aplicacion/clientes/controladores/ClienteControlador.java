@@ -59,8 +59,18 @@ public class ClienteControlador {
                 labelCiudad.setText(rs.getString("CIUDAD"));
                 labelDireccion.setText(rs.getString("DIRECCION"));
                 labelPais.setText(rs.getString("PAIS"));
-                labelFijo.setText(Integer.toString(rs.getInt("FIJO")));
-                labelCodigo.setText(Integer.toString(rs.getInt("CODIGOPOSTAL")));
+                String codigo=rs.getString("CODIGOPOSTAL");
+                String fijo=rs.getString("FIJO");
+                if (fijo != null && !fijo.isEmpty()) {
+                    labelFijo.setText(Integer.toString(rs.getInt("FIJO")));
+                } else {
+                    labelFijo.setText("");
+                }
+                if (codigo != null && !codigo.isEmpty()) {
+                    labelCodigo.setText(Integer.toString(rs.getInt("CODIGOPOSTAL")));
+                } else {
+                    labelCodigo.setText("");
+                }
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
