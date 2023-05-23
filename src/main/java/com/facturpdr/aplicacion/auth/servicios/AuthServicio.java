@@ -6,7 +6,6 @@ import com.facturpdr.aplicacion.auth.excepciones.NoVerificadoException;
 import com.facturpdr.aplicacion.auth.excepciones.NombreUsuarioExistenteException;
 import com.facturpdr.aplicacion.auth.modelos.Usuario;
 import com.facturpdr.aplicacion.auth.utilidades.HashUtilidad;
-import com.facturpdr.aplicacion.sesiones.utilidades.JWTUtilidad;
 import com.facturpdr.aplicacion.usuarios.repositorios.UsuarioRepositorio;
 import com.facturpdr.aplicacion.usuarios.servicios.UsuarioServicio;
 
@@ -27,16 +26,16 @@ public class AuthServicio {
         if (!estaCreado) throw new CrearUsuarioException();
     }
 
-    public String iniciarSesion(String correoElectronico, String contrasena) throws NoVerificadoException {
+    public int iniciarSesion(String correoElectronico, String contrasena) throws NoVerificadoException {
         Usuario usuario = usuarioRepositorio.obtenerUsuarioCorreo(correoElectronico);
-        if (usuario == null) return null;
+        if (usuario == null) return -1;
 
         String contrasenaHash = HashUtilidad.sha256(contrasena);
-        if (!usuario.getContrasena().equals(contrasenaHash)) return null;
+        if (!usuario.getContrasena().equals(contrasenaHash)) return -1;
 
         boolean estaVerificado = usuarioServicio.estaVerificado(usuario.getId());
         if (!estaVerificado) throw new NoVerificadoException();
 
-        return JWTUtilidad.generar(usuario.getId(), 3600);
+        return usuario.getId();
     }
 }

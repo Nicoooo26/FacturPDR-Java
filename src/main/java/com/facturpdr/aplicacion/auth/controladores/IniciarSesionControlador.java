@@ -16,6 +16,7 @@ public class IniciarSesionControlador {
 
     private final AuthServicio authServicio = new AuthServicio();
     private final SesionServicio sesionServicio = new SesionServicio();
+    private final VentanaExtension ventana = VentanaExtension.obtenerInstancia();
 
     @FXML
     public void manejarBotonAcceder() {
@@ -44,13 +45,13 @@ public class IniciarSesionControlador {
         */
 
         try {
-            String token = authServicio.iniciarSesion(correoElectronico.getText(), contrasena.getText());
-            if (token == null) {
+            int IDUsuario = authServicio.iniciarSesion(correoElectronico.getText(), contrasena.getText());
+            if (IDUsuario == -1) {
                 AlertaUtilidad.error("Error de autenticación", "El correo electronico o la contraseña no son validos, vuelve a intentarlo.");
                 return;
             }
 
-            sesionServicio.iniciarSesion(token);
+            sesionServicio.iniciarSesion(IDUsuario);
         } catch (NoVerificadoException e) {
             AlertaUtilidad.advertencia("Verificación de cuenta pendiente", "Por favor, verifica tu cuenta para completar esta acción. Hemos enviado un correo electrónico a tu cuenta con instrucciones sobre cómo hacerlo. ¡Gracias por tu comprensión!");
         }
@@ -58,13 +59,11 @@ public class IniciarSesionControlador {
 
     @FXML
     public void manejarEscenaRegistrarse() {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("auth/registrarse");
     }
 
     @FXML
     public void manejarEscenaOlvidarContrasena() {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("auth/olvidar-contrasena");
     }
 }

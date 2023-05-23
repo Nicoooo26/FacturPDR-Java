@@ -1,51 +1,39 @@
 package com.facturpdr.aplicacion.sesiones.servicios;
 
-import com.auth0.jwt.interfaces.DecodedJWT;
 import com.facturpdr.aplicacion.auth.modelos.Usuario;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
-import com.facturpdr.aplicacion.sesiones.utilidades.JWTUtilidad;
 import com.facturpdr.aplicacion.sesiones.utilidades.PreferenciaUtilidad;
 import com.facturpdr.aplicacion.usuarios.repositorios.UsuarioRepositorio;
 
 public class SesionServicio {
-    private final UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
     private final VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+    private final UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
 
-    public void init() {
-        if (obtenerID() != -1) {
-            ventana.cambiarEscena("inicio/inicio");
-        } else {
-            cerrarSesion();
+    public void inicio() {
+        int IDUsuario = PreferenciaUtilidad.obtenerIDUsuario();
+        if (IDUsuario == -1) {
+            ventana.cambiarEscena("auth/iniciar-sesion");
+            return;
         }
-    }
 
-    public int obtenerID() {
-        String token = PreferenciaUtilidad.obtenerJWT();
-        if (token == null) return -1;
+        Usuario usuario = usuarioRepositorio.obtenerUsuarioID(IDUsuario);
+        if (usuario == null) {
+            PreferenciaUtilidad.eliminarPrefencias();
+            ventana.cambiarEscena("auth/iniciar-sesion");
+            return;
+        }
 
-        DecodedJWT jwt = JWTUtilidad.verificar(token);
-        if (jwt == null) return -1;
-
-        int id_usuario = jwt.getClaim("id_usuario").asInt();
-
-        Usuario usuario = usuarioRepositorio.obtenerUsuarioID(id_usuario);
-        if (usuario == null) return -1;
-
-        return id_usuario;
+        ventana.cambiarEscena("inicio/inicio");
     }
 
     public void cerrarSesion() {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-
         PreferenciaUtilidad.eliminarPrefencias();
         ventana.cambiarEscena("auth/iniciar-sesion");
     }
 
-    public void iniciarSesion(String token) {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-
+    public void iniciarSesion(int IDUsuario) {
         PreferenciaUtilidad.eliminarPrefencias();
-        PreferenciaUtilidad.establecerJWT(token);
+        PreferenciaUtilidad.establecerIDUsuario(IDUsuario);
 
         ventana.cambiarEscena("inicio/inicio");
     }

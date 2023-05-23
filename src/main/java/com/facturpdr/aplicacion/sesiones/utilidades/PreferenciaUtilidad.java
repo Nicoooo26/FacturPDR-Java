@@ -5,7 +5,7 @@ import java.util.prefs.Preferences;
 
 public class PreferenciaUtilidad {
     private static final String NODO_NOMBRE = "com.facturpdr.aplicacion";
-    private static final String JWT_TOKEN_KEY = "jwt_token";
+    private static final String ID_USUARIO_KEY = "id_usuario";
     private static final Preferences nodo = Preferences.userRoot().node(NODO_NOMBRE);;
 
     public static void eliminarPrefencias() {
@@ -17,18 +17,18 @@ public class PreferenciaUtilidad {
             nodo.flush();
     } catch (BackingStoreException ignored) { }
     }
-    public static String obtenerJWT() {
-        return nodo.get(JWT_TOKEN_KEY, null);
+    public static int obtenerIDUsuario() {
+        return nodo.getInt(ID_USUARIO_KEY, -1);
     }
-    public static void establecerJWT(String token) {
+    public static void establecerIDUsuario(int id_usuario) {
         try {
-            nodo.put(JWT_TOKEN_KEY, token);
+            nodo.putInt(ID_USUARIO_KEY, id_usuario);
             nodo.flush();
         } catch (BackingStoreException ignored) { }
     }
-    public static void eliminarJWT() {
+    public static void eliminarIDUsuario() {
         try {
-            nodo.remove(JWT_TOKEN_KEY);
+            nodo.remove(ID_USUARIO_KEY);
             nodo.flush();
         } catch (BackingStoreException ignored) { }
     }
