@@ -6,7 +6,6 @@ import com.facturpdr.aplicacion.auth.excepciones.NombreUsuarioExistenteException
 import com.facturpdr.aplicacion.auth.servicios.AuthServicio;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
-import com.facturpdr.aplicacion.general.utilidades.CorreoUtilidad;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
@@ -88,7 +87,7 @@ public class RegistrarseControlador {
         }
 
         ventana.cambiarEscena("auth/iniciar-sesion");
-        AlertaUtilidad.informacion("¡Bienvenido a FacturPDR!", "Ahora podrás explorar todas las increíbles características y servicios que ofrecemos.");
+        AlertaUtilidad.informacion("¡Bienvenido! Confirma tu correo electronico", "Te hemos enviado un correo electrónico de verificación para activar tu cuenta. Por favor, revisa tu bandeja de entrada y sigue los pasos indicados.");
     }
 
     @FXML

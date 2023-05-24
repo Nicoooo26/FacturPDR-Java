@@ -7,6 +7,13 @@ import com.facturpdr.aplicacion.usuarios.repositorios.UsuarioRepositorio;
 public class UsuarioServicio {
     UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
 
+    public boolean estaVerificado(int id_usuario) {
+        Usuario usuario = usuarioRepositorio.obtenerUsuarioID(id_usuario);
+        if (usuario == null) return false;
+
+        return usuario.getEstaVerificado();
+    }
+
     public boolean cambiarContrasena(String contrasenaNueva, int id_usuario) {
         Usuario usuario = usuarioRepositorio.obtenerUsuarioID(id_usuario);
         if (usuario == null) return false;
