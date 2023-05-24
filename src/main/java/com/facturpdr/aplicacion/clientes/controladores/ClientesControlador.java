@@ -148,7 +148,7 @@ public class ClientesControlador implements Initializable{
             VentanaExtension ventana=VentanaExtension.obtenerInstancia();
             ventana.cambiarEscena("clientes/modificar-cliente");
         } else {
-            AlertaUtilidad.advertencia("Advertencia","Por favor, seleccione una fila en la tabla");
+            AlertaUtilidad.advertencia("Cliente no seleccionado","Por favor, seleccione una fila en la tabla");
         }
 
     }
@@ -180,7 +180,7 @@ public class ClientesControlador implements Initializable{
                 e.printStackTrace();
             }}
         else {
-            AlertaUtilidad.advertencia("Advertencia","Por favor, seleccione un cliente de la tabla");
+            AlertaUtilidad.advertencia("Cliente no seleccionado","Por favor, seleccione un cliente de la tabla");
         }
 
     }

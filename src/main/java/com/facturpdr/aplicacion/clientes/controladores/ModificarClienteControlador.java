@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
+import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -207,12 +208,7 @@ public class ModificarClienteControlador {
             return true;
         } else {
             //Muestro alerta y devuelvo false
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setTitle("Error");
-            alerta.setHeaderText("Datos no válidos");
-            alerta.setContentText("Por favor, corrige los errores");
-            alerta.setContentText(mensajeError);
-            alerta.showAndWait();
+            AlertaUtilidad.error("Datos no válidos",mensajeError);
             return false;
         }
 
