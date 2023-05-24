@@ -87,7 +87,7 @@ public class RegistrarseControlador {
         }
 
         ventana.cambiarEscena("auth/iniciar-sesion");
-        AlertaUtilidad.informacion("¡Bienvenido! Confirma tu correo electronico", "Te hemos enviado un correo electrónico de verificación para activar tu cuenta. Por favor, revisa tu bandeja de entrada y sigue los pasos indicados.");
+        AlertaUtilidad.informacion("¡Bienvenido a FacturPDR!", "Ahora podrás explorar todas las increíbles características y servicios que ofrecemos.");
     }
 
     @FXML

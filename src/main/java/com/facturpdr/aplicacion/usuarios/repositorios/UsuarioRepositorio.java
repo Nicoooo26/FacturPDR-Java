@@ -21,10 +21,9 @@ public class UsuarioRepositorio {
                 String nombreUsuario = resultado.getString("nombre_usuario");
                 String correoElectronico = resultado.getString("correo_electronico");
                 String contrasena = resultado.getString("contrasena");
-                boolean estaVerificado = resultado.getBoolean("esta_verificado");
                 Date fechaCreacion = resultado.getDate("fecha_creacion");
 
-                usuarios.add(new Usuario(id, nombreUsuario, correoElectronico, contrasena, estaVerificado, fechaCreacion));
+                usuarios.add(new Usuario(id, nombreUsuario, correoElectronico, contrasena, fechaCreacion));
             }
 
             return usuarios;
@@ -43,10 +42,9 @@ public class UsuarioRepositorio {
                 String nombreUsuario = resultado.getString("nombre_usuario");
                 String correoElectronico = resultado.getString("correo_electronico");
                 String contrasena = resultado.getString("contrasena");
-                boolean estaVerificado = resultado.getBoolean("esta_verificado");
                 Date fechaCreacion = resultado.getDate("fecha_creacion");
 
-                return new Usuario(id, nombreUsuario, correoElectronico, contrasena, estaVerificado, fechaCreacion);
+                return new Usuario(id, nombreUsuario, correoElectronico, contrasena, fechaCreacion);
             }
 
             return null;
@@ -64,10 +62,9 @@ public class UsuarioRepositorio {
                 String nombreUsuario = resultado.getString("nombre_usuario");
                 String correoElectronico = resultado.getString("correo_electronico");
                 String contrasena = resultado.getString("contrasena");
-                boolean estaVerificado = resultado.getBoolean("esta_verificado");
                 Date fechaCreacion = resultado.getDate("fecha_creacion");
 
-                return new Usuario(id, nombreUsuario, correoElectronico, contrasena, estaVerificado, fechaCreacion);
+                return new Usuario(id, nombreUsuario, correoElectronico, contrasena, fechaCreacion);
             }
 
             return null;
@@ -101,16 +98,6 @@ public class UsuarioRepositorio {
     public boolean crearUsuario(String nombreUsuario, String correoElectronico, String contrasena) {
         String sql = "insert into usuarios (nombre_usuario, correo_electronico, contrasena) values (?, ?, ?)";
         return BDExtension.actualizar(sql, nombreUsuario, correoElectronico, contrasena);
-    }
-
-    public boolean eliminarUsuario(int id_usuario) {
-        String sql = "delete from usuarios where id = ?";
-        return BDExtension.actualizar(sql, id_usuario);
-    }
-
-    public boolean verificarUsuario(int id_usuario) {
-        String sql = "update usuarios set esta_verificado = 1 where id = ?";
-        return BDExtension.actualizar(sql, id_usuario);
     }
 
     public boolean cambiarContrasena(String contrasena, int id_usuario) {

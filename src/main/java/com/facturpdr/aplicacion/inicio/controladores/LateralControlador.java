@@ -9,17 +9,16 @@ import javafx.scene.control.ButtonType;
 import java.util.Optional;
 
 public class LateralControlador {
+    private final VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+    private final SesionServicio sesionServicio = new SesionServicio();
 
     @FXML
     public void manejarInicio() {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("inicio/inicio");
     }
 
     @FXML
     public void manejarCerrarSesion() {
-        SesionServicio sesionServicio = new SesionServicio();
-
         Optional<ButtonType> cerrarSesion = AlertaUtilidad.confirmacion("Cerrar Sesión", null, "¿Estás seguro de que deseas cerrar sesión?", ButtonType.YES, ButtonType.NO);
         if (cerrarSesion.isPresent() && cerrarSesion.get() == ButtonType.YES) {
             sesionServicio.cerrarSesion();
@@ -27,13 +26,11 @@ public class LateralControlador {
     }
     @FXML
     public void manejarConfiguracion() {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("configuracion/configuracion");
     }
 
     @FXML
     public void manejarClientes() {
-        VentanaExtension ventana =VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("clientes/clientes");
     }
 }
