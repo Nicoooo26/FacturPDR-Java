@@ -1,6 +1,7 @@
 package com.facturpdr.aplicacion.clientes.controladores;
 
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
+import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
@@ -147,12 +148,7 @@ public class ClientesControlador implements Initializable{
             VentanaExtension ventana=VentanaExtension.obtenerInstancia();
             ventana.cambiarEscena("clientes/modificar-cliente");
         } else {
-            // Mostrar un mensaje de error si no se selecciona ninguna fila en la TableView
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("No se ha seleccionado ninguna fila");
-            alert.setContentText("Por favor, seleccione una fila en la tabla");
-            alert.showAndWait();
+            AlertaUtilidad.advertencia("Advertencia","Por favor, seleccione una fila en la tabla");
         }
 
     }
@@ -184,11 +180,7 @@ public class ClientesControlador implements Initializable{
                 e.printStackTrace();
             }}
         else {
-            Alert alerta = new Alert(AlertType.WARNING);
-            alerta.setTitle("Alerta");
-            alerta.setHeaderText("Cliente no seleccionado");
-            alerta.setContentText("Por favor, seleccione un cliente de la tabla");
-            alerta.showAndWait();
+            AlertaUtilidad.advertencia("Advertencia","Por favor, seleccione un cliente de la tabla");
         }
 
     }
