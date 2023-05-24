@@ -129,8 +129,7 @@ import javafx.event.ActionEvent;
                 System.out.println("Error al cerrar el objeto PreparedStatement: " + e.getMessage());
             }
             VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-            ventana.cambiarEscena("clientes/clientess");
-
+            ventana.cambiarEscena("clientes/clientes");
         }
         private boolean datosValidos() throws SQLException{
 
