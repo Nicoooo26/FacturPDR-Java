@@ -13,7 +13,7 @@
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox prefHeight="600.0" prefWidth="252.0">
-         <fx:include source="../inicio/panelateral.fxml" />
+         <fx:include source="../inicio/panel-lateral.fxml" />
       </VBox>
       <TabPane prefHeight="600.0" prefWidth="748.0" tabClosingPolicy="UNAVAILABLE">
          <tabs>
