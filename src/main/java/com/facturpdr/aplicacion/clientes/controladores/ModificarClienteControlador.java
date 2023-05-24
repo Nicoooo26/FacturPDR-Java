@@ -54,14 +54,15 @@ public class ModificarClienteControlador {
     public void setDNI(String dni) {
         this.dniAntiguo=dni;
     }
+
     @FXML
-    public void clickCancelar(ActionEvent event) throws IOException {
+    public void clickCancelar() {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("clientes/clientes");
-
     }
     @FXML
-    public void clickGuardar(ActionEvent event) throws IOException, NumberFormatException, SQLException {
+    public void clickGuardar() throws IOException, NumberFormatException, SQLException {
+
         BDExtension.conectarse();
         Connection conn=BDExtension.conexion;
         String consulta = "UPDATE CLIENTES SET DNI = ?, MOVIL = ?, NOMBRE = ?, APELLIDOS = ?, CUENTA = ?, EMAIL = ?, CIUDAD = ?, DIRECCION = ?, PAIS = ?, FIJO = ?, CODIGOPOSTAL = ?,NOMBRE_COMPLETO= ? WHERE DNI = ?";
@@ -109,15 +110,8 @@ public class ModificarClienteControlador {
 
             ps.executeUpdate();
             ps.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/clientes.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            //Cierra la pantalla actual
-            Stage currentStage = (Stage) btnCancelar.getScene().getWindow();
-            currentStage.close();
+            VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+            ventana.cambiarEscena("clientes/clientes");
         }
 
     }
@@ -154,6 +148,7 @@ public class ModificarClienteControlador {
                 } else {
                     textCodigo.setText("");
                 }
+
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -161,7 +156,7 @@ public class ModificarClienteControlador {
 
 
     }
-    private boolean datosValidos() throws SQLException{
+    private boolean datosValidos() {
 
         //Inicializo string paramensajes
         String mensajeError = "";
@@ -185,6 +180,7 @@ public class ModificarClienteControlador {
         else if(!textDNI.getText().isEmpty() && !textDNI.getText().matches("\\d{8}[A-HJ-NP-TV-Z]")) {
             mensajeError += "El formato 'DNI' no es válido.\n";
         }
+
         if (textMovil.getText().isEmpty()) {
             mensajeError += "El campo 'Movil' es obligatorio.\n";
         }
@@ -192,18 +188,16 @@ public class ModificarClienteControlador {
             mensajeError += "El formato 'movil' no es válido.\n";
         }
 
-        if(!textEmail.getText().matches("[a-zA-Z0-9_+&*-]+(?:\\."+
-                "[a-zA-Z0-9_+&*-]+)*@" +
-                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                "A-Z]{2,7}") && !textEmail.getText().isEmpty()) {
+        if(!textEmail.getText().isEmpty() || textEmail.getText()!=null && !textEmail.getText().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
+                "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") ) {
             mensajeError += "El formato 'email' no es válido.\n";
         }
 
-        if(textCodigo.getText()!="0" || !textCodigo.getText().matches("^\\d{5}$")) {
+        if(!textCodigo.getText().isEmpty() && !textCodigo.getText().matches("^\\d{5}$")) {
             mensajeError += "El formato 'codigo postal' no es válido.\n";
         }
 
-        if(textFijo.getText()!="0" || !textFijo.getText().matches("^9\\d{8}$")) {
+        if(!textFijo.getText().isEmpty() && !textFijo.getText().matches("^9\\d{8}$")) {
             mensajeError += "El formato 'fijo' no es válido.\n";
         }
 
