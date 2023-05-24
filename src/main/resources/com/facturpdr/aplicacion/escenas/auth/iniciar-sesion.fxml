@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.auth.controladores.IniciarSesionControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.auth.controladores.IniciarSesionControlador">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="601.0">
          <children>
@@ -44,13 +38,12 @@
                </opaqueInsets>
             </TextField>
             <PasswordField fx:id="contrasena" layoutX="25.0" layoutY="273.0" prefHeight="40.0" prefWidth="348.0" promptText="Contraseña" style="-fx-background-color: #262626; -fx-text-fill: #FFFFFF;" />
-            <Button layoutX="28.0" layoutY="360.0" mnemonicParsing="false" onAction="#manejarBotonAcceder" prefHeight="40.0" prefWidth="348.0" style="-fx-background-color: #84CC16;" text="Acceder" textFill="WHITE">
+            <Button layoutX="28.0" layoutY="325.0" mnemonicParsing="false" onAction="#manejarBotonAcceder" prefHeight="40.0" prefWidth="348.0" style="-fx-background-color: #84CC16;" text="Acceder" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Hyperlink onAction="#manejarEscenaOlvidarContrasena" alignment="CENTER" layoutX="26.0" layoutY="327.0" prefHeight="22.0" prefWidth="348.0" text="¿Has olvidado tu contraseña?" textAlignment="RIGHT" textFill="#84cc16" />
-            <Hyperlink onAction="#manejarEscenaRegistrarse" alignment="CENTER" layoutX="28.0" layoutY="412.0" prefHeight="22.0" prefWidth="348.0" text="¿No eres miembro? Registrate ahora" textAlignment="RIGHT" textFill="#84cc16" />
+            <Hyperlink alignment="CENTER" layoutX="28.0" layoutY="377.0" onAction="#manejarEscenaRegistrarse" prefHeight="22.0" prefWidth="348.0" text="¿No eres miembro? Registrate ahora" textAlignment="RIGHT" textFill="#84cc16" />
          </children>
       </AnchorPane>
    </children>

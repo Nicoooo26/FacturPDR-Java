@@ -2,16 +2,13 @@ package com.facturpdr.aplicacion.auth.servicios;
 
 import com.facturpdr.aplicacion.auth.excepciones.CorreoElectronicoExistenteException;
 import com.facturpdr.aplicacion.auth.excepciones.CrearUsuarioException;
-import com.facturpdr.aplicacion.auth.excepciones.NoVerificadoException;
 import com.facturpdr.aplicacion.auth.excepciones.NombreUsuarioExistenteException;
 import com.facturpdr.aplicacion.auth.modelos.Usuario;
 import com.facturpdr.aplicacion.auth.utilidades.HashUtilidad;
 import com.facturpdr.aplicacion.usuarios.repositorios.UsuarioRepositorio;
-import com.facturpdr.aplicacion.usuarios.servicios.UsuarioServicio;
 
 public class AuthServicio {
     private final UsuarioRepositorio usuarioRepositorio = new UsuarioRepositorio();
-    private final UsuarioServicio usuarioServicio = new UsuarioServicio();
 
     public void registrar(String nombreUsuario, String correoElectronico, String contrasena) throws NombreUsuarioExistenteException, CorreoElectronicoExistenteException, CrearUsuarioException {
         boolean existeCorreoElectronico = usuarioRepositorio.existeCorreoElectronico(correoElectronico);
@@ -26,15 +23,12 @@ public class AuthServicio {
         if (!estaCreado) throw new CrearUsuarioException();
     }
 
-    public int iniciarSesion(String correoElectronico, String contrasena) throws NoVerificadoException {
+    public int iniciarSesion(String correoElectronico, String contrasena) {
         Usuario usuario = usuarioRepositorio.obtenerUsuarioCorreo(correoElectronico);
         if (usuario == null) return -1;
 
         String contrasenaHash = HashUtilidad.sha256(contrasena);
         if (!usuario.getContrasena().equals(contrasenaHash)) return -1;
-
-        boolean estaVerificado = usuarioServicio.estaVerificado(usuario.getId());
-        if (!estaVerificado) throw new NoVerificadoException();
 
         return usuario.getId();
     }

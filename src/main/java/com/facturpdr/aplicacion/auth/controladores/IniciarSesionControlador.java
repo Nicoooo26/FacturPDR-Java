@@ -1,6 +1,5 @@
 package com.facturpdr.aplicacion.auth.controladores;
 
-import com.facturpdr.aplicacion.auth.excepciones.NoVerificadoException;
 import com.facturpdr.aplicacion.auth.servicios.AuthServicio;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
@@ -44,17 +43,13 @@ public class IniciarSesionControlador {
         }
         */
 
-        try {
-            int IDUsuario = authServicio.iniciarSesion(correoElectronico.getText(), contrasena.getText());
-            if (IDUsuario == -1) {
-                AlertaUtilidad.error("Error de autenticación", "El correo electronico o la contraseña no son validos, vuelve a intentarlo.");
-                return;
-            }
-
-            sesionServicio.iniciarSesion(IDUsuario);
-        } catch (NoVerificadoException e) {
-            AlertaUtilidad.advertencia("Verificación de cuenta pendiente", "Por favor, verifica tu cuenta para completar esta acción. Hemos enviado un correo electrónico a tu cuenta con instrucciones sobre cómo hacerlo. ¡Gracias por tu comprensión!");
+        int IDUsuario = authServicio.iniciarSesion(correoElectronico.getText(), contrasena.getText());
+        if (IDUsuario == -1) {
+            AlertaUtilidad.error("Error de autenticación", "El correo electronico o la contraseña no son validos, vuelve a intentarlo.");
+            return;
         }
+
+        sesionServicio.iniciarSesion(IDUsuario);
     }
 
     @FXML

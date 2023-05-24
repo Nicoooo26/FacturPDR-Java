@@ -7,15 +7,13 @@ public class Usuario {
     private String nombreUsuario;
     private String correoElectronico;
     private String contrasena;
-    private Boolean estaVerificado;
     private Date fechaCreacion;
 
-    public Usuario(int id, String nombreUsuario, String correoElectronico, String contrasena, Boolean estaVerificado, Date fechaCreacion) {
+    public Usuario(int id, String nombreUsuario, String correoElectronico, String contrasena, Date fechaCreacion) {
         this.id = id;
         this.nombreUsuario = nombreUsuario;
         this.correoElectronico = correoElectronico;
         this.contrasena = contrasena;
-        this.estaVerificado = estaVerificado;
         this.fechaCreacion = fechaCreacion;
     }
 
@@ -49,14 +47,6 @@ public class Usuario {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
-    }
-
-    public Boolean getEstaVerificado() {
-        return estaVerificado;
-    }
-
-    public void setEstaVerificado(Boolean estaVerificado) {
-        this.estaVerificado = estaVerificado;
     }
 
     public Date getFechaCreacion() {
