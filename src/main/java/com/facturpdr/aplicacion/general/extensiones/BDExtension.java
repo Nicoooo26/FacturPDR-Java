@@ -13,7 +13,7 @@ public class BDExtension {
     public static Connection conexion = null;
     private static PreparedStatement sentencia = null;
 
-    private static void conectarse() throws SQLException {
+    public static void conectarse() throws SQLException {
         if (conexion == null || conexion.isClosed()) {
             conexion = (Connection) DriverManager.getConnection(url, usuario, contrasena);
         }

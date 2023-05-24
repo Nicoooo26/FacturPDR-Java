@@ -1,11 +1,9 @@
 package com.facturpdr.aplicacion.clientes.controladores;
 
-import java.io.IOException;
 import java.sql.*;
 
 import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
-import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 
@@ -83,7 +81,7 @@ public class ClienteControlador {
 
 
     @FXML
-    private void clickBack(ActionEvent event) throws IOException {
+   public void clickBack(){
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("clientes/clientes");
 
