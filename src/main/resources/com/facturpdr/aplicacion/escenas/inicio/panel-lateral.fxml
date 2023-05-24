@@ -15,7 +15,7 @@
                     <Label layoutX="86.0" layoutY="45.0" prefHeight="31.0" prefWidth="119.0" style="-fx-font-size: 18;" text="FACTUR PDR" />
                 </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" mnemonicParsing="false" onAction="#manejarInicio" prefHeight="37.0" prefWidth="350.0" text="Home">
+            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" mnemonicParsing="false" onAction="#manejarInicio" prefHeight="37.0" prefWidth="350.0" text="Inicio">
                 <graphic>
                     <FontAwesomeIconView glyphName="HOME" />
                 </graphic>

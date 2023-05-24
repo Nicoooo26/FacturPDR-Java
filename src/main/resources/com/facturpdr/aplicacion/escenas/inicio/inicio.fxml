@@ -8,7 +8,7 @@
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../estilos/inicio.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.inicio.controladores.InicioControlador">
     <children>
         <VBox prefHeight="600.0" prefWidth="252.0">
-            <fx:include source="panelateral.fxml" />
+            <fx:include source="panel-lateral.fxml" />
         </VBox>
         <AnchorPane prefHeight="600.0" prefWidth="748.0">
          <children>
