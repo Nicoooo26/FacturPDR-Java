@@ -75,36 +75,27 @@ public class ClientesControlador implements Initializable{
         columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("movil"));
         columnaCuenta.setCellValueFactory(new PropertyValueFactory<>("cuenta"));
         tablaClientes.setItems(clientes);
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../../../resources/com.facturpdr.aplicacion/clientes/cliente.fxml"));
-            Parent root = loader.load();
-            ClienteControlador controladora = loader.getController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("com/facturpdr/aplicacion/escenas/clientes/cliente.fxml"));
+        ClienteControlador controladora = loader.getController();
 
 
-            tablaClientes.setOnMouseClicked((MouseEvent event) -> {
-                if (event.getClickCount() == 2) {
-                    Cliente clienteSeleccionado = tablaClientes.getSelectionModel().getSelectedItem();
-                    if (clienteSeleccionado != null) {
-                        String dni = clienteSeleccionado.getDNI();
-                        try {
-                            controladora.cargarDatos(dni);
-                        } catch (SQLException e) {
-                            throw new RuntimeException(e);
-                        }
-                        Scene scene = new Scene(root);
-                        Stage stage = new Stage();
-                        stage.setScene(scene);
-                        stage.show();
-                        Stage currentStage = (Stage) tablaClientes.getScene().getWindow();
-                        currentStage.close();
+        tablaClientes.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getClickCount() == 2) {
+                Cliente clienteSeleccionado = tablaClientes.getSelectionModel().getSelectedItem();
+                if (clienteSeleccionado != null) {
+                    String dni = clienteSeleccionado.getDNI();
+                    try {
+                        controladora.cargarDatos(dni);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
                     }
+                    VentanaExtension ventana=VentanaExtension.obtenerInstancia();
+                    ventana.cambiarEscena("clientes/cliente");
                 }
-            });
+            }
+        });
 
-            // código para cargar los datos en la tabla
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        // código para cargar los datos en la tabla
 
         // Crear FilteredList a partir de la lista observable de productos
         FilteredList<Cliente> clientesFiltrados = new FilteredList<>(clientes);
@@ -134,15 +125,16 @@ public class ClientesControlador implements Initializable{
     }
 
     @FXML
-    public void clickNuevo(ActionEvent event) throws IOException{
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-        ventana.cambiarEscena("clientes/crear-cliente");
-    }
+    public void clickNuevo() {
+        // Cargar la nueva pantalla FXML
+       VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+       ventana.cambiarEscena("clientes/crear-cliente");
 
+    }
+    // Event Listener on Button.onAction
     @FXML
-    public void clickModificar(ActionEvent event) throws SQLException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../vistas/modificar_cliente.fxml"));
-        Parent root = loader.load();
+    public void clickModificar() throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("com/facturpdr/aplicacion/escenas/clientes/modificar-cliente.fxml"));
         ModificarClienteControlador controladora = loader.getController();
 
         int selectedIndex = tablaClientes.getSelectionModel().getSelectedIndex();
@@ -152,13 +144,8 @@ public class ClientesControlador implements Initializable{
             controladora.cargarDatos(dni);
             controladora.setDNI(dni);
             // Abrir la pantalla de modificación
-
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            Stage currentStage = (Stage) tablaClientes.getScene().getWindow();
-            currentStage.close();
+            VentanaExtension ventana=VentanaExtension.obtenerInstancia();
+            ventana.cambiarEscena("clientes/modificar-cliente");
         } else {
             // Mostrar un mensaje de error si no se selecciona ninguna fila en la TableView
             Alert alert = new Alert(AlertType.ERROR);
@@ -166,11 +153,12 @@ public class ClientesControlador implements Initializable{
             alert.setHeaderText("No se ha seleccionado ninguna fila");
             alert.setContentText("Por favor, seleccione una fila en la tabla");
             alert.showAndWait();
-
         }
 
+    }
+    // Event Listener on Button.onAction
     @FXML
-    public void clickEliminar(ActionEvent event) throws SQLException {
+    public void clickEliminar() throws SQLException {
         // Obtener el índice de la fila seleccionada
         int selectedIndex = tablaClientes.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) { // Se ha seleccionado una fila
@@ -185,10 +173,6 @@ public class ClientesControlador implements Initializable{
                 statement.setString(1, dni);
                 statement.executeUpdate();
 
-                // Eliminar la fila de la TableView
-
-                // Eliminar el elemento de la lista
-                listaEliminar.remove(selectedIndex);
 
                 // Actualizar la tabla manualmente
                 tablaClientes.setItems(FXCollections.observableArrayList(listaEliminar));
@@ -209,7 +193,7 @@ public class ClientesControlador implements Initializable{
 
     }
     @FXML
-    public void clickActualizar(ActionEvent event)  {
+    public void clickActualizar() throws IOException {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("clientes/clientes");
     }
