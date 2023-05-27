@@ -189,10 +189,6 @@ public class ModificarClienteControlador {
             mensajeError += "El formato 'movil' no es válido.\n";
         }
 
-        if(!textEmail.getText().isEmpty() || textEmail.getText()!=null && !textEmail.getText().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" +
-                "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$") ) {
-            mensajeError += "El formato 'email' no es válido.\n";
-        }
 
         if(!textCodigo.getText().isEmpty() && !textCodigo.getText().matches("^\\d{5}$")) {
             mensajeError += "El formato 'codigo postal' no es válido.\n";
