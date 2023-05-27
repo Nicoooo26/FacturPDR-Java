@@ -70,15 +70,15 @@ public class ModificarClienteControlador {
         PreparedStatement ps = null;
 
         if(datosValidos()) {
-            String nuevoNombre = textNombre.getText();
-            String nuevoApellidos = textApellidos.getText();
+            String nuevoNombre = textNombre.getText().toUpperCase();
+            String nuevoApellidos = textApellidos.getText().toUpperCase();
             int nuevoMovil = Integer.parseInt(textMovil.getText());
             String nuevoDNI = textDNI.getText();
-            String nuevoEmail = textEmail.getText();
+            String nuevoEmail = textEmail.getText().toUpperCase();
             String nuevaCuenta = textCuenta.getText();
-            String nuevaCiudad = textCiudad.getText();
-            String nuevaDireccion = textDireccion.getText();
-            String nuevoPais = textPais.getText();
+            String nuevaCiudad = textCiudad.getText().toUpperCase();
+            String nuevaDireccion = textDireccion.getText().toUpperCase();
+            String nuevoPais = textPais.getText().toUpperCase();
             String nuevoNombreCompleto = nuevoNombre +" "+nuevoApellidos;
             ps = conn.prepareStatement(consulta);
             ps.setString(1, nuevoDNI);
