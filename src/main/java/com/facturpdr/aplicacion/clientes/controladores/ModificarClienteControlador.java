@@ -14,49 +14,121 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 
+/**
+ * Controlador para modificar los datos de un cliente.
+ */
 public class ModificarClienteControlador {
 
+    /**
+     * Campo de texto para el nombre del cliente.
+     */
     @FXML
     public TextField textNombre;
+
+    /**
+     * Campo de texto para el DNI del cliente.
+     */
     @FXML
     public TextField textDNI;
+
+    /**
+     * Campo de texto para el número de teléfono móvil del cliente.
+     */
     @FXML
     public TextField textMovil;
+
+    /**
+     * Campo de texto para los apellidos del cliente.
+     */
     @FXML
     public TextField textApellidos;
+
+    /**
+     * Campo de texto para el correo electrónico del cliente.
+     */
     @FXML
     public TextField textEmail;
+
+    /**
+     * Campo de texto para el número de cuenta del cliente.
+     */
     @FXML
     public TextField textCuenta;
+
+    /**
+     * Campo de texto para la ciudad del cliente.
+     */
     @FXML
     public TextField textCiudad;
+
+    /**
+     * Campo de texto para la dirección del cliente.
+     */
     @FXML
     public TextField textDireccion;
+
+    /**
+     * Campo de texto para el país del cliente.
+     */
     @FXML
     public TextField textPais;
+
+    /**
+     * Campo de texto para el número de teléfono fijo del cliente.
+     */
     @FXML
     public TextField textFijo;
+
+    /**
+     * Campo de texto para el código postal del cliente.
+     */
     @FXML
     public TextField textCodigo;
 
+    /**
+     * Botón de cancelar.
+     */
     @FXML
     public Button btnCancelar;
+
+    /**
+     * Botón de guardar.
+     */
     @FXML
     public Button btnGuardar;
 
+    /**
+     * DNI anterior del cliente.
+     */
     private String dniAntiguo;
 
+    /**
+     * Establece el DNI anterior del cliente.
+     *
+     * @param dni El DNI anterior del cliente.
+     */
     public void setDNI(String dni) {
-        this.dniAntiguo=dni;
+        this.dniAntiguo = dni;
     }
 
+    /**
+     * Maneja el evento de hacer clic en el botón Cancelar.
+     * Cambia la escena a la vista de clientes.
+     */
     @FXML
     public void clickCancelar() {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("clientes/clientes");
     }
+
+    /**
+     * Maneja el evento de hacer clic en el botón Guardar.
+     *
+     * @throws NumberFormatException    Si ocurre un error de formato de número.
+     * @throws SQLException             Si ocurre un error de base de datos.
+     */
     @FXML
-    public void clickGuardar() throws IOException, NumberFormatException, SQLException {
+    public void clickGuardar() throws NumberFormatException, SQLException {
 
         BDExtension.conectarse();
         Connection conn=BDExtension.conexion;
@@ -111,6 +183,12 @@ public class ModificarClienteControlador {
 
     }
 
+    /**
+     * Carga los datos del cliente con el DNI especificado.
+     *
+     * @param dni El DNI del cliente.
+     * @throws SQLException Si ocurre un error de base de datos.
+     */
     public void cargarDatos(String dni) throws SQLException {
         BDExtension.conectarse();
         Connection conn=BDExtension.conexion;
@@ -150,6 +228,12 @@ public class ModificarClienteControlador {
 
 
     }
+
+    /**
+     * Verifica si los datos ingresados por el usuario son válidos.
+     *
+     * @return true si los datos son válidos, false de lo contrario.
+     */
     private boolean datosValidos() {
 
         String mensajeError = "";

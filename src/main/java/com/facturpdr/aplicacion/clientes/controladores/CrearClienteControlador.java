@@ -13,7 +13,7 @@ import java.sql.*;
 import java.util.Random;
 
 
-    public class CrearClienteControlador{
+public class CrearClienteControlador{
 
         @FXML
         public TextField textNombre;
@@ -292,6 +292,6 @@ import java.util.Random;
             stmt.close();
             return existe;
         }
-    }
+}
 
 
