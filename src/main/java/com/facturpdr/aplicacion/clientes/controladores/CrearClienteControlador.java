@@ -167,7 +167,7 @@ public class CrearClienteControlador{
             if (textMovil.getText().isEmpty()) {
                 mensajeError += "El campo 'Movil' es obligatorio.\n";
             }
-            else if(!textMovil.getText().isEmpty() && !textMovil.getText().matches("^6\\d{8}$")) {
+            else if(!textMovil.getText().isEmpty() && !textMovil.getText().matches("^[67]\\d{8}$")) {
                 mensajeError += "El formato 'movil' no es válido.\n";
             }
             if(existeMovil(Integer.parseInt(textMovil.getText()))) {
