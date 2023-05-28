@@ -42,10 +42,6 @@ public class BDExtension {
             return sentencia.executeQuery();
         } catch (SQLException e) {
             return null;
-        } finally {
-            try {
-                desconectarse();
-            } catch (SQLException ignored) { }
         }
     }
 
@@ -61,14 +57,7 @@ public class BDExtension {
             sentencia.executeUpdate();
             return true;
         } catch (SQLException e) {
-            System.out.println(e);
             return false;
-        } finally {
-            try {
-                desconectarse();
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
         }
     }
 }
