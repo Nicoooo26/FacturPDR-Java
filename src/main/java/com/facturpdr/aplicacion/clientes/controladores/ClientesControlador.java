@@ -120,19 +120,16 @@ public class ClientesControlador implements Initializable{
             });
         });
 
-        // Establecer FilteredList como el items del TableView
         tablaClientes.setItems(clientesFiltrados);
 
     }
 
     @FXML
     public void clickNuevo() {
-        // Cargar la nueva pantalla FXML
        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
        ventana.cambiarEscena("clientes/crear-cliente");
 
     }
-    // Event Listener on Button.onAction
     @FXML
     public void clickModificar() throws IOException, SQLException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("com/facturpdr/aplicacion/escenas/clientes/modificar-cliente.fxml"));
@@ -140,11 +137,9 @@ public class ClientesControlador implements Initializable{
 
         int selectedIndex = tablaClientes.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
-            // Obtener el valor de DNI correspondiente a la fila seleccionada
             String dni = columnaDNI.getCellData(selectedIndex);
             controladora.cargarDatos(dni);
             controladora.setDNI(dni);
-            // Abrir la pantalla de modificación
             VentanaExtension ventana=VentanaExtension.obtenerInstancia();
             ventana.cambiarEscena("clientes/modificar-cliente");
         } else {
@@ -152,28 +147,20 @@ public class ClientesControlador implements Initializable{
         }
 
     }
-    // Event Listener on Button.onAction
     @FXML
     public void clickEliminar() throws SQLException {
-        // Obtener el índice de la fila seleccionada
         int selectedIndex = tablaClientes.getSelectionModel().getSelectedIndex();
-        if (selectedIndex >= 0) { // Se ha seleccionado una fila
-            // Obtener el DNI de la fila seleccionada (suponiendo que el DNI está en la primera columna)
+        if (selectedIndex >= 0) {
             String dni = columnaDNI.getCellData(selectedIndex);
             BDExtension.conectarse();
             Connection conn = BDExtension.conexion;
-            // Ejecutar la consulta DELETE
             try {
                 String query = "DELETE FROM CLIENTES WHERE DNI = ?";
                 PreparedStatement statement = conn.prepareStatement(query);
                 statement.setString(1, dni);
                 statement.executeUpdate();
-
-
-                // Actualizar la tabla manualmente
                 tablaClientes.setItems(FXCollections.observableArrayList(listaEliminar));
                 tablaClientes.refresh();
-                // Actualizar la tabla en SQL Developer
                 Statement refreshStatement = conn.createStatement();
                 refreshStatement.execute("COMMIT");
             } catch (SQLException e) {

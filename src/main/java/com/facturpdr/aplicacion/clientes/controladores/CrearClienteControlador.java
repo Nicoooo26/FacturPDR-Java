@@ -1,6 +1,7 @@
 package com.facturpdr.aplicacion.clientes.controladores;
 
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
+import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -114,7 +115,6 @@ import javafx.event.ActionEvent;
                 throw new SQLException("Error:Los datos no son válidos.");
             }
 
-            // Ejecuta la consulta
             try {
                 int rowsAffected = stmt.executeUpdate();
                 System.out.println(rowsAffected + " filas insertadas.");
@@ -122,7 +122,6 @@ import javafx.event.ActionEvent;
                 System.out.println("Error al ejecutar la consulta: " + e.getMessage());
             }
 
-            // Cierra el objeto PreparedStatement
             try {
                 stmt.close();
             } catch (SQLException e) {
@@ -133,10 +132,8 @@ import javafx.event.ActionEvent;
         }
         private boolean datosValidos() throws SQLException{
 
-            //Inicializo string paramensajes
             String mensajeError = "";
 
-            //Compruebo los campos
             if (textNombre.getText().isEmpty()) {
                 mensajeError += "El campo 'nombre' es obligatorio.\n";
             }
@@ -183,17 +180,10 @@ import javafx.event.ActionEvent;
             }
 
 
-            //Si no hay errores devuelvo true, si no, una alerta con los errores y false
             if (mensajeError.length() == 0) {
                 return true;
             } else {
-                //Muestro alerta y devuelvo false
-                Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setTitle("Error");
-                alerta.setHeaderText("Datos no válidos");
-                alerta.setContentText("Por favor, corrige los errores");
-                alerta.setContentText(mensajeError);
-                alerta.showAndWait();
+                AlertaUtilidad.error("Datos no válidos",mensajeError);
                 return false;
             }
 
@@ -203,8 +193,8 @@ import javafx.event.ActionEvent;
             int id;
 
             do {
-                id = random.nextInt(90000) + 10000; // Genera un número aleatorio de 5 dígitos
-            } while (existeID(id)); // Comprueba si el ID generado ya existe en la base de datos
+                id = random.nextInt(90000) + 10000;
+            } while (existeID(id));
 
             return id;
         }

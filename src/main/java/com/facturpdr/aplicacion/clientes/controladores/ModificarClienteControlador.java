@@ -9,15 +9,9 @@ import java.sql.SQLException;
 import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 
 public class ModificarClienteControlador {
@@ -120,7 +114,6 @@ public class ModificarClienteControlador {
     public void cargarDatos(String dni) throws SQLException {
         BDExtension.conectarse();
         Connection conn=BDExtension.conexion;
-        // Realizar la consulta SQL con el DNI almacenado en la variable 'dni'
         String query = "SELECT NOMBRE,APELLIDOS,DNI,MOVIL,CUENTA,EMAIL,CIUDAD,DIRECCION,PAIS,FIJO,CODIGOPOSTAL FROM CLIENTES WHERE DNI = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(query);
@@ -159,10 +152,8 @@ public class ModificarClienteControlador {
     }
     private boolean datosValidos() {
 
-        //Inicializo string paramensajes
         String mensajeError = "";
 
-        //Compruebo los campos
         if (textNombre.getText().isEmpty()) {
             mensajeError += "El campo 'nombre' es obligatorio.\n";
         }
@@ -199,11 +190,10 @@ public class ModificarClienteControlador {
         }
 
 
-        //Si no hay errores devuelvo true, si no, una alerta con los errores y false
         if (mensajeError.length() == 0) {
             return true;
         } else {
-            //Muestro alerta y devuelvo false
+
             AlertaUtilidad.error("Datos no válidos",mensajeError);
             return false;
         }

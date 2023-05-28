@@ -40,7 +40,6 @@ public class ClienteControlador {
     public void cargarDatos(String dni) throws SQLException {
         BDExtension.conectarse();
         Connection conn=BDExtension.conexion;
-        // Realizar la consulta SQL con el DNI almacenado en la variable 'dni'
         String query = "SELECT NOMBRE,APELLIDOS,DNI,MOVIL,CUENTA,EMAIL,CIUDAD,DIRECCION,PAIS,FIJO,CODIGOPOSTAL FROM CLIENTES WHERE DNI = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(query);
