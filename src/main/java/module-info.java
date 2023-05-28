@@ -8,10 +8,10 @@ module com.facturpdr.aplicacion {
     requires net.synedra.validatorfx;
     requires org.mariadb.jdbc;
     requires de.jensd.fx.glyphs.fontawesome;
-    requires com.auth0.jwt;
     requires java.prefs;
     requires com.jfoenix;
     requires java.mail;
+    requires com.oracle.database.jdbc;
 
     opens com.facturpdr.aplicacion to javafx.graphics,javafx.fxml;
     opens com.facturpdr.aplicacion.inicio.controladores to javafx.fxml;

@@ -45,11 +45,11 @@ dependencies {
   implementation 'org.mariadb.jdbc:mariadb-java-client:3.1.2'
   implementation 'de.jensd:fontawesomefx-fontawesome:4.7.0-9.1.2'
   implementation 'commons-io:commons-io:2.11.0'
-  implementation 'com.auth0:java-jwt:4.3.0'
   implementation 'com.jfoenix:jfoenix:9.0.10'
   implementation 'com.sun.mail:javax.mail:1.6.2'
+    implementation 'com.oracle.database.jdbc:ojdbc8:21.9.0.0'
 
-  testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 

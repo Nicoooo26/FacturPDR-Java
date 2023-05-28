@@ -1,7 +1,6 @@
 package com.facturpdr.aplicacion.general.extensiones;
 
 import com.facturpdr.aplicacion.general.utilidades.ConfiguracionUtilidad;
-import org.mariadb.jdbc.Connection;
 
 import java.sql.*;
 
@@ -15,7 +14,10 @@ public class BDExtension {
 
     public static void conectarse() throws SQLException {
         if (conexion == null || conexion.isClosed()) {
-            conexion = (Connection) DriverManager.getConnection(url, usuario, contrasena);
+            try {
+                Class.forName("oracle.jdbc.OracleDriver");
+            } catch (ClassNotFoundException ignore) { }
+            conexion = DriverManager.getConnection(url, usuario, contrasena);
         }
     }
 
@@ -59,11 +61,14 @@ public class BDExtension {
             sentencia.executeUpdate();
             return true;
         } catch (SQLException e) {
+            System.out.println(e);
             return false;
         } finally {
             try {
                 desconectarse();
-            } catch (SQLException ignored) { }
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
         }
     }
 }
