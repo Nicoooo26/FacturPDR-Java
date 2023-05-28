@@ -1,104 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<?import javafx.geometry.Insets?>
-<VBox alignment="CENTER" spacing="20" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-<VBox id="personal-info-box" spacing="10">
-    <VBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="959.0">
-        <children>
-            <Label styleClass="title" text="Información básica" />
-        </children>
-    </VBox>
-    <HBox spacing="10">
-        <Label text="Nombre de usuario: " />
-        <VBox />
-    </HBox>
-    <VBox prefHeight="0.0" prefWidth="959.0">
-        <children>
-            <Button fx:id="ButtonNombreUsuario" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="966.0" styleClass="value" text="NameUser" />
-        </children>
-    </VBox>
-    <Separator />
-    <HBox spacing="10">
-        <Label text="Nombre: " />
-        <HBox />
-    </HBox>
-    <VBox prefHeight="0.0" prefWidth="959.0">
-        <children>
-            <Button fx:id="ButtonNombre" text="Name" />
-        </children>
-    </VBox>
-    <Separator />
-    <HBox spacing="10">
-        <Label text="Fecha de nacimiento: " />
-        <HBox />
-    </HBox>
-    <VBox prefHeight="0.0" prefWidth="959.0">
-        <children>
-            <Button fx:id="ButtonFechaNacimiento" text="No definido." />
-        </children>
-    </VBox>
-    <VBox.margin>
-        <Insets top="10.0" />
-    </VBox.margin>
-</VBox>
-<VBox id="contact-info-box" spacing="10">
-    <VBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="959.0">
-        <children>
-            <Label styleClass="title" text="Información de contacto" />
-        </children>
-    </VBox>
-    <HBox spacing="10">
-        <Label text="Correo electrónico: " />
-        <VBox />
-    </HBox>
-    <VBox prefHeight="0.0" prefWidth="959.0">
-        <children>
-            <Button fx:id="ButtonCorreoElectronico" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="966.0" styleClass="value" text="email" />
-        </children>
-    </VBox>
-    <Separator />
-    <HBox spacing="10">
-        <Label text="Teléfono: " />
-        <HBox />
-    </HBox>
-    <VBox prefHeight="0.0" prefWidth="959.0">
-        <children>
-            <Button fx:id="ButtonTelefono" alignment="TOP_LEFT" prefHeight="30.0" prefWidth="961.0" text="No definido." />
-        </children>
-    </VBox>
-    <Separator />
-</VBox>
-<VBox id="contact-info-box" layoutX="10.0" layoutY="441.0" spacing="10">
+<VBox alignment="CENTER" spacing="20" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.configuraciones.controladores.ControladorInformacionBasica">
     <children>
-        <VBox alignment="TOP_CENTER" prefHeight="3.0" prefWidth="959.0">
+        <VBox prefHeight="600.0" prefWidth="750.0">
             <children>
-                <Label styleClass="title" text="Contraseña" />
+                <Pane prefHeight="601.0" prefWidth="851.0">
+                    <children>
+                        <Pane layoutX="10.0" layoutY="62.0" prefHeight="227.0" prefWidth="732.0" style="-fx-border-color: #9a9a9a;">
+                            <children>
+                                <Label layoutX="14.0" layoutY="14.0" prefHeight="20.0" prefWidth="159.0" text="Información básica">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Separator layoutX="5.0" layoutY="42.0" prefHeight="8.0" prefWidth="722.0" />
+                                <Button layoutY="61.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="732.0" />
+                                <Text fill="#9a9a9a" layoutX="34.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de usuario" wrappingWidth="118.87931632995605" />
+                                <Separator layoutX="-1.0" layoutY="120.0" prefHeight="8.0" prefWidth="722.0" />
+                                <Button layoutY="141.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="732.0" />
+                                <Text fill="#9a9a9a" layoutX="34.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de creación" wrappingWidth="135.1254711151123" />
+                                <Separator layoutX="-1.0" layoutY="200.0" prefHeight="8.0" prefWidth="722.0" />
+                        <TextField fx:id="NombreDeUsuario" alignment="TOP_CENTER" layoutX="275.0" layoutY="73.0" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="No definido.">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="fechacreacion" alignment="TOP_CENTER" layoutX="275.0" layoutY="152.0" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="No definido.">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                            </children>
+                        </Pane>
+                        <Pane layoutX="10.0" layoutY="329.0" prefHeight="172.0" prefWidth="732.0" style="-fx-border-color: #9a9a9a;">
+                            <children>
+                                <Label layoutX="14.0" layoutY="4.0" prefHeight="20.0" prefWidth="159.0" text="Información de contacto">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Button layoutX="-1.0" layoutY="33.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="732.0" />
+                                <Separator layoutX="4.0" layoutY="92.0" prefHeight="8.0" prefWidth="722.0" />
+                                <Button layoutX="-1.0" layoutY="100.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="732.0" />
+                                <Text fill="#9a9a9a" layoutX="34.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo Electrónico " wrappingWidth="118.87931632995605" />
+                                <Text fill="#9a9a9a" layoutX="34.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono" wrappingWidth="73.09471702575684" />
+                        <TextField fx:id="mail" alignment="TOP_CENTER" layoutX="275.0" layoutY="40.0" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="No definido.">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="telefono" alignment="TOP_CENTER" layoutX="275.0" layoutY="116.0" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="No definido.">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                            </children>
+                        </Pane>
+                        <Text layoutX="164.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Información sobre ti y tus preferencias en los servicios de FACTUR PDR" wrappingWidth="450.2842102050781">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Text>
+                        <Button fx:id="Boton_Modifica" layoutX="587.0" layoutY="511.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="Modificar datos" onAction="#PulsaModificaDatos">
+                            <graphic>
+                                <FontAwesomeIconView fill="#9a9a9a" glyphName="PENCIL" size="17" />
+                            </graphic>
+                        </Button>
+                  <Button fx:id="Boton_Guardar" layoutX="437.0" layoutY="511.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="Guardar cambios." onAction="#PulsaGuardaCambios">
+                     <graphic>
+                        <FontAwesomeIconView fill="#9a9a9a" glyphName="SAVE" size="17" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Boton_Salir" layoutX="287.0" layoutY="511.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="Salir" onAction="#PulsaBotonSalir">
+                     <graphic>
+                        <FontAwesomeIconView fill="#9a9a9a" glyphName="SIGN_OUT" size="17" />
+                     </graphic>
+                  </Button>
+                    </children>
+                </Pane>
             </children>
         </VBox>
-        <HBox spacing="10">
-            <children>
-                <Label text="Contraseña:" />
-                <VBox />
-            </children>
-        </HBox>
-        <VBox prefHeight="0.0" prefWidth="959.0">
-            <children>
-                <Button fx:id="ButtonCorreoElectronico1" alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="30.0" prefWidth="966.0" styleClass="value" />
-            </children>
-        </VBox>
-        <Separator />
-        <HBox spacing="10">
-            <children>
-                <HBox />
-            </children>
-        </HBox>
-        <VBox prefHeight="0.0" prefWidth="959.0" />
     </children>
-</VBox>
 </VBox>

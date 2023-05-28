@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.facturpdr.aplicacion.configuraciones.controladores.ControladorGestionContrasena">
+        <children>
+            <Pane prefHeight="631.0" prefWidth="748.0">
+                <children>
+                    <Label layoutX="14.0" layoutY="5.0" prefHeight="52.0" prefWidth="1372.0" text="Bienvenido/a a la gestión de contraseñas de FACTUR PDR. Aquí podrás actualizar tu contraseña y asegurarte de">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="14.0" layoutY="37.0" text="que tu cuenta está protegida. Recuerda elegir una clave segura y no compartirla con nadie.">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="14.0" layoutY="82.0" text="Elige una contraseña segura y no la utilices en otras cuentas." />
+                    <Label layoutX="14.0" layoutY="187.0" prefHeight="20.0" prefWidth="786.0" text="Recuerda que tu contraseña debe tener al menos 8 caracteres, incluyendo una combinación de letras mayúsculas y ">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="14.0" layoutY="187.0" />
+                    <Label layoutX="14.0" layoutY="207.0" text=" minúsculas, números y caracteres especiales. Además, no debe contener espacios en blanco ni caracteres repetidos.">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                    <Button layoutX="592.0" layoutY="511.0" mnemonicParsing="false" text="Guardar Cambios" onAction="#GuardarCambios">
+                        <graphic>
+                            <FontAwesomeIconView fill="#9a9a9a" glyphName="SAVE" size="18" />
+                        </graphic>
+                    </Button>
+                    <Pane layoutX="11.0" layoutY="107.0" prefHeight="66.0" prefWidth="712.0" style="-fx-border-color: #9a9a9a;">
+                        <children>
+                            <Label layoutX="14.0" layoutY="24.0" text="● Introduce la contraseña actual :" textFill="#9a9a9a">
+                                <font>
+                                    <Font size="14.0" />
+                                </font>
+                                <padding>
+                                    <Insets top="-2.0" />
+                                </padding>
+                            </Label>
+                            <PasswordField fx:id="contrasena_actual" layoutX="242.0" layoutY="18.0" prefHeight="29.0" prefWidth="307.0" />
+                        </children>
+                    </Pane>
+                    <Pane layoutX="16.0" layoutY="238.0" prefHeight="142.0" prefWidth="712.0" style="-fx-border-color: #9a9a9a;">
+                        <children>
+                            <Label layoutX="14.0" layoutY="27.0" text="● Confirmar la contraseña nueva :" textFill="#9a9a9a">
+                                <font>
+                                    <Font size="14.0" />
+                                </font>
+                            </Label>
+                            <Label layoutX="14.0" layoutY="76.0" text="● Introduce la contraseña nueva :" textFill="#9a9a9a">
+                                <font>
+                                    <Font size="14.0" />
+                                </font>
+                            </Label>
+                            <PasswordField fx:id="contrasena_nueva" layoutX="242.0" layoutY="23.0" prefHeight="29.0" prefWidth="307.0" />
+                            <PasswordField fx:id="contrasena_nueva2" layoutX="242.0" layoutY="72.0" prefHeight="29.0" prefWidth="307.0" />
+                        </children>
+                    </Pane>
+                </children>
+            </Pane>
+        </children>
+    </VBox>

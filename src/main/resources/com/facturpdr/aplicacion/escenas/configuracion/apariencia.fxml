@@ -1,109 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="523.0" prefWidth="800.0" spacing="10.0" stylesheets="@../../estilos/configuracion.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-<Label text="Configuración de apariencia">
-    <VBox.margin>
-        <Insets top="-220.0" />
-    </VBox.margin>
-      <font>
-         <Font name="Segoe UI" size="13.29230785369873" />
-      </font>
-</Label>
-<Separator />
-<Label text="Personalización de temas">
-      <font>
-         <Font name="Segoe UI" size="13.29230785369873" />
-      </font></Label>
-<HBox prefHeight="18.0" prefWidth="795.0">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
     <children>
-        <Label text=" • Selecciona un tema: " textAlignment="CENTER">
-            <HBox.margin>
-                <Insets top="5.0" />
-            </HBox.margin>
-        </Label>
-        <ChoiceBox fx:id="theme"  prefHeight="30.0" prefWidth="86.0" value="Default" />
+        <VBox alignment="CENTER" prefHeight="523.0" prefWidth="800.0" spacing="10.0" stylesheets="@../../estilos/configuracion.css">
+            <padding>
+                <Insets top="200.0" />
+            </padding>
+            <children>
+                <Label text="Configuración de apariencia">
+                    <VBox.margin>
+                        <Insets top="-220.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font name="Segoe UI" size="13.29230785369873" />
+                    </font>
+                </Label>
+                <Separator />
+                <Label text="Personalización de temas">
+                    <font>
+                        <Font name="Segoe UI" size="13.29230785369873" />
+                    </font>
+                </Label>
+                <HBox prefHeight="18.0" prefWidth="795.0">
+                    <children>
+                        <Label text=" • Tema seleccionado : " textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets top="5.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <JFXToggleButton fx:id="manejaSeleccionTema" prefHeight="41.0" prefWidth="88.0" text="Light" toggleColor="BLACK" toggleLineColor="#9a9a9a" unToggleLineColor="#84cc16">
+                            <padding>
+                                <Insets top="-10.0" />
+                            </padding>
+                            <graphic>
+                                <FontAwesomeIconView />
+                            </graphic>
+                        </JFXToggleButton>
+                    </children>
+                    <VBox.margin>
+                        <Insets left="5.0" />
+                    </VBox.margin>
+                </HBox>
+                <Separator layoutX="10.0" layoutY="150.0" />
+                <Label layoutX="373.0" layoutY="157.0" text="Personalización de tamaño de letra" />
+                <HBox layoutX="15.0" layoutY="197.0" prefHeight="0.0" prefWidth="800.0">
+                    <children>
+                        <Label text=" • Tamaño de letra: " textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets top="5.0" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="13.2" />
+                            </font>
+                        </Label>
+                        <ChoiceBox fx:id="tamanoSelecionado" value="Default" />
+                    </children>
+                </HBox>
+                <Separator layoutX="10.0" layoutY="220.0" />
+                <Label layoutX="390.0" layoutY="204.0" text="Personalización de fuente de letra" />
+                <HBox layoutX="10.0" layoutY="258.0" prefHeight="1.0" prefWidth="800.0" />
+                <HBox layoutX="10.0" layoutY="336.0" prefHeight="0.0" prefWidth="800.0">
+                    <children>
+                        <Label text=" • Fuente de letra : " textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets top="5.0" />
+                            </HBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="fuenteSelecionado" value="Default" />
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="310.0" prefHeight="0.0" prefWidth="800.0">
+                    <children>
+                        <Label text=" • Letra en negrita : " textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets top="5.0" />
+                            </HBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="negritaSelecionado" value="No" />
+                    </children>
+                </HBox>
+                <HBox layoutX="10.0" layoutY="332.0" prefHeight="0.0" prefWidth="800.0">
+                    <children>
+                        <Label text=" • Letra en cursiva : " textAlignment="CENTER">
+                            <HBox.margin>
+                                <Insets top="5.0" />
+                            </HBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="cursivaSelecionado" value="No" />
+                    </children>
+                </HBox>
+                <Separator layoutX="10.0" layoutY="319.0" prefHeight="2.0" prefWidth="800.0" />
+                <HBox alignment="TOP_RIGHT" prefHeight="57.0" prefWidth="800.0">
+                    <children>
+                        <Button fx:id="botonValoresDefecto" mnemonicParsing="false" text="Restablecer valores predeterminados">
+                            <HBox.margin>
+                                <Insets right="20.0" top="20.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="botonPersonalizacionA" text="Personalización avanzada">
+                            <HBox.margin>
+                                <Insets right="20.0" top="20.0" />
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="botonGuardarCambios" text="Guardar Cambios">
+                            <HBox.margin>
+                                <Insets right="10.0" top="20.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                    <VBox.margin>
+                        <Insets bottom="-40.0" top="-10.0" />
+                    </VBox.margin>
+                </HBox>
+            </children>
+        </VBox>
     </children>
-    <VBox.margin>
-        <Insets left="5.0" />
-    </VBox.margin>
-</HBox>
-<Separator layoutX="10.0" layoutY="150.0" />
-<Label layoutX="373.0" layoutY="157.0" text="Personalización de tamaño de letra" />
-<HBox layoutX="15.0" layoutY="197.0" prefHeight="0.0" prefWidth="800.0">
-    <children>
-        <Label text=" • Tamaño de letra: " textAlignment="CENTER">
-            <HBox.margin>
-                <Insets top="5.0" />
-            </HBox.margin>
-            <font>
-               <Font size="13.2" />
-            </font>
-        </Label>
-        <ChoiceBox fx:id="tamanoSelecionado" value="Default" />
-    </children>
-</HBox>
-<Separator layoutX="10.0" layoutY="220.0" />
-<Label layoutX="390.0" layoutY="204.0" text="Personalización de fuente de letra" />
-<HBox layoutX="10.0" layoutY="258.0" prefHeight="1.0" prefWidth="800.0" />
-   <HBox layoutX="10.0" layoutY="336.0" prefHeight="0.0" prefWidth="800.0">
-      <children>
-         <Label text=" • Fuente de letra : " textAlignment="CENTER">
-            <HBox.margin>
-               <Insets top="5.0" />
-            </HBox.margin>
-         </Label>
-         <ChoiceBox fx:id="fuenteSelecionado" value="Default" />
-      </children>
-   </HBox>
-<HBox layoutX="10.0" layoutY="310.0" prefHeight="0.0" prefWidth="800.0">
-    <children>
-        <Label text=" • Letra en negrita : " textAlignment="CENTER">
-            <HBox.margin>
-                <Insets top="5.0" />
-            </HBox.margin>
-        </Label>
-        <ChoiceBox fx:id="negritaSelecionado" value="No" />
-    </children>
-</HBox>
-<HBox layoutX="10.0" layoutY="332.0" prefHeight="0.0" prefWidth="800.0">
-    <children>
-        <Label text=" • Letra en cursiva : " textAlignment="CENTER">
-            <HBox.margin>
-                <Insets top="5.0" />
-            </HBox.margin>
-        </Label>
-        <ChoiceBox fx:id="cursivaSelecionado" value="No" />
-    </children>
-</HBox>
-<Separator layoutX="10.0" layoutY="319.0" prefHeight="2.0" prefWidth="800.0" />
-<HBox alignment="TOP_RIGHT" prefHeight="57.0" prefWidth="800.0">
-    <children>
-        <Button fx:id="botonValoresDefecto" mnemonicParsing="false" text="Restablecer valores predeterminados">
-            <HBox.margin>
-                <Insets right="20.0" top="20.0" />
-            </HBox.margin>
-        </Button>
-        <Button fx:id="botonPersonalizacionA" text="Personalización avanzada">
-            <HBox.margin>
-                <Insets right="20.0" top="20.0" />
-            </HBox.margin>
-        </Button>
-        <Button fx:id="botonGuardarCambios"  text="Guardar Cambios">
-            <HBox.margin>
-                <Insets right="10.0" top="20.0" />
-            </HBox.margin>
-        </Button>
-    </children>
-    <VBox.margin>
-        <Insets bottom="-40.0" top="-10.0" />
-    </VBox.margin>
-</HBox>
-<padding>
-    <Insets top="200.0" />
-</padding>
 </VBox>
