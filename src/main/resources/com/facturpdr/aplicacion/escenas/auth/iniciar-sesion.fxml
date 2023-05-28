@@ -22,12 +22,12 @@
       </AnchorPane>
       <AnchorPane layoutX="600.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #171717;">
          <children>
-            <Text fill="WHITE" layoutX="81.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Factur">
+            <Text fill="WHITE" layoutX="99.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Factur">
                <font>
                   <Font name="System Bold" size="40.0" />
                </font>
             </Text>
-            <Text fill="#84cc16" layoutX="228.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PDR">
+            <Text fill="#84cc16" layoutX="219.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PDR">
                <font>
                   <Font name="System Bold" size="40.0" />
                </font>
