@@ -197,7 +197,5 @@ public class ModificarClienteControlador {
             AlertaUtilidad.error("Datos no válidos",mensajeError);
             return false;
         }
-
     }
-
 }

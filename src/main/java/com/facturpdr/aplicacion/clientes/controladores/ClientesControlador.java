@@ -3,12 +3,9 @@ package com.facturpdr.aplicacion.clientes.controladores;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import javafx.fxml.*;
-import javafx.scene.*;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.*;
 import com.facturpdr.aplicacion.clientes.modelos.Cliente;
 import java.io.IOException;
 import java.net.URL;
@@ -17,36 +14,81 @@ import java.util.*;
 import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import javafx.collections.*;
 import javafx.collections.transformation.FilteredList;
-import javafx.event.ActionEvent;
 
 
 public class ClientesControlador implements Initializable{
+    /**
+     * TableView para mostrar la lista de clientes.
+     */
     @FXML
     public TableView<Cliente> tablaClientes;
+
+    /**
+     * Columna para mostrar el DNI del cliente.
+     */
     @FXML
     public TableColumn<Cliente, String> columnaDNI;
-    @FXML
-    public TableColumn <Cliente,String>columnaNombreCompleto;
-    @FXML
-    public TableColumn <Cliente,Integer>columnaTelefono;
-    @FXML
-    public TableColumn <Cliente,String>columnaCuenta;
 
+    /**
+     * Columna para mostrar el nombre completo del cliente.
+     */
+    @FXML
+    public TableColumn<Cliente, String> columnaNombreCompleto;
+
+    /**
+     * Columna para mostrar el teléfono del cliente.
+     */
+    @FXML
+    public TableColumn<Cliente, Integer> columnaTelefono;
+
+    /**
+     * Columna para mostrar la cuenta del cliente.
+     */
+    @FXML
+    public TableColumn<Cliente, String> columnaCuenta;
+
+    /**
+     * Campo de texto para buscar clientes.
+     */
     @FXML
     public TextField textBuscar;
+
+    /**
+     * Botón para agregar un nuevo cliente.
+     */
     @FXML
     public Button btnNuevo;
+
+    /**
+     * Botón para eliminar un cliente seleccionado.
+     */
     @FXML
     public Button btnEliminar;
+
+    /**
+     * Botón para modificar un cliente seleccionado.
+     */
     @FXML
     public Button btnModificar;
 
-    ObservableList<Cliente> clientes =FXCollections.observableArrayList();
+    /**
+     * Lista observable de clientes.
+     */
+    ObservableList<Cliente> clientes = FXCollections.observableArrayList();
+
+    /**
+     * Lista de clientes a eliminar.
+     */
     List<Cliente> listaEliminar = new ArrayList<>(clientes);
+
+    /**
+     * Método que se ejecuta al inicializar el controlador.
+     *
+     * @param location  URL de ubicación del controlador.
+     * @param resources Recursos utilizados por el controlador.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources){
-
-        // Conexión a la base de datos y consulta SQL
         try {
             BDExtension.conectarse();
         } catch (SQLException e) {
@@ -70,7 +112,6 @@ public class ClientesControlador implements Initializable{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        // Configurar el TableView y asignar la lista de clientes
         columnaDNI.setCellValueFactory(new PropertyValueFactory<>("DNI"));
         columnaNombreCompleto.setCellValueFactory(new PropertyValueFactory<>("nombrecompleto"));
         columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("movil"));
@@ -96,24 +137,21 @@ public class ClientesControlador implements Initializable{
             }
         });
 
-        // código para cargar los datos en la tabla
-
-        // Crear FilteredList a partir de la lista observable de productos
         FilteredList<Cliente> clientesFiltrados = new FilteredList<>(clientes);
 
         textBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
-            clientesFiltrados.setPredicate(tuObjeto -> {
+            clientesFiltrados.setPredicate(Busqueda -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
 
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (tuObjeto.getDNI().toLowerCase().contains(lowerCaseFilter)) {
+                if (Busqueda.getDNI().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (tuObjeto.getNombrecompleto().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (Busqueda.getNombrecompleto().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (tuObjeto.getCuenta().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (Busqueda.getCuenta().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 }
                 return false;
@@ -124,14 +162,22 @@ public class ClientesControlador implements Initializable{
 
     }
 
+    /**
+     * Método que se ejecuta al hacer clic en el botón "Nuevo".
+     */
     @FXML
     public void clickNuevo() {
        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
        ventana.cambiarEscena("clientes/crear-cliente");
-
     }
+
+    /**
+     * Método que se ejecuta al hacer clic en el botón "Modificar".
+     *
+     * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
+     */
     @FXML
-    public void clickModificar() throws IOException, SQLException {
+    public void clickModificar() throws SQLException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("com/facturpdr/aplicacion/escenas/clientes/modificar-cliente.fxml"));
         ModificarClienteControlador controladora = loader.getController();
 
@@ -147,6 +193,12 @@ public class ClientesControlador implements Initializable{
         }
 
     }
+
+    /**
+     * Método que se ejecuta al hacer clic en el botón "Eliminar".
+     *
+     * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
+     */
     @FXML
     public void clickEliminar() throws SQLException {
         int selectedIndex = tablaClientes.getSelectionModel().getSelectedIndex();
@@ -171,8 +223,12 @@ public class ClientesControlador implements Initializable{
         }
 
     }
+
+    /**
+     * Método que se ejecuta al hacer clic en el botón "Actualizar".
+     */
     @FXML
-    public void clickActualizar() throws IOException {
+    public void clickActualizar()  {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("clientes/clientes");
     }

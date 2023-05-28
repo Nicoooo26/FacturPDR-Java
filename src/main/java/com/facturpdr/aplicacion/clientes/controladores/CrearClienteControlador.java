@@ -2,24 +2,16 @@ package com.facturpdr.aplicacion.clientes.controladores;
 
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
+import com.facturpdr.aplicacion.general.extensiones.BDExtension;
+
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+
 
 import java.sql.*;
 import java.util.Random;
 
-import com.facturpdr.aplicacion.general.extensiones.BDExtension;
-
-import java.io.IOException;
-
-import javafx.event.ActionEvent;
 
     public class CrearClienteControlador{
 
@@ -56,15 +48,25 @@ import javafx.event.ActionEvent;
 
 
 
-
+        /**
+         * Maneja el evento de clic en el botón "Cancelar".
+         * Cambia a la escena de clientes.
+         *
+         */
         @FXML
-        public void clickCancelar(ActionEvent event) throws IOException {
+        public void clickCancelar() {
             VentanaExtension ventana = VentanaExtension.obtenerInstancia();
             ventana.cambiarEscena("clientes/clientes");
         }
 
+        /**
+         * Maneja el evento de clic en el botón "Añadir".
+         * Realiza la inserción de un nuevo cliente en la base de datos.
+         *
+         * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
+         */
         @FXML
-        public void clickAnnadir(ActionEvent event) throws IOException,SQLException {
+        public void clickAnnadir() throws SQLException {
 
 
             BDExtension.conectarse();
@@ -130,6 +132,13 @@ import javafx.event.ActionEvent;
             VentanaExtension ventana = VentanaExtension.obtenerInstancia();
             ventana.cambiarEscena("clientes/clientes");
         }
+
+        /**
+         * Verifica si los datos ingresados son válidos.
+         *
+         * @return true si los datos son válidos, false de lo contrario.
+         * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
+         */
         private boolean datosValidos() throws SQLException{
 
             String mensajeError = "";
@@ -188,6 +197,13 @@ import javafx.event.ActionEvent;
             }
 
         }
+
+        /**
+         * Genera un ID aleatorio para el nuevo cliente.
+         *
+         * @return El ID generado.
+         * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
+         */
         private int generarID() throws SQLException {
             Random random = new Random();
             int id;
@@ -198,6 +214,14 @@ import javafx.event.ActionEvent;
 
             return id;
         }
+
+        /**
+         * Verifica si un ID ya existe en la base de datos.
+         *
+         * @param id El ID a verificar.
+         * @return true si el ID existe, false de lo contrario.
+         * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
+         */
         private boolean existeID(int id) throws SQLException {
             BDExtension.conectarse();
             Connection conn = BDExtension.conexion;
@@ -216,6 +240,14 @@ import javafx.event.ActionEvent;
             stmt.close();
             return existe;
         }
+
+        /**
+         * Verifica si un DNI ya existe en la base de datos.
+         *
+         * @param dni El DNI a verificar.
+         * @return true si el DNI existe, false de lo contrario.
+         * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
+         */
         private boolean existeDNI(String dni) throws SQLException {
             BDExtension.conectarse();
             Connection conn = BDExtension.conexion;
@@ -234,6 +266,14 @@ import javafx.event.ActionEvent;
             stmt.close();
             return existe;
         }
+
+        /**
+         * Verifica si un número de móvil ya existe en la base de datos.
+         *
+         * @param movil El número de móvil a verificar.
+         * @return true si el número de móvil existe, false de lo contrario.
+         * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
+         */
         private boolean existeMovil(int movil) throws SQLException {
             BDExtension.conectarse();
             Connection conn = BDExtension.conexion;
