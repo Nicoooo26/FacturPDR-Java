@@ -20,7 +20,7 @@
                      </font>
                   </Label>
                   <FontAwesomeIconView fill="#9a9a9a" glyphName="USERS" layoutX="169.0" layoutY="45.0" size="30" />
-                  <Label layoutX="90.0" layoutY="35.0" text="0" textFill="#9a9a9a">
+                  <Label fx:id="cantidadClientes" alignment="CENTER" layoutX="12.0" layoutY="35.0" prefHeight="93.0" prefWidth="194.0" text="0" textAlignment="CENTER" textFill="#9a9a9a">
                      <font>
                         <Font name="Segoe UI Semibold" size="64.0" />
                      </font>
@@ -35,7 +35,7 @@
                      </font>
                   </Label>
                   <FontAwesomeIconView fill="#9a9a9a" glyphName="USER_SECRET" layoutX="176.0" layoutY="45.0" size="30" />
-                  <Label layoutX="90.0" layoutY="35.0" text="0" textFill="#9a9a9a">
+                  <Label fx:id="cantidadEmpleados" alignment="CENTER" layoutX="9.0" layoutY="35.0" prefHeight="93.0" prefWidth="194.0" text="0" textAlignment="CENTER" textFill="#9a9a9a">
                      <font>
                         <Font name="Segoe UI Semibold" size="64.0" />
                      </font>
@@ -47,7 +47,7 @@
                   <Label layoutX="21.0" layoutY="8.0" prefHeight="30.0" prefWidth="144.0" text="NÚMERO DE FACTURAS" textFill="#9a9a9a" />
                   <Label layoutX="40.0" layoutY="23.0" prefHeight="30.0" prefWidth="144.0" text="DEL ÚLTIMO MES" textFill="#9a9a9a" />
                   <FontAwesomeIconView fill="#9a9a9a" glyphName="FILE" layoutX="170.0" layoutY="40.0" size="25" wrappingWidth="21.428571701049805" />
-                  <Label layoutX="90.0" layoutY="35.0" text="0" textFill="#9a9a9a">
+                  <Label fx:id="cantidadFacturas" alignment="CENTER" layoutX="-4.0" layoutY="38.0" prefHeight="93.0" prefWidth="194.0" text="0" textAlignment="CENTER" textFill="#9a9a9a">
                      <font>
                         <Font name="Segoe UI Semibold" size="64.0" />
                      </font>
