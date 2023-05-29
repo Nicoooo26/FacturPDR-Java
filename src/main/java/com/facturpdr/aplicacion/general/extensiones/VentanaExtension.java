@@ -1,3 +1,6 @@
+/**
+ * El paquete `com.facturpdr.aplicacion.general.extensiones` contiene clases que proporcionan extensiones y utilidades generales.
+ */
 package com.facturpdr.aplicacion.general.extensiones;
 
 import javafx.fxml.FXMLLoader;
@@ -10,6 +13,9 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * La clase `VentanaExtension` proporciona métodos para gestionar y controlar las ventanas y escenas en una aplicación JavaFX.
+ */
 public class VentanaExtension {
     private Map<String, Scene> escenas = new HashMap<>();
     private Stage ventanaActual;
@@ -18,6 +24,11 @@ public class VentanaExtension {
 
     private VentanaExtension() {}
 
+    /**
+     * Obtiene la instancia única de `VentanaExtension` (implementación del patrón Singleton).
+     *
+     * @return La instancia de `VentanaExtension`.
+     */
     public static VentanaExtension obtenerInstancia() {
         if (instancia == null) {
             instancia = new VentanaExtension();
@@ -42,11 +53,20 @@ public class VentanaExtension {
         escenas.put(nombreEscena, escena);
     }
 
-
+    /**
+     * Obtiene la ventana actual.
+     *
+     * @return La ventana actual.
+     */
     public Stage obtener() {
         return ventanaActual;
     }
 
+    /**
+     * Elimina una escena de la lista de escenas.
+     *
+     * @param nombreEscena El nombre de la escena a eliminar.
+     */
     public void eliminar(String nombreEscena) {
         if (!escenas.containsKey(nombreEscena)) {
             return;
@@ -55,6 +75,9 @@ public class VentanaExtension {
         escenas.remove(nombreEscena);
     }
 
+    /**
+     * Cierra la ventana actual.
+     */
     public void cerrar() {
         if (ventanaActual != null) {
             ventanaActual.close();
@@ -67,6 +90,11 @@ public class VentanaExtension {
         }
     }
 
+    /**
+     * Cambia la escena de la ventana actual a la escena correspondiente al nombre de la escena especificado.
+     *
+     * @param nombreEscena El nombre de la escena a cambiar.
+     */
     public void cambiarEscena(String nombreEscena) {
         if (!escenas.containsKey(nombreEscena)) {
             this.crear(nombreEscena);
@@ -88,6 +116,12 @@ public class VentanaExtension {
 
         ventanaActual.show();
     }
+
+    /**
+     * Abre una ventana emergente con la escena correspondiente al nombre de la escena especificado.
+     *
+     * @param nombreEscena El nombre de la escena para la ventana emergente.
+     */
     public void ventanaEmergente(String nombreEscena) {
         if (!escenas.containsKey(nombreEscena)) {
             this.crear(nombreEscena);
@@ -106,6 +140,13 @@ public class VentanaExtension {
         ventanaEmergente.setScene(nuevaEscena);
         ventanaEmergente.showAndWait();
     }
+
+    /**
+     * Cambia la escena de la ventana actual a la escena especificada por el objeto `Parent`.
+     *
+     * @param nombreEscena El nombre de la escena.
+     * @param root El objeto `Parent` que representa la nueva escena.
+     */
     public void cambiarEscenaConParent(String nombreEscena, Parent root) {
         if (!escenas.containsKey(nombreEscena)) {
             this.crear(nombreEscena);
@@ -123,5 +164,4 @@ public class VentanaExtension {
 
         ventanaActual.show();
     }
-
 }

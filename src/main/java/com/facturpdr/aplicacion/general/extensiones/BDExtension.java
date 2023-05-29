@@ -1,9 +1,15 @@
+/**
+ * El paquete `com.facturpdr.aplicacion.general.extensiones` contiene clases que proporcionan extensiones y utilidades generales.
+ */
 package com.facturpdr.aplicacion.general.extensiones;
 
 import com.facturpdr.aplicacion.general.utilidades.ConfiguracionUtilidad;
 
 import java.sql.*;
 
+/**
+ * La clase `BDExtension` proporciona métodos para interactuar con una base de datos.
+ */
 public class BDExtension {
     private static final String url = ConfiguracionUtilidad.obtenerValor("bd.url");
     private static final String usuario = ConfiguracionUtilidad.obtenerValor("bd.usuario");
@@ -12,6 +18,11 @@ public class BDExtension {
     public static Connection conexion = null;
     private static PreparedStatement sentencia = null;
 
+    /**
+     * Establece una conexión con la base de datos.
+     *
+     * @throws SQLException Si ocurre un error al conectarse a la base de datos.
+     */
     public static void conectarse() throws SQLException {
         if (conexion == null || conexion.isClosed()) {
             try {
@@ -21,6 +32,11 @@ public class BDExtension {
         }
     }
 
+    /**
+     * Cierra la conexión y la sentencia a la base de datos.
+     *
+     * @throws SQLException Si ocurre un error al cerrar la conexión.
+     */
     private static void desconectarse() throws SQLException {
         if (conexion != null) {
             conexion.close();
@@ -30,6 +46,13 @@ public class BDExtension {
         }
     }
 
+    /**
+     * Ejecuta una consulta de selección en la base de datos.
+     *
+     * @param consulta La consulta SQL a ejecutar.
+     * @param parametros Los parámetros para la consulta.
+     * @return El resultado de la consulta como un objeto ResultSet.
+     */
     public static ResultSet selecionar(String consulta, Object... parametros) {
         try {
             conectarse();
@@ -45,6 +68,13 @@ public class BDExtension {
         }
     }
 
+    /**
+     * Ejecuta una consulta de actualización en la base de datos.
+     *
+     * @param consulta La consulta SQL a ejecutar.
+     * @param parametros Los parámetros para la consulta.
+     * @return `true` si la consulta se ejecutó correctamente, `false` si ocurrió un error.
+     */
     public static boolean actualizar(String consulta, Object... parametros) {
         try {
             conectarse();
