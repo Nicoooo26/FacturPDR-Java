@@ -139,14 +139,7 @@ public class CrearClienteControlador{
          * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
          */
 
-        public boolean esnumerico(String numero) {
-            try {
-                Integer.parseInt(numero);
-                return  true;
-            }catch (Exception e ) {
-                return false ;
-            }
-        }
+
 
         private boolean datosValidos() throws SQLException{
 
@@ -183,9 +176,6 @@ public class CrearClienteControlador{
             }
             if (!movil.isEmpty() && !movil.matches("[67]\\d{8}")) {
                 mensajeError += "El formato del 'movil' no es válido.\n";
-            }
-            if(!movil.isEmpty() && esnumerico(movil)!=true){
-                mensajeError += "El campo 'movil' solo admite numeros.\n";
             }
             if (movil.isEmpty()) {
                 mensajeError += "El campo 'movil' es obligatorio.\n";
