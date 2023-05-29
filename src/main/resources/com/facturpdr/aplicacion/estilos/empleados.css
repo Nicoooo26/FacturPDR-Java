@@ -1,0 +1,11 @@
+#eliminar:hover
+{
+    -fx-background-color: #FF0000;
+    -fx-cursor: hand;
+}
+
+.button:hover
+{
+	-fx-background-color : #a6d95f ;
+	-fx-cursor: hand;
+}

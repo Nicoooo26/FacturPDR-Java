@@ -26,6 +26,9 @@ public class LateralControlador {
         ventana.cambiarEscena("inicio/inicio");
     }
 
+    @FXML public void manejaEmpleados() {
+        ventana.cambiarEscena("empleados/empleados");
+    }
     @FXML
     public void manejarCerrarSesion() {
         if (confirmarCambioEscena()) {
