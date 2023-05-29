@@ -52,21 +52,21 @@
     -fx-background-color: transparent; /* fondo transparente */
     -fx-background-insets: 0; /* sin relleno */
     -fx-background-radius: 0; /* sin radio */
-    -fx-padding: 0 5px; /* relleno interno horizontal */
+    -fx-padding: 1px; /* relleno interno horizontal */
     -fx-border-color: #6C8EBF; /* color del borde cuando está enfocado */
     -fx-border-radius: 5px; /* radio del borde cuando está enfocado */
     -fx-border-width: 2px; /* ancho del borde cuando está enfocado */
 }
 
+/* Estilos css de informacion-basica */
 
-
-#personal-info-box {
-  -fx-border-color: black;
-  -fx-border-width: 0px;
-  -fx-padding: 10px;
+.button
+{
+	-fx-background-color : transparent ;
 }
-#contact-info-box {
-  -fx-border-color: black;
-  -fx-border-width: 0px;
-  -fx-padding: 10px;
+.button:hover
+{
+	-fx-background-color : #e5e5e5 ;
+    -fx-effect: dropshadow(three-pass-box, #e5e5e5, 10, 0, 0, 0);
+	-fx-cursor: hand;
 }

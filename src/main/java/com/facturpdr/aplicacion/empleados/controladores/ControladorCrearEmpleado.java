@@ -54,7 +54,6 @@ public class ControladorCrearEmpleado {
         ventana.cambiarEscena("empleados/empleados");
     }
 
-    Usuario usuario;
     /**
      * Maneja el evento de clic en el botón "Añadir".
      * Realiza la inserción de un nuevo cliente en la base de datos.
