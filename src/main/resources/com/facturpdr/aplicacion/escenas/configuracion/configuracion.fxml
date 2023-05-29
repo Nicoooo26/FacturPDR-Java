@@ -35,14 +35,6 @@
                   <FontAwesomeIconView fill="#9a9a9a" glyphName="KEY" size="17" />
                </graphic>
             </Tab>
-            <Tab text="Apariencia">
-               <content>
-                  <fx:include source="apariencia.fxml" />
-               </content>
-               <graphic>
-                  <FontAwesomeIconView fill="#9a9a9a" glyphName="EYE" size="17" />
-               </graphic>
-            </Tab>
             <Tab text="Acerca de">
                <content>
                   <fx:include source="acerca-de.fxml"/>
