@@ -1,3 +1,6 @@
+/**
+ * El paquete `com.facturpdr.aplicacion` contiene la clase principal que inicia la aplicación.
+ */
 package com.facturpdr.aplicacion;
 
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
@@ -6,6 +9,9 @@ import com.facturpdr.aplicacion.sesiones.servicios.SesionServicio;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+/**
+ * La clase `Inicio` es la clase principal que inicia la aplicación.
+ */
 public class Inicio extends Application {
     @Override
     public void start(Stage escenarioPrincipal) {
@@ -25,6 +31,11 @@ public class Inicio extends Application {
         sesionServicio.inicio();
     }
 
+    /**
+     * Método principal que inicia la aplicación.
+     *
+     * @param args Los argumentos de la línea de comandos.
+     */
     public static void main(String[] args) {
         launch(Inicio.class, args);
     }

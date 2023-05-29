@@ -1,3 +1,6 @@
+/**
+ * El paquete `com.facturpdr.aplicacion.inicio.controladores` contiene clases que son controladores para la pantalla de inicio de la aplicación.
+ */
 package com.facturpdr.aplicacion.inicio.controladores;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -9,6 +12,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 
+/**
+ * La clase `InicioControlador` es un controlador para la pantalla de inicio de la aplicación.
+ */
 public class InicioControlador implements Initializable {
     @FXML
     private FontAwesomeIconView IconoHelp;
@@ -19,6 +25,12 @@ public class InicioControlador implements Initializable {
     @FXML
     private Label cantidadClientes;
 
+    /**
+     * Inicializa el controlador después de que se haya cargado el archivo FXML.
+     *
+     * @param location  La ubicación utilizada para resolver rutas relativas para el objeto raíz o `null` si no está disponible.
+     * @param resources Los recursos utilizados para localizar el objeto raíz o `null` si no está disponible.
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Tooltip informacion = new Tooltip("Nombre del proyecto: FacturPDR\n" +
@@ -31,13 +43,11 @@ public class InicioControlador implements Initializable {
         Tooltip.install(IconoHelp, informacion);
 
         IconoHelp.setOnMouseClicked(event -> {
-            if(!informacion.isShowing()) {
+            if (!informacion.isShowing()) {
                 informacion.show(IconoHelp, event.getScreenX() + 30, event.getScreenY() + 30);
-            }
-            else {
+            } else {
                 informacion.hide();
             }
         });
-
     }
 }

@@ -92,8 +92,8 @@ public class ClienteControlador {
      */
     public void cargarDatos(String dni) throws SQLException {
         BDExtension.conectarse();
-        Connection conn=BDExtension.conexion;
-        String query = "SELECT NOMBRE,APELLIDOS,DNI,MOVIL,CUENTA,EMAIL,CIUDAD,DIRECCION,PAIS,FIJO,CODIGOPOSTAL FROM CLIENTES WHERE DNI = ?";
+        Connection conn = BDExtension.conexion;
+        String query = "SELECT NOMBRE, APELLIDOS, DNI, MOVIL, CUENTA, EMAIL, CIUDAD, DIRECCION, PAIS, FIJO, CODIGOPOSTAL FROM CLIENTES WHERE DNI = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setString(1, dni);
@@ -108,8 +108,8 @@ public class ClienteControlador {
                 labelCiudad.setText(rs.getString("CIUDAD"));
                 labelDireccion.setText(rs.getString("DIRECCION"));
                 labelPais.setText(rs.getString("PAIS"));
-                String codigo=rs.getString("CODIGOPOSTAL");
-                String fijo=rs.getString("FIJO");
+                String codigo = rs.getString("CODIGOPOSTAL");
+                String fijo = rs.getString("FIJO");
                 if (fijo != null && !fijo.isEmpty()) {
                     labelFijo.setText(Integer.toString(rs.getInt("FIJO")));
                 } else {
@@ -126,17 +126,12 @@ public class ClienteControlador {
         }
     }
 
-
-
     /**
      * Método que se ejecuta al hacer clic en el botón de volver atrás.
      */
     @FXML
-   public void clickBack(){
+    public void clickBack() {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
         ventana.cambiarEscena("clientes/clientes");
-
     }
-
-
 }

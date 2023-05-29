@@ -19,8 +19,10 @@ import javafx.collections.*;
 import javafx.collections.transformation.FilteredList;
 import javafx.stage.Stage;
 
+/**
+ * Controlador para la gestión de clientes.
+ */
 public class ClientesControlador {
-
 
     /**
      * TableView para mostrar la lista de clientes.
@@ -83,8 +85,11 @@ public class ClientesControlador {
 
     /**
      * Método que se ejecuta al inicializar el controlador.
+     *
+     * @throws IOException Excepción de E/S si ocurre algún error al cargar los recursos.
      */
-    public void initialize() throws IOException{
+    public void initialize() throws IOException {
+        // Inicializar la conexión a la base de datos
         try {
             BDExtension.conectarse();
         } catch (SQLException e) {
@@ -92,7 +97,8 @@ public class ClientesControlador {
         }
         Connection conn = BDExtension.conexion;
 
-        String selectSQL="SELECT NOMBRE_COMPLETO,DNI,MOVIL,CUENTA FROM CLIENTES";
+        // Obtener los datos de los clientes desde la base de datos
+        String selectSQL = "SELECT NOMBRE_COMPLETO, DNI, MOVIL, CUENTA FROM CLIENTES";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(selectSQL);
@@ -102,18 +108,21 @@ public class ClientesControlador {
                 String nombrecompleto = rs.getString("NOMBRE_COMPLETO");
                 int movil = rs.getInt("MOVIL");
                 String cuenta = rs.getString("CUENTA");
-                Cliente cliente = new Cliente(nombrecompleto,DNI,cuenta,movil);
+                Cliente cliente = new Cliente(nombrecompleto, DNI, cuenta, movil);
                 clientes.add(cliente);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        // Configurar las columnas de la tabla
         columnaDNI.setCellValueFactory(new PropertyValueFactory<>("DNI"));
         columnaNombreCompleto.setCellValueFactory(new PropertyValueFactory<>("nombrecompleto"));
         columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("movil"));
         columnaCuenta.setCellValueFactory(new PropertyValueFactory<>("cuenta"));
         tablaClientes.setItems(clientes);
 
+        // Configurar el evento de doble clic en la tabla
         tablaClientes.setOnMouseClicked((MouseEvent event) -> {
             if (event.getClickCount() == 2) {
                 Cliente clienteSeleccionado = tablaClientes.getSelectionModel().getSelectedItem();
@@ -126,7 +135,7 @@ public class ClientesControlador {
                         controladora.cargarDatos(dni);
 
                         VentanaExtension ventanaExtension = VentanaExtension.obtenerInstancia();
-                        ventanaExtension.cambiarEscenaConParent("clientes/cliente",root);
+                        ventanaExtension.cambiarEscenaConParent("clientes/cliente", root);
 
                     } catch (IOException | SQLException e) {
                         throw new RuntimeException(e);
@@ -134,8 +143,9 @@ public class ClientesControlador {
                 }
             }
         });
-        FilteredList<Cliente> clientesFiltrados = new FilteredList<>(clientes);
 
+        // Configurar el filtro de búsqueda
+        FilteredList<Cliente> clientesFiltrados = new FilteredList<>(clientes);
         textBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
             clientesFiltrados.setPredicate(Busqueda -> {
                 if (newValue == null || newValue.isEmpty()) {
@@ -154,9 +164,7 @@ public class ClientesControlador {
                 return false;
             });
         });
-
         tablaClientes.setItems(clientesFiltrados);
-
     }
 
     /**
@@ -164,15 +172,15 @@ public class ClientesControlador {
      */
     @FXML
     public void clickNuevo() {
-       VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-       ventana.cambiarEscena("clientes/crear-cliente");
-
+        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+        ventana.cambiarEscena("clientes/crear-cliente");
     }
 
     /**
      * Método que se ejecuta al hacer clic en el botón "Modificar".
      *
      * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
+     * @throws IOException  Excepción de E/S si ocurre algún error al cargar los recursos.
      */
     @FXML
     public void clickModificar() throws SQLException, IOException {
@@ -187,12 +195,11 @@ public class ClientesControlador {
             controladora.setDNI(dni);
 
             VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-            ventana.cambiarEscenaConParent("clientes/modificar-cliente",root);
+            ventana.cambiarEscenaConParent("clientes/modificar-cliente", root);
 
         } else {
-            AlertaUtilidad.advertencia("Cliente no seleccionado","Por favor, seleccione una fila en la tabla");
+            AlertaUtilidad.advertencia("Cliente no seleccionado", "Por favor, seleccione una fila en la tabla");
         }
-
     }
 
     /**
@@ -218,18 +225,17 @@ public class ClientesControlador {
                 actualizarDatos();
             } catch (SQLException e) {
                 e.printStackTrace();
-            }}
-        else {
-            AlertaUtilidad.advertencia("Cliente no seleccionado","Por favor, seleccione un cliente de la tabla");
+            }
+        } else {
+            AlertaUtilidad.advertencia("Cliente no seleccionado", "Por favor, seleccione un cliente de la tabla");
         }
-
     }
 
     /**
      * Método que se ejecuta al hacer clic en el botón "Actualizar".
      */
     @FXML
-    public void clickActualizar()  {
+    public void clickActualizar() {
         actualizarDatos();
     }
 
