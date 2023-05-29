@@ -47,8 +47,7 @@ public class CrearClienteControlador{
 
 
 
-
-        /**
+    /**
          * Maneja el evento de clic en el botón "Cancelar".
          * Cambia a la escena de clientes.
          *

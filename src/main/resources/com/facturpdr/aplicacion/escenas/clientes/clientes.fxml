@@ -29,10 +29,10 @@
                                     <Label text="No existen coincidencias" />
                                  </placeholder>
                                  <columns>
-                                    <TableColumn fx:id="columnaDNI" prefWidth="124.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="DNI" />
-                                    <TableColumn fx:id="columnaNombreCompleto" prefWidth="205.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Nombre Completo" />
-                                    <TableColumn fx:id="columnaTelefono" prefWidth="144.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Teléfono" />
-                                    <TableColumn fx:id="columnaCuenta" prefWidth="180.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Nº de Cuenta" />
+                                    <TableColumn fx:id="columnaDNI" prefWidth="93.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="DNI" />
+                                    <TableColumn fx:id="columnaNombreCompleto" prefWidth="186.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Nombre Completo" />
+                                    <TableColumn fx:id="columnaTelefono" prefWidth="126.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Teléfono" />
+                                    <TableColumn fx:id="columnaCuenta" prefWidth="187.0" style="-fx-background-color: WHITE; -fx-alignment: CENTER;" text="Nº de Cuenta" />
                                  </columns>
                               </TableView>
                      </content>
