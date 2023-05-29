@@ -138,6 +138,16 @@ public class CrearClienteControlador{
          * @return true si los datos son válidos, false de lo contrario.
          * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
          */
+
+        public boolean esnumerico(String numero) {
+            try {
+                Integer.parseInt(numero);
+                return  true;
+            }catch (Exception e ) {
+                return false ;
+            }
+        }
+
         private boolean datosValidos() throws SQLException{
 
             String mensajeError = "";

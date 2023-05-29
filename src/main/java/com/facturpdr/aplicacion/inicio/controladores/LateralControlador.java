@@ -22,7 +22,10 @@ public class LateralControlador {
      */
     @FXML
     public void ManejaFacturas() {
-        ventana.cambiarEscena("facturas/facturas");
+
+        if(confirmarCambioEscena()) {
+            ventana.cambiarEscena("facturas/facturas");
+        }
     }
 
     /**
@@ -30,7 +33,10 @@ public class LateralControlador {
      */
     @FXML
     public void manejarInicio() {
-        ventana.cambiarEscena("inicio/inicio");
+
+        if(confirmarCambioEscena()) {
+            ventana.cambiarEscena("inicio/inicio");
+        }
     }
 
     /**
@@ -38,7 +44,10 @@ public class LateralControlador {
      */
     @FXML
     public void manejaEmpleados() {
-        ventana.cambiarEscena("empleados/empleados");
+
+        if(confirmarCambioEscena()) {
+            ventana.cambiarEscena("empleados/empleados");
+        }
     }
 
     /**
@@ -59,7 +68,7 @@ public class LateralControlador {
      */
     @FXML
     public void manejarConfiguracion() {
-        ventana.cambiarEscena("configuracion/configuracion");
+        if(confirmarCambioEscena()) ventana.cambiarEscena("configuracion/configuracion");
     }
 
     /**
