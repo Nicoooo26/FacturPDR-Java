@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../estilos/empleados.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../../estilos/empleados.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.empleados.controladores.ControladorEmpleado">
    <children>
       <VBox prefHeight="200.0" prefWidth="252.0">
           <fx:include source="../inicio/panel-lateral.fxml" />
@@ -54,7 +54,7 @@
                               <Insets right="120.0" />
                            </HBox.margin>
                         </TextField>
-                        <Button mnemonicParsing="false" prefHeight="23.0" prefWidth="90.0" text="Añadir" />
+                        <Button onAction="#manejaAñadirEmpleado" mnemonicParsing="false" prefHeight="23.0" prefWidth="90.0" text="Añadir" />
                         <Button layoutX="330.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="107.0" text="Modificar">
                            <HBox.margin>
                               <Insets left="5.0" />
