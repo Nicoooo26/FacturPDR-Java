@@ -9,7 +9,7 @@
         <children>
             <Pane prefHeight="592.0" prefWidth="748.0">
                 <children>
-                    <Button onAction="#enviar_reporte" layoutX="616.0" layoutY="510.0" mnemonicParsing="false" text="Enviar reporte">
+                    <Button onAction="#enviarReporte" layoutX="616.0" layoutY="510.0" mnemonicParsing="false" text="Enviar reporte">
                         <graphic>
                             <FontAwesomeIconView glyphName="PAPER_PLANE" />
                         </graphic>
@@ -25,8 +25,8 @@
                         </font>
                     </Label>
                     <Label layoutX="17.0" layoutY="44.0" text="al respecto. Tu retroalimentación es invaluable para nosotros y nos ayuda a mejorar continuamente." />
-                    <TextArea fx:id="obtieneproblema" layoutX="18.0" layoutY="123.0" prefHeight="358.0" prefWidth="712.0" promptText="Por favor, proporciona la siguiente información para ayudarnos a entender y resolver el problema de manera eficiente:" />
-                    <TextField fx:id="obtieneAsunto" layoutX="91.0" layoutY="78.0" prefHeight="10.0" prefWidth="626.0" />
+                    <TextArea fx:id="cuerpo" layoutX="18.0" layoutY="123.0" prefHeight="358.0" prefWidth="712.0" promptText="Por favor, proporciona la siguiente información para ayudarnos a entender y resolver el problema de manera eficiente:" />
+                    <TextField fx:id="asunto" layoutX="91.0" layoutY="78.0" prefHeight="10.0" prefWidth="626.0" />
                     <Label layoutX="29.0" layoutY="82.0" text="Asunto :">
                         <font>
                             <Font name="System Bold" size="14.0" />
