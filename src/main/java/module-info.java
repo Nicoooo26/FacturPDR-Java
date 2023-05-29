@@ -55,5 +55,6 @@ module com.facturpdr.aplicacion {
     exports com.facturpdr.aplicacion.usuarios.repositorios;
 
     exports com.facturpdr.aplicacion.usuarios.servicios;
+    exports com.facturpdr.aplicacion.configuraciones.test;
 
 }
