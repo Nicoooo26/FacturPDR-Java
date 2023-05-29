@@ -14,6 +14,7 @@ module com.facturpdr.aplicacion {
     requires com.oracle.database.jdbc;
     requires junit;
 
+    opens com.facturpdr.aplicacion.clientes.modelos to javafx.base;
     opens com.facturpdr.aplicacion to javafx.graphics,javafx.fxml;
     opens com.facturpdr.aplicacion.inicio.controladores to javafx.fxml;
     opens com.facturpdr.aplicacion.configuraciones.controladores to javafx.fxml;
