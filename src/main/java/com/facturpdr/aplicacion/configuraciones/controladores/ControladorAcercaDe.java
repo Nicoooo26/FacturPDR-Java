@@ -17,15 +17,16 @@ public class ControladorAcercaDe {
     TextArea obtieneproblema;
 
     /**
-     * Event handler for the "enviar_reporte" button click.
-     * Sends a report via email.
-     * @param event The action event.
-     * @throws MessagingException If an error occurs while sending the email.
+     * Manejador de eventos para el clic del botón "enviar_reporte".
+     * Envía un informe por correo electrónico.
+     *
+     * @param event El evento de acción.
+     * @throws MessagingException Si se produce un error al enviar el correo electrónico.
      */
     @FXML
     public void enviar_reporte(ActionEvent event) throws MessagingException {
         if (obtieneproblema.getText().isEmpty()) {
-            AlertaUtilidad.advertencia("Advertencia Correo.", "El mensaje del correo esta vacio.");
+            AlertaUtilidad.advertencia("Advertencia Correo.", "El mensaje del correo está vacío.");
         } else {
             CorreoUtilidad.enviar("dario.quinde34@gmail.com", obtieneAsunto.getText().toString(),
                     obtieneproblema.getText().toString());
