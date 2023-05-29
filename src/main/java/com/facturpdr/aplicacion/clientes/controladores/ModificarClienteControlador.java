@@ -10,8 +10,12 @@ import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 /**
@@ -116,9 +120,10 @@ public class ModificarClienteControlador {
      * Cambia la escena a la vista de clientes.
      */
     @FXML
-    public void clickCancelar() {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-        ventana.cambiarEscena("clientes/clientes");
+    public void clickCancelar()  {
+        VentanaExtension ventanaExtension = VentanaExtension.obtenerInstancia();
+        ventanaExtension.cambiarEscena("clientes/clientes");
+
     }
 
     /**
@@ -128,7 +133,7 @@ public class ModificarClienteControlador {
      * @throws SQLException             Si ocurre un error de base de datos.
      */
     @FXML
-    public void clickGuardar() throws NumberFormatException, SQLException {
+    public void clickGuardar() throws NumberFormatException, SQLException, IOException {
 
         BDExtension.conectarse();
         Connection conn=BDExtension.conexion;
@@ -140,11 +145,11 @@ public class ModificarClienteControlador {
             String nuevoApellidos = textApellidos.getText().toUpperCase();
             int nuevoMovil = Integer.parseInt(textMovil.getText());
             String nuevoDNI = textDNI.getText();
-            String nuevoEmail = textEmail.getText().toUpperCase();
+            String nuevoEmail = textEmail.getText();
             String nuevaCuenta = textCuenta.getText();
-            String nuevaCiudad = textCiudad.getText().toUpperCase();
-            String nuevaDireccion = textDireccion.getText().toUpperCase();
-            String nuevoPais = textPais.getText().toUpperCase();
+            String nuevaCiudad = textCiudad.getText();
+            String nuevaDireccion = textDireccion.getText();
+            String nuevoPais = textPais.getText();
             String nuevoNombreCompleto = nuevoNombre +" "+nuevoApellidos;
             ps = conn.prepareStatement(consulta);
             ps.setString(1, nuevoDNI);
@@ -177,8 +182,8 @@ public class ModificarClienteControlador {
 
             ps.executeUpdate();
             ps.close();
-            VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-            ventana.cambiarEscena("clientes/clientes");
+            VentanaExtension ventanaExtension = VentanaExtension.obtenerInstancia();
+            ventanaExtension.cambiarEscena("clientes/clientes");
         }
 
     }
