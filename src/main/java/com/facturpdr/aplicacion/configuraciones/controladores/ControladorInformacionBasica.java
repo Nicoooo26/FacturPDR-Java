@@ -123,6 +123,7 @@ public class ControladorInformacionBasica implements Initializable {
             if (botonSeleccionado.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                 cambiosSinGuardar = false;
                 muestra_informacion_personal();
+                PulsaGuardaCambios();
                 return true;
             } else if (botonSeleccionado.getButtonData() == ButtonBar.ButtonData.YES) {
                 cambiosSinGuardar = false;

@@ -1,6 +1,7 @@
 package com.facturpdr.aplicacion.configuraciones.controladores;
 
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
+import com.facturpdr.aplicacion.general.utilidades.CorreoUtilidad;
 import com.facturpdr.aplicacion.sesiones.utilidades.PreferenciaUtilidad;
 import com.facturpdr.aplicacion.usuarios.excepciones.CambiarContrasenaException;
 import com.facturpdr.aplicacion.usuarios.excepciones.ContrasenaIgualException;

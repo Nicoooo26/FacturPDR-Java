@@ -88,6 +88,24 @@ public class VentanaExtension {
 
         ventanaActual.show();
     }
+    public void ventanaEmergente(String nombreEscena) {
+        if (!escenas.containsKey(nombreEscena)) {
+            this.crear(nombreEscena);
+        }
+
+        Stage ventanaEmergente = new Stage();
+        ventanaEmergente.setResizable(false);
+
+        Scene nuevaEscena = escenas.get(nombreEscena);
+
+        if (nuevaEscena == null) {
+            return;
+        }
+        ventanaEmergente.setHeight(530);
+        ventanaEmergente.setWidth(800);
+        ventanaEmergente.setScene(nuevaEscena);
+        ventanaEmergente.showAndWait();
+    }
 
 
 }

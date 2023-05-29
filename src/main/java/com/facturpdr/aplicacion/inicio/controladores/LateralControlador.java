@@ -18,6 +18,9 @@ public class LateralControlador {
     private ControladorInformacionBasica infoBasicaControlador; // Agrega esta línea
 
 
+    @FXML public void ManejaFacturas() {
+        ventana.cambiarEscena("facturas/factura");
+    }
     @FXML
     public void manejarInicio() {
         ventana.cambiarEscena("inicio/inicio");
