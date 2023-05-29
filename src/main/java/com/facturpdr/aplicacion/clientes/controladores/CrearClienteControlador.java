@@ -130,6 +130,17 @@ public class CrearClienteControlador{
             }
             VentanaExtension ventana = VentanaExtension.obtenerInstancia();
             ventana.cambiarEscena("clientes/clientes");
+            textDNI.clear();
+            textNombre.clear();
+            textApellidos.clear();
+            textMovil.clear();
+            textCiudad.clear();
+            textCodigo.clear();
+            textCuenta.clear();
+            textDireccion.clear();
+            textEmail.clear();
+            textFijo.clear();
+            textPais.clear();
         }
 
         /**
@@ -139,19 +150,11 @@ public class CrearClienteControlador{
          * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
          */
 
-        public boolean esnumerico(String numero) {
-            try {
-                Integer.parseInt(numero);
-                return  true;
-            }catch (Exception e ) {
-                return false ;
-            }
-        }
+
 
         private boolean datosValidos() throws SQLException{
 
             String mensajeError = "";
-
 
             String nombre = textNombre.getText();
             String apellidos = textApellidos.getText();
@@ -184,9 +187,12 @@ public class CrearClienteControlador{
             if (!movil.isEmpty() && !movil.matches("[67]\\d{8}")) {
                 mensajeError += "El formato del 'movil' no es válido.\n";
             }
+<<<<<<< HEAD
             if(!movil.isEmpty() && !esnumerico(movil)){
                 mensajeError += "El campo 'movil' solo admite numeros.\n";
             }
+=======
+>>>>>>> 729eb170d09a754ca025e3645a25f91fed5f2518
             if (movil.isEmpty()) {
                 mensajeError += "El campo 'movil' es obligatorio.\n";
             } else if (existeMovil(Integer.parseInt(movil))) {

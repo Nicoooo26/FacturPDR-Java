@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.clientes.controladores.ModificarClienteControlador">
+    <children>
+        <VBox prefHeight="600.0" prefWidth="0.0" />
+        <fx:include source="../inicio/panel-lateral.fxml" />
+        <VBox prefHeight="600.0" prefWidth="763.0">
+            <children>
+                <Pane prefHeight="235.0" prefWidth="756.0" style="-fx-background-color: #333337;" />
+                <Pane prefHeight="611.0" prefWidth="752.0" style="-fx-background-color: white;" />
+            </children>
+        </VBox>
+    </children></HBox>
