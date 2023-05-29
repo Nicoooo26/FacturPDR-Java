@@ -4,6 +4,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,7 +14,17 @@ public class ControladorCrearFactura implements Initializable {
 
     @FXML ChoiceBox<String> tipoPieza = new ChoiceBox<>();
     @FXML ChoiceBox<Integer> tipoTamano = new ChoiceBox<>();
+    @FXML ChoiceBox<String> listadoClientes = new ChoiceBox<>();
 
+    @FXML TextField matriculaCoche , NBastidor;
+    @FXML DatePicker Fecha ;
+
+
+
+    private void  muestraclientes() {
+        ObservableList<String> items = tipoPieza.getItems();
+        
+    }
     private void rellenapiezas() {
         // Obtener la lista de elementos del ChoiceBox
         ObservableList<String> items = tipoPieza.getItems();
@@ -29,6 +41,7 @@ public class ControladorCrearFactura implements Initializable {
             items.add(i);
         }
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         rellenapiezas();

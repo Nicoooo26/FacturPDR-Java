@@ -184,7 +184,7 @@ public class CrearClienteControlador{
             if (!movil.isEmpty() && !movil.matches("[67]\\d{8}")) {
                 mensajeError += "El formato del 'movil' no es válido.\n";
             }
-            if(!movil.isEmpty() && esnumerico(movil)!=true){
+            if(!movil.isEmpty() && !esnumerico(movil)){
                 mensajeError += "El campo 'movil' solo admite numeros.\n";
             }
             if (movil.isEmpty()) {
