@@ -4,9 +4,11 @@ import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -24,12 +26,12 @@ public class ControladorCrearFactura {
     @FXML TextField textMatricula, textBastidor;
     @FXML DatePicker textFecha ;
 
+    @FXML
+    public Button btnCancelar;
 
+    @FXML
+    public Button btnAnnadir;
 
-    private void  muestraclientes() {
-        ObservableList<String> items = textTipoPieza.getItems();
-
-    }
     private void rellenapiezas() {
         // Obtener la lista de elementos del ChoiceBox
         ObservableList<String> items = textTipoPieza.getItems();
@@ -54,31 +56,28 @@ public class ControladorCrearFactura {
         rellenatamano();
 
         try {
-            // Consulta SQL para obtener los nombres de los clientes
             String query = "SELECT NOMBRE_COMPLETO FROM clientes";
-
-            // Crear una declaración
             Statement statement = conn.createStatement();
-
-            // Ejecutar la consulta y obtener los resultados
             ResultSet resultSet = statement.executeQuery(query);
-
-            // Limpiar el ChoiceBox
             listadoClientes.getItems().clear();
-
-            // Agregar los nombres de los clientes al ChoiceBox
             while (resultSet.next()) {
                 String nombreCliente = resultSet.getString("NOMBRE_COMPLETO");
                 listadoClientes.getItems().add(nombreCliente);
             }
-
-            // Cerrar los recursos
             resultSet.close();
             statement.close();
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Manejo de errores
         }
+
+    }
+    public void clickCancelar(){
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
+    }
+    public void clickAnnadir(){
+        Stage stage = (Stage) btnAnnadir.getScene().getWindow();
+        stage.close();
     }
 }
