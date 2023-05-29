@@ -106,6 +106,22 @@ public class VentanaExtension {
         ventanaEmergente.setScene(nuevaEscena);
         ventanaEmergente.showAndWait();
     }
+    public void cambiarEscenaConParent(String nombreEscena, Parent root) {
+        if (!escenas.containsKey(nombreEscena)) {
+            this.crear(nombreEscena);
+        }
 
+        ventanaActual = ventanaActual == null ? new Stage() : ventanaActual;
+        Scene nuevaEscena = new Scene(root);
+
+        ventanaActual.setScene(nuevaEscena);
+        ventanaActual.setResizable(false);
+
+        String titulo = nombreEscena.replaceAll("-", " ").split("/")[1];
+        titulo = Character.toUpperCase(titulo.charAt(0)) + titulo.substring(1);
+        this.cambiarTitulo("FacturPDR - " + titulo);
+
+        ventanaActual.show();
+    }
 
 }

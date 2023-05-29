@@ -3,17 +3,21 @@ package com.facturpdr.aplicacion.clientes.controladores;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import javafx.fxml.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import com.facturpdr.aplicacion.clientes.modelos.Cliente;
 
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.sql.*;
 import java.util.*;
 import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import javafx.collections.*;
 import javafx.collections.transformation.FilteredList;
+import javafx.stage.Stage;
 
 public class ClientesControlador {
 
@@ -80,7 +84,7 @@ public class ClientesControlador {
     /**
      * Método que se ejecuta al inicializar el controlador.
      */
-    public void initialize(){
+    public void initialize() throws IOException{
         try {
             BDExtension.conectarse();
         } catch (SQLException e) {
@@ -110,25 +114,26 @@ public class ClientesControlador {
         columnaCuenta.setCellValueFactory(new PropertyValueFactory<>("cuenta"));
         tablaClientes.setItems(clientes);
 
-        FXMLLoader loader = new FXMLLoader((getClass().getResource("C:\\Users\\diurno\\Desktop\\PROJECT\\Aplicacion\\src\\main\\resources\\com\\facturpdr\\aplicacion\\escenas")));
-        ClienteControlador controladora = loader.getController();
-
         tablaClientes.setOnMouseClicked((MouseEvent event) -> {
             if (event.getClickCount() == 2) {
                 Cliente clienteSeleccionado = tablaClientes.getSelectionModel().getSelectedItem();
                 if (clienteSeleccionado != null) {
                     String dni = clienteSeleccionado.getDNI();
                     try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/facturpdr/aplicacion/escenas/clientes/cliente.fxml"));
+                        Parent root = loader.load();
+                        ClienteControlador controladora = loader.getController();
                         controladora.cargarDatos(dni);
-                    } catch (SQLException e) {
+
+                        VentanaExtension ventanaExtension = VentanaExtension.obtenerInstancia();
+                        ventanaExtension.cambiarEscenaConParent("clientes/cliente",root);
+
+                    } catch (IOException | SQLException e) {
                         throw new RuntimeException(e);
                     }
-                    VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-                    ventana.cambiarEscena("clientes/cliente");
                 }
             }
         });
-
         FilteredList<Cliente> clientesFiltrados = new FilteredList<>(clientes);
 
         textBuscar.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -170,8 +175,9 @@ public class ClientesControlador {
      * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
      */
     @FXML
-    public void clickModificar() throws SQLException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("com/facturpdr/aplicacion/escenas/clientes/modificar-cliente.fxml"));
+    public void clickModificar() throws SQLException, IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/facturpdr/aplicacion/escenas/clientes/modificar-cliente.fxml"));
+        Parent root = loader.load();
         ModificarClienteControlador controladora = loader.getController();
 
         int selectedIndex = tablaClientes.getSelectionModel().getSelectedIndex();
@@ -179,8 +185,10 @@ public class ClientesControlador {
             String dni = columnaDNI.getCellData(selectedIndex);
             controladora.cargarDatos(dni);
             controladora.setDNI(dni);
-            VentanaExtension ventana=VentanaExtension.obtenerInstancia();
-            ventana.cambiarEscena("clientes/modificar-cliente");
+
+            VentanaExtension ventana = VentanaExtension.obtenerInstancia();
+            ventana.cambiarEscenaConParent("clientes/modificar-cliente",root);
+
         } else {
             AlertaUtilidad.advertencia("Cliente no seleccionado","Por favor, seleccione una fila en la tabla");
         }
