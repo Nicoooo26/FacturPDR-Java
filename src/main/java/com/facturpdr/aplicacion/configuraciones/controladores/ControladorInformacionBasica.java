@@ -31,9 +31,18 @@ public class ControladorInformacionBasica implements Initializable {
     public static ControladorInformacionBasica obtenerInstancia() {
         return instancia;
     }
+
+    /**
+     * Obtiene el campo de texto del nombre de usuario.
+     * @return El campo de texto del nombre de usuario.
+     */
     public TextField getNombreDeUsuario() {
         return nombreUsuario;
     }
+
+    /**
+     * Hace que los campos de texto no sean visibles ni modificables.
+     */
     public void novisibles_nomodificables() {
         nombreUsuario.setEditable(false);
         correoElectronico.setEditable(false);
@@ -52,6 +61,10 @@ public class ControladorInformacionBasica implements Initializable {
         fechaCreacion.setText(ConfiguracionServicio.obtenerAtributo("fechaCreacion").toString());
     }
 
+    /**
+     * Manejador de eventos para el clic del botón "PulsaGuardaCambios".
+     * Guarda los cambios realizados en los campos de texto.
+     */
     @FXML
     public void PulsaGuardaCambios() {
         int IDUsuario = PreferenciaUtilidad.obtenerIDUsuario();
@@ -70,7 +83,7 @@ public class ControladorInformacionBasica implements Initializable {
         try {
             usuarioServicio.cambiarCorreoElectronico(correoElectronico.getText(), IDUsuario);
         } catch (CambiarCorreoElectronicoException e) {
-            AlertaUtilidad.error("Error al cambiar el correo electronico", " Por favor, intenta con otro nombre de usuario que tenga entre 4 y 15 caracteres, y que esté compuesto solo por letras mayúsculas o minúsculas, números y guiones bajos.");
+            AlertaUtilidad.error("Error al cambiar el correo electrónico", "Por favor, intenta con otro correo electrónico válido.");
             return;
         }
 
@@ -81,24 +94,29 @@ public class ControladorInformacionBasica implements Initializable {
 
         boolean nombreUsuarioValido = nombreUsuario.getText().matches("^[a-zA-Z0-9_]{4,15}$");
         if (!nombreUsuarioValido) {
-            AlertaUtilidad.error("El nombre de usuario debe ser válido", " Por favor, intenta con otro nombre de usuario que tenga entre 4 y 15 caracteres, y que esté compuesto solo por letras mayúsculas o minúsculas, números y guiones bajos.");
+            AlertaUtilidad.error("El nombre de usuario debe ser válido", "Por favor, intenta con otro nombre de usuario que tenga entre 4 y 15 caracteres, y que esté compuesto solo por letras mayúsculas o minúsculas, números y guiones bajos.");
             return;
         }
 
         try {
             usuarioServicio.cambiarNombreUsuario(nombreUsuario.getText(), IDUsuario);
         } catch (CambiarNombreUsuarioException e) {
-            AlertaUtilidad.error("Error al cambiar el nombre de usuario", " Por favor, intenta con otro nombre de usuario que tenga entre 4 y 15 caracteres, y que esté compuesto solo por letras mayúsculas o minúsculas, números y guiones bajos.");
+            AlertaUtilidad.error("Error al cambiar el nombre de usuario", "Por favor, intenta con otro nombre de usuario que tenga entre 4 y 15 caracteres, y que esté compuesto solo por letras mayúsculas o minúsculas, números y guiones bajos.");
             return;
         }
 
-        AlertaUtilidad.informacion("¡Contraseña cambiada con éxito!", "¡Contraseña cambiada con éxito! Disfruta de mayor seguridad.");
+        AlertaUtilidad.informacion("¡Cambios guardados con éxito!", "Los cambios han sido guardados exitosamente.");
     }
 
+    /**
+     * Manejador de eventos para el clic del botón "PulsaModificaDatos".
+     * Permite modificar los datos personales.
+     */
     @FXML
     public void PulsaModificaDatos() {
         nombreUsuario.setEditable(true);
-        correoElectronico.setEditable(true);telefono.setEditable(true);
+        correoElectronico.setEditable(true);
+        telefono.setEditable(true);
         botonSalir.setVisible(true);
         botonGuardar.setVisible(true);
         nombreUsuario.setStyle("-fx-border-color: #9a9a9a; -fx-border-width: 2px;  -fx-shape: \"M30,30 L100,30 A70,70 0 0,1 100,100 L30,100 A70,70 0 0,1 30,30 Z\";");
@@ -106,11 +124,19 @@ public class ControladorInformacionBasica implements Initializable {
         telefono.setStyle("-fx-border-color: #9a9a9a; -fx-border-width: 2px; -fx-shape: \"M30,30 L100,30 A70,70 0 0,1 100,100 L30,100 A70,70 0 0,1 30,30 Z\";");
     }
 
+    /**
+     * Manejador de eventos para el clic del botón "PulsaBotonSalir".
+     * Sale del modo de modificación sin guardar los cambios.
+     */
     @FXML
     public void PulsaBotonSalir() {
         novisibles_nomodificables();
     }
 
+    /**
+     * Muestra un mensaje de confirmación cuando hay cambios sin guardar y se intenta salir de la página.
+     * @return true si se confirma la salida, false en caso contrario.
+     */
     public boolean mostrarMensajeCambiosSinGuardar() {
         Optional<ButtonType> resultado = AlertaUtilidad.confirmacion("Confirmar salida", "¿Estás seguro que quieres salir?", "Guardar y salir o salir sin guardar",
                 new ButtonType("Guardar y salir", ButtonBar.ButtonData.YES),
@@ -122,8 +148,8 @@ public class ControladorInformacionBasica implements Initializable {
             ButtonType botonSeleccionado = resultado.get();
             if (botonSeleccionado.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                 cambiosSinGuardar = false;
-                muestra_informacion_personal();
                 PulsaGuardaCambios();
+                muestra_informacion_personal();
                 return true;
             } else if (botonSeleccionado.getButtonData() == ButtonBar.ButtonData.YES) {
                 cambiosSinGuardar = false;
@@ -137,6 +163,7 @@ public class ControladorInformacionBasica implements Initializable {
         }
         return false;
     }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         instancia = this;
