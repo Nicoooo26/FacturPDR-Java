@@ -22,7 +22,7 @@ public class LateralControlador {
      */
     @FXML
     public void ManejaFacturas() {
-        ventana.cambiarEscena("facturas/factura");
+        ventana.cambiarEscena("facturas/facturas");
     }
 
     /**

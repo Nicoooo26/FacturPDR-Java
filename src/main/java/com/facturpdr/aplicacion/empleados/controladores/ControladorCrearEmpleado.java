@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,10 +34,12 @@ public class ControladorCrearEmpleado {
     public TextField textTelefono;
 
     @FXML
-    public Button btnCancelar;
+    private DatePicker textNacimiento;
 
     @FXML
-    private DatePicker textNacimiento;
+    public Button btnCancelar;
+
+
 
     @FXML
     public Button btnAnnadir;
@@ -50,8 +53,8 @@ public class ControladorCrearEmpleado {
      */
     @FXML
     public void clickCancelar() {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-        ventana.cambiarEscena("empleados/empleados");
+        Stage stage = (Stage) btnCancelar.getScene().getWindow();
+        stage.close();
     }
 
     /**
@@ -76,7 +79,10 @@ public class ControladorCrearEmpleado {
             String nombre=textNombre.getText().toUpperCase();
             String apellidos=textApellidos.getText().toUpperCase();
             LocalDate localDate = textNacimiento.getValue();
-            java.util.Date fecha_nacimiento = java.sql.Date.valueOf(localDate);
+            java.sql.Date fecha_nacimiento = null;
+            if (localDate != null) {
+                fecha_nacimiento = java.sql.Date.valueOf(localDate);
+            }
             stmt = conn.prepareStatement(insertSQL);
             int ID= PreferenciaUtilidad.obtenerIDUsuario();
             stmt.setString(1,DNI);
@@ -84,7 +90,7 @@ public class ControladorCrearEmpleado {
             stmt.setString(3,nombre );
             stmt.setString(4, apellidos);
             stmt.setInt(5, telefono);
-            stmt.setDate(6, (java.sql.Date) fecha_nacimiento);
+            stmt.setObject(6, fecha_nacimiento);
 
         }else {
             throw new SQLException("Error:Los datos no son válidos.");
@@ -101,8 +107,13 @@ public class ControladorCrearEmpleado {
         } catch (SQLException e) {
             System.out.println("Error al cerrar el objeto PreparedStatement: " + e.getMessage());
         }
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-        ventana.cambiarEscena("empleados/empleados");
+        Stage stage = (Stage) btnAnnadir.getScene().getWindow();
+        stage.close();
+        textDNI.clear();
+        textNombre.clear();
+        textApellidos.clear();
+        textTelefono.clear();
+        textNacimiento.setValue(null);
     }
 
     /**
@@ -111,43 +122,47 @@ public class ControladorCrearEmpleado {
      * @return true si los datos son válidos, false de lo contrario.
      * @throws SQLException Excepción de SQL si ocurre algún error en la consulta.
      */
-    private boolean datosValidos() throws SQLException{
-
+    private boolean datosValidos() throws SQLException {
         String mensajeError = "";
+        String dni = textDNI.getText();
+        String nombre = textNombre.getText();
+        String apellidos = textApellidos.getText();
+        String telefono = textTelefono.getText();
 
-        if (textNombre.getText().isEmpty()) {
-            mensajeError += "El campo 'nombre' es obligatorio.\n";
-        }
-        if (textApellidos.getText().isEmpty()) {
-            mensajeError += "El campo 'apellidos' es obligatorio.\n";
-        }
-
-        if (textDNI.getText().isEmpty()) {
-            mensajeError += "El campo 'DNI' es obligatorio.\n";
-        }
-        else if(!textDNI.getText().isEmpty() && !textDNI.getText().matches("\\d{8}[A-HJ-NP-TV-Z]")) {
-            mensajeError += "El formato 'DNI' no es válido.\n";
-        }
-        if(existeDNI(textDNI.getText())) {
-            mensajeError +="El DNI introducido ya existe en el sistema.\n";
-        }
-        if (textTelefono.getText().isEmpty()) {
-            mensajeError += "El campo 'Movil' es obligatorio.\n";
-        }
-        else if(!textTelefono.getText().isEmpty() && !textTelefono.getText().matches("^[67]\\d{8}$")) {
-            mensajeError += "El formato 'movil' no es válido.\n";
-        }
-        if(existeMovil(Integer.parseInt(textTelefono.getText()))) {
-            mensajeError +="El telefono movil introducido ya existe en el sistema.\n";
+        if (dni.isEmpty()) {
+            mensajeError += "El campo DNI es obligatorio.\n";
+        } else if (!dni.matches("\\d{8}[A-HJ-NP-TV-Z]")) {
+            mensajeError += "El formato del DNI no es válido.\n";
         }
 
-        if (mensajeError.length() == 0) {
+        if (nombre.isEmpty()) {
+            mensajeError += "El campo Nombre es obligatorio.\n";
+        }
+
+        if (apellidos.isEmpty()) {
+            mensajeError += "El campo Apellidos es obligatorio.\n";
+        }
+
+        if (!telefono.isEmpty() && !telefono.matches("[67]\\d{8}")) {
+            mensajeError += "El formato del Teléfono no es válido.\n";
+        }
+
+        if (existeDNI(textDNI.getText())) {
+            mensajeError += "El DNI introducido ya existe en el sistema.\n";
+        }
+
+        if (telefono.isEmpty()) {
+            mensajeError += "El campo Teléfono es obligatorio.\n";
+        } else if (existeMovil(Integer.parseInt(textTelefono.getText()))) {
+            mensajeError += "El telefono movil introducido ya existe en el sistema.\n";
+        }
+
+        if (mensajeError.isEmpty()) {
             return true;
         } else {
-            AlertaUtilidad.error("Datos no válidos",mensajeError);
+            AlertaUtilidad.error("Datos no válidos", mensajeError);
             return false;
         }
-
     }
 
 
