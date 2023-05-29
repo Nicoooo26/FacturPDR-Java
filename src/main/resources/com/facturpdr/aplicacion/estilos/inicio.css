@@ -1,72 +1,34 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-/* Estilo para el ChoiceBox */
-.choice-box {
-    -fx-background-color: #FFFFFF; /* color de fondo blanco */
-    -fx-border-color: #D0D0D0; /* color del borde */
-    -fx-border-radius: 5px; /* radio del borde */
-    -fx-padding: 5px; /* relleno interno */
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+
+.vboxPrincipal {
+    -fx-background-color: #84cc16;
 }
-
-/* Estilo del botón del ChoiceBox */
-.choice-box .button {
-    -fx-background-color: transparent; /* fondo transparente */
-    -fx-background-insets: 0; /* sin relleno */
-    -fx-background-radius: 0; /* sin radio */
-    -fx-padding: 0 5px; /* relleno interno horizontal */
-}
-
-
-/* Estilo de cada elemento de la lista desplegable del ChoiceBox */
-.choice-box .list-view .list-cell {
-    -fx-background-color: #FFFFFF; /* color de fondo blanco */
-    -fx-background-insets: 0; /* sin relleno */
-    -fx-background-radius: 0; /* sin radio */
-    -fx-padding: 5px; /* relleno interno */
-    -fx-text-fill: #808080; /* color gris por defecto */
-}
-
-/* Estilo del texto seleccionado en la lista desplegable del ChoiceBox */
-.choice-box .list-view .list-cell:selected .text {
-    -fx-text-fill: green; /* color verde cuando está seleccionado */
-}
-
-/* Estilo del texto seleccionado en el ChoiceBox */
-.choice-box .text-field {
-    -fx-background-color: #E0E0E0; /* color de fondo blanco */
-    -fx-background-insets: 0; /* sin relleno */
-    -fx-background-radius: 0; /* sin radio */
-    -fx-border-color: #D0D0D0; /* color del borde */
-    -fx-border-radius: 5px; /* radio del borde */
-    -fx-padding: 5px; /* relleno interno */
-    -fx-font-size: 12px;
-}
-
-/* Estilo del texto seleccionado en el ChoiceBox cuando está inactivo */
-.choice-box:focused .text-field {
-    -fx-border-color: #6C8EBF; /* color del borde cuando está enfocado */
-    -fx-border-width: 2px; /* ancho del borde cuando está enfocado */
-}
-
-/* Estilo del botón del ChoiceBox cuando está inactivo */
-.choice-box:focused .button {
-    -fx-background-color: transparent; /* fondo transparente */
-    -fx-background-insets: 0; /* sin relleno */
-    -fx-background-radius: 0; /* sin radio */
-    -fx-padding: 1px; /* relleno interno horizontal */
-    -fx-border-color: #6C8EBF; /* color del borde cuando está enfocado */
-    -fx-border-radius: 5px; /* radio del borde cuando está enfocado */
-    -fx-border-width: 2px; /* ancho del borde cuando está enfocado */
-}
-
-/* Estilos css de informacion-basica */
+.paneLateral {
+    -fx-background-color: #436e2f80;
+ }
 
 .button
 {
-	-fx-background-color : transparent ;
+	-fx-background-color : #84cc16 ;
 }
 .button:hover
 {
-	-fx-background-color : #e5e5e5 ;
-    -fx-effect: dropshadow(three-pass-box, #e5e5e5, 10, 0, 0, 0);
+	-fx-background-color : #a6d95f ;
 	-fx-cursor: hand;
+
+}
+
+.CerrarSesion:hover
+{
+    -fx-background-color: #FF0000;
+    -fx-cursor: hand;
+}
+
+.PaneNumeroClientes,
+.PaneNumeroEmpleados,
+.PaneNumeroFacturas {
+    -fx-background-radius: 20px;
+    -fx-background-color: #FFFF;
 }
