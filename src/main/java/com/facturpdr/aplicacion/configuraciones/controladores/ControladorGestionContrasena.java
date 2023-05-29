@@ -21,7 +21,7 @@ public class ControladorGestionContrasena {
     private UsuarioServicio usuarioServicio = new UsuarioServicio();
 
     /**
-     * Manejador de eventos para el clic del botón "manejarCambiarContrasena".
+     * Controlador de eventos para el clic del botón "manejarCambiarContrasena".
      * Cambia la contraseña del usuario.
      */
     @FXML
@@ -30,7 +30,7 @@ public class ControladorGestionContrasena {
 
         boolean contrasenaNuevaValida = contrasenaNueva.getText().matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)([A-Za-z\\d$@!%*?&]|[^ ]){8,}$");
         if (!contrasenaNuevaValida) {
-            AlertaUtilidad.error("La contraseña debe ser válida", "La contraseña debe tener al menos 8 caracteres, una mayúscula como mínimo, un número como mínimo.");
+            AlertaUtilidad.error("La contraseña debe ser valida", "La contraseña debe tener al menos 8 caracteres, una mayúscula como mínimo, un número como mínimo.");
             return;
         }
 
@@ -42,7 +42,7 @@ public class ControladorGestionContrasena {
         try {
             usuarioServicio.cambiarContrasena(contrasenaNueva.getText(), IDUsuario);
         } catch (CambiarContrasenaException e) {
-            AlertaUtilidad.error("Error al cambiar la contraseña", "Lo sentimos, se ha producido un error al cambiar la contraseña, vuelva a intentarlo.");
+            AlertaUtilidad.error("Error al cambiar la contraseña", "Lo sentimos, se ha producido un error al registrar el usuario, vuelva a intentarlo.");
             return;
         } catch (ContrasenaIgualException e) {
             AlertaUtilidad.error("Contraseña no modificada", "La contraseña nueva es igual a la actual");

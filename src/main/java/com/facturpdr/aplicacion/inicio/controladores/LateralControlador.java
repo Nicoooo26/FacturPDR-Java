@@ -16,7 +16,6 @@ import java.util.Optional;
 public class LateralControlador {
     private final VentanaExtension ventana = VentanaExtension.obtenerInstancia();
     private final SesionServicio sesionServicio = new SesionServicio();
-    private ControladorInformacionBasica infoBasicaControlador;
 
     /**
      * Maneja el evento para ir a la sección de Facturas.

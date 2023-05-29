@@ -22,7 +22,7 @@ public class ControladorInformacionBasica implements Initializable {
     private UsuarioServicio usuarioServicio = new UsuarioServicio();
 
     @FXML private TextField nombreUsuario, correoElectronico, fechaCreacion, telefono;
-    @FXML private Button botonSalir , botonGuardar , botonModifica;
+    @FXML private Button botonSalir , botonGuardar ;
 
     public static boolean cambiosSinGuardar = false;
 
@@ -148,7 +148,6 @@ public class ControladorInformacionBasica implements Initializable {
             ButtonType botonSeleccionado = resultado.get();
             if (botonSeleccionado.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                 cambiosSinGuardar = false;
-                PulsaGuardaCambios();
                 muestra_informacion_personal();
                 return true;
             } else if (botonSeleccionado.getButtonData() == ButtonBar.ButtonData.YES) {
