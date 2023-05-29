@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.empleados.controladores.ControladorCrearEmpleado">
    <children>
       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="800.0">
          <children>
@@ -30,24 +24,24 @@
                   <TextField layoutX="202.0" layoutY="155.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                   <Separator layoutX="69.0" layoutY="92.0" prefHeight="3.0" prefWidth="170.0" style="-fx-background-color: #000000;" />
                   <Label layoutX="367.0" layoutY="39.0" text="Nombre" />
-                  <TextField layoutX="306.0" layoutY="63.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+                  <TextField fx:id="textNombre" layoutX="306.0" layoutY="63.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                   <Separator layoutX="306.0" layoutY="92.0" prefHeight="3.0" prefWidth="170.0" style="-fx-background-color: #000000;" />
                   <Label layoutX="453.0" layoutY="121.0" text=" Fecha de Nacimiento" />
-                  <DatePicker layoutX="439.0" layoutY="155.0" prefHeight="29.0" prefWidth="162.0" style="-fx-background-color: transparENt;" />
+                  <DatePicker fx:id="textNacimiento" layoutX="439.0" layoutY="155.0" prefHeight="29.0" prefWidth="162.0" style="-fx-background-color: transparENt;" />
                   <Separator layoutX="439.0" layoutY="183.0" prefHeight="3.0" prefWidth="162.0" style="-fx-background-color: #000000;" />
-                  <Button layoutX="391.0" layoutY="387.0" mnemonicParsing="false" text="Añafir empleado">
+                  <Button fx:id="btnAnnadir" layoutX="391.0" layoutY="387.0" mnemonicParsing="false" onAction="#clickAnnadir" prefHeight="29.0" prefWidth="125.0" text="Añadir empleado">
                      <graphic>
                         <FontAwesomeIconView glyphName="PLUS" />
                      </graphic>
                   </Button>
-                  <Button layoutX="287.0" layoutY="387.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="85.0" text="Cancelar" />
+                  <Button fx:id="btnCancelar" layoutX="247.0" layoutY="387.0" mnemonicParsing="false" onAction="#clickCancelar" prefHeight="29.0" prefWidth="125.0" text="Cancelar" />
                   <Label layoutX="428.0" layoutY="215.0" />
-                  <TextField layoutX="69.0" layoutY="63.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+                  <TextField fx:id="textDNI" layoutX="69.0" layoutY="63.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                   <Label layoutX="633.0" layoutY="39.0" text="Apellidos" />
-                  <TextField layoutX="575.0" layoutY="63.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+                  <TextField fx:id="textApellidos" layoutX="575.0" layoutY="63.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                   <Separator layoutX="574.0" layoutY="92.0" prefHeight="3.0" prefWidth="170.0" style="-fx-background-color: #000000;" />
                   <Label layoutX="239.0" layoutY="121.0" text="Telefono" />
-                  <TextField layoutX="188.0" layoutY="155.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+                  <TextField fx:id="textTelefono" layoutX="188.0" layoutY="155.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                   <Separator layoutX="192.0" layoutY="182.0" prefHeight="3.0" prefWidth="162.0" style="-fx-background-color: #000000;" />
                </children>
             </Pane>
