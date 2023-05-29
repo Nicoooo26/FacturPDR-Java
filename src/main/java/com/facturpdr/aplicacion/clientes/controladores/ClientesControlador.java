@@ -7,16 +7,17 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import com.facturpdr.aplicacion.clientes.modelos.Cliente;
-import java.io.IOException;
-import java.net.URL;
+
+import java.nio.charset.Charset;
 import java.sql.*;
 import java.util.*;
 import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import javafx.collections.*;
 import javafx.collections.transformation.FilteredList;
 
+public class ClientesControlador {
 
-public class ClientesControlador implements Initializable{
+
     /**
      * TableView para mostrar la lista de clientes.
      */
@@ -77,18 +78,9 @@ public class ClientesControlador implements Initializable{
     ObservableList<Cliente> clientes = FXCollections.observableArrayList();
 
     /**
-     * Lista de clientes a eliminar.
-     */
-    List<Cliente> listaEliminar = new ArrayList<>(clientes);
-
-    /**
      * Método que se ejecuta al inicializar el controlador.
-     *
-     * @param location  URL de ubicación del controlador.
-     * @param resources Recursos utilizados por el controlador.
      */
-    @Override
-    public void initialize(URL location, ResourceBundle resources){
+    public void initialize(){
         try {
             BDExtension.conectarse();
         } catch (SQLException e) {
@@ -117,9 +109,9 @@ public class ClientesControlador implements Initializable{
         columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("movil"));
         columnaCuenta.setCellValueFactory(new PropertyValueFactory<>("cuenta"));
         tablaClientes.setItems(clientes);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("com/facturpdr/aplicacion/escenas/clientes/cliente.fxml"));
-        ClienteControlador controladora = loader.getController();
 
+        FXMLLoader loader = new FXMLLoader((getClass().getResource("C:\\Users\\diurno\\Desktop\\PROJECT\\Aplicacion\\src\\main\\resources\\com\\facturpdr\\aplicacion\\escenas")));
+        ClienteControlador controladora = loader.getController();
 
         tablaClientes.setOnMouseClicked((MouseEvent event) -> {
             if (event.getClickCount() == 2) {
@@ -131,7 +123,7 @@ public class ClientesControlador implements Initializable{
                     } catch (SQLException e) {
                         throw new RuntimeException(e);
                     }
-                    VentanaExtension ventana=VentanaExtension.obtenerInstancia();
+                    VentanaExtension ventana = VentanaExtension.obtenerInstancia();
                     ventana.cambiarEscena("clientes/cliente");
                 }
             }
@@ -169,6 +161,7 @@ public class ClientesControlador implements Initializable{
     public void clickNuevo() {
        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
        ventana.cambiarEscena("clientes/crear-cliente");
+
     }
 
     /**
@@ -211,10 +204,10 @@ public class ClientesControlador implements Initializable{
                 PreparedStatement statement = conn.prepareStatement(query);
                 statement.setString(1, dni);
                 statement.executeUpdate();
-                tablaClientes.setItems(FXCollections.observableArrayList(listaEliminar));
                 tablaClientes.refresh();
                 Statement refreshStatement = conn.createStatement();
                 refreshStatement.execute("COMMIT");
+                actualizarDatos();
             } catch (SQLException e) {
                 e.printStackTrace();
             }}
@@ -229,8 +222,37 @@ public class ClientesControlador implements Initializable{
      */
     @FXML
     public void clickActualizar()  {
-        VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-        ventana.cambiarEscena("clientes/clientes");
+        actualizarDatos();
     }
 
+    /**
+     * Método para actualizar los datos en la tabla de clientes.
+     */
+    public void actualizarDatos() {
+        clientes.clear();
+
+        try {
+            BDExtension.conectarse();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Connection conn = BDExtension.conexion;
+
+        String selectSQL = "SELECT NOMBRE_COMPLETO, DNI, MOVIL, CUENTA FROM CLIENTES";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(selectSQL);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                String DNI = rs.getString("DNI");
+                String nombrecompleto = rs.getString("NOMBRE_COMPLETO");
+                int movil = rs.getInt("MOVIL");
+                String cuenta = rs.getString("CUENTA");
+                Cliente cliente = new Cliente(nombrecompleto, DNI, cuenta, movil);
+                clientes.add(cliente);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

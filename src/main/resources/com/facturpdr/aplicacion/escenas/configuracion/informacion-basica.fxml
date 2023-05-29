@@ -30,12 +30,12 @@
                                 <Button layoutY="141.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="732.0" />
                                 <Text fill="#9a9a9a" layoutX="34.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha de creación" wrappingWidth="135.1254711151123" />
                                 <Separator layoutX="-1.0" layoutY="200.0" prefHeight="8.0" prefWidth="722.0" />
-                        <TextField fx:id="NombreDeUsuario" alignment="TOP_CENTER" layoutX="275.0" layoutY="73.0" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="No definido.">
+                        <TextField fx:id="nombreUsuario" alignment="TOP_CENTER" layoutX="275.0" layoutY="73.0" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="No definido.">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="fechacreacion" alignment="TOP_CENTER" layoutX="275.0" layoutY="152.0" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="No definido.">
+                        <TextField fx:id="fechaCreacion" alignment="TOP_CENTER" layoutX="275.0" layoutY="152.0" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="No definido.">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -54,7 +54,7 @@
                                 <Button layoutX="-1.0" layoutY="100.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="732.0" />
                                 <Text fill="#9a9a9a" layoutX="34.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Correo Electrónico " wrappingWidth="118.87931632995605" />
                                 <Text fill="#9a9a9a" layoutX="34.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono" wrappingWidth="73.09471702575684" />
-                        <TextField fx:id="mail" alignment="TOP_CENTER" layoutX="275.0" layoutY="40.0" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="No definido.">
+                        <TextField fx:id="correoElectronico" alignment="TOP_CENTER" layoutX="275.0" layoutY="40.0" prefHeight="36.0" prefWidth="171.0" style="-fx-background-color: transparent;" text="No definido.">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -71,17 +71,17 @@
                                 <Font size="14.0" />
                             </font>
                         </Text>
-                        <Button fx:id="Boton_Modifica" layoutX="587.0" layoutY="511.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="Modificar datos" onAction="#PulsaModificaDatos">
+                        <Button fx:id="botonModifica" layoutX="587.0" layoutY="511.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="Modificar datos" onAction="#PulsaModificaDatos">
                             <graphic>
                                 <FontAwesomeIconView fill="#9a9a9a" glyphName="PENCIL" size="17" />
                             </graphic>
                         </Button>
-                  <Button fx:id="Boton_Guardar" layoutX="437.0" layoutY="511.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="Guardar cambios." onAction="#PulsaGuardaCambios">
+                  <Button fx:id="botonGuardar" layoutX="437.0" layoutY="511.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="Guardar cambios." onAction="#PulsaGuardaCambios">
                      <graphic>
                         <FontAwesomeIconView fill="#9a9a9a" glyphName="SAVE" size="17" />
                      </graphic>
                   </Button>
-                  <Button fx:id="Boton_Salir" layoutX="287.0" layoutY="511.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="Salir" onAction="#PulsaBotonSalir">
+                  <Button fx:id="botonSalir" layoutX="287.0" layoutY="511.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="150.0" text="Salir" onAction="#PulsaBotonSalir">
                      <graphic>
                         <FontAwesomeIconView fill="#9a9a9a" glyphName="SIGN_OUT" size="17" />
                      </graphic>

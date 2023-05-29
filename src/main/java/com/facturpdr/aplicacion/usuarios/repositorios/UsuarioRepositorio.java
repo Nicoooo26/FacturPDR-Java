@@ -104,4 +104,14 @@ public class UsuarioRepositorio {
         String sql = "update usuarios set contrasena = ? where id = ?";
         return BDExtension.actualizar(sql, contrasena, id_usuario);
     }
+
+    public boolean cambiarCorreoElectronico(String correoElectronico, int id_usuario) {
+        String sql = "update usuarios set correo_electronico = ? where id = ?";
+        return BDExtension.actualizar(sql, correoElectronico, id_usuario);
+    }
+
+    public boolean cambiarNombreUsuario(String nombre_usuario, int id_usuario) {
+        String sql = "update usuarios set nombre_usuario = ? where id = ?";
+        return BDExtension.actualizar(sql, nombre_usuario, id_usuario);
+    }
 }

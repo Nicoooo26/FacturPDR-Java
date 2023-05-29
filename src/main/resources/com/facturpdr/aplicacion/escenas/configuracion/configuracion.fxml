@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -30,7 +29,7 @@
             </Tab>
             <Tab text="Gestión de contraseñas">
                <content>
-                  <fx:include source="gestion-contrasena.fxml"></fx:include>
+                  <fx:include source="gestion-contrasena.fxml" />
                </content>
                <graphic>
                   <FontAwesomeIconView fill="#9a9a9a" glyphName="KEY" size="17" />
@@ -46,12 +45,7 @@
             </Tab>
             <Tab text="Acerca de">
                <content>
-                  <VBox alignment="CENTER" spacing="10.0">
-                     <children>
-                        <Label text="Configuración avanzada" />
-                        <Separator />
-                     </children>
-                  </VBox>
+                  <fx:include source="acerca-de.fxml"/>
                </content>
                <graphic>
                   <FontAwesomeIconView fill="#9a9a9a" glyphName="QUESTION_CIRCLE" size="17" wrappingWidth="16.992260694503784" />
