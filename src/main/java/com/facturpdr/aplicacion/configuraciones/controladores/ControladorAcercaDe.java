@@ -1,5 +1,6 @@
 package com.facturpdr.aplicacion.configuraciones.controladores;
 
+import com.facturpdr.aplicacion.configuraciones.servicios.ConfiguracionServicio;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import com.facturpdr.aplicacion.general.utilidades.CorreoUtilidad;
 import javafx.event.ActionEvent;
@@ -27,7 +28,7 @@ public class ControladorAcercaDe {
         if (cuerpo.getText().isEmpty()) {
             AlertaUtilidad.advertencia("Advertencia Correo.", "El mensaje del correo está vacío.");
         } else {
-            CorreoUtilidad.enviar("dario.quinde34@gmail.com", asunto.getText().toString(),
+            CorreoUtilidad.enviar(ConfiguracionServicio.obtenerAtributo("correoElectronico").toString(), asunto.getText().toString(),
                     cuerpo.getText().toString());
         }
     }

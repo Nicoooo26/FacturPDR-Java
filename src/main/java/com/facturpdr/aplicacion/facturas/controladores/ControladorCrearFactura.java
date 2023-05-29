@@ -23,7 +23,7 @@ public class ControladorCrearFactura implements Initializable {
 
     private void  muestraclientes() {
         ObservableList<String> items = tipoPieza.getItems();
-        
+
     }
     private void rellenapiezas() {
         // Obtener la lista de elementos del ChoiceBox

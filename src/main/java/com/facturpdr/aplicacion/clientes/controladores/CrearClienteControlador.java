@@ -143,6 +143,14 @@ public class CrearClienteControlador{
             textPais.clear();
         }
 
+        public boolean esnumero(String numero) {
+            try {
+                Integer.parseInt(numero);
+                return true ;
+            }catch (Exception e) {
+                return false;
+            }
+        }
         /**
          * Verifica si los datos ingresados son válidos.
          *
@@ -187,13 +195,10 @@ public class CrearClienteControlador{
             if (!movil.isEmpty() && !movil.matches("[67]\\d{8}")) {
                 mensajeError += "El formato del 'movil' no es válido.\n";
             }
-<<<<<<< HEAD
-            if(!movil.isEmpty() && !esnumerico(movil)){
+            if(!movil.isEmpty() && !esnumero(movil)){
                 mensajeError += "El campo 'movil' solo admite numeros.\n";
             }
-=======
->>>>>>> 729eb170d09a754ca025e3645a25f91fed5f2518
-            if (movil.isEmpty()) {
+    if (movil.isEmpty()) {
                 mensajeError += "El campo 'movil' es obligatorio.\n";
             } else if (existeMovil(Integer.parseInt(movil))) {
                 mensajeError += "El telefono movil introducido ya existe en el sistema.\n";
