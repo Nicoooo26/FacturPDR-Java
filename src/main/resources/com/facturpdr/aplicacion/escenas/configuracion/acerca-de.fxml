@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.configuraciones.controladores.ControladorAcercaDe">
+        <children>
+            <Pane prefHeight="592.0" prefWidth="748.0">
+                <children>
+                    <Button onAction="#enviar_reporte" layoutX="616.0" layoutY="510.0" mnemonicParsing="false" text="Enviar reporte">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="PAPER_PLANE" />
+                        </graphic>
+                    </Button>
+                    <Label layoutX="17.0" layoutY="4.0" prefHeight="20.0" prefWidth="725.0" text="En FACTUR PDR, valoramos tu opinión y nos esforzamos por brindarte la mejor experiencia posible. ">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="17.0" layoutY="24.0" text="Si has encontrado algún problema o error mientras utilizabas nuestra aplicación, te invitamos a que nos informes ">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </Label>
+                    <Label layoutX="17.0" layoutY="44.0" text="al respecto. Tu retroalimentación es invaluable para nosotros y nos ayuda a mejorar continuamente." />
+                    <TextArea fx:id="obtieneproblema" layoutX="18.0" layoutY="123.0" prefHeight="358.0" prefWidth="712.0" promptText="Por favor, proporciona la siguiente información para ayudarnos a entender y resolver el problema de manera eficiente:" />
+                    <TextField fx:id="obtieneAsunto" layoutX="91.0" layoutY="78.0" prefHeight="10.0" prefWidth="626.0" />
+                    <Label layoutX="29.0" layoutY="82.0" text="Asunto :">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                </children>
+            </Pane>
+        </children>
+    </VBox>
