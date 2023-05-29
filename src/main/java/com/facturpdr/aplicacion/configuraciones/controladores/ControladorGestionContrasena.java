@@ -1,44 +1,49 @@
 package com.facturpdr.aplicacion.configuraciones.controladores;
 
-import com.facturpdr.aplicacion.auth.utilidades.HashUtilidad;
-import com.facturpdr.aplicacion.configuraciones.servicios.ConfiguracionServicio;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import com.facturpdr.aplicacion.sesiones.utilidades.PreferenciaUtilidad;
-import com.facturpdr.aplicacion.usuarios.repositorios.UsuarioRepositorio;
-import javafx.event.ActionEvent;
+import com.facturpdr.aplicacion.usuarios.excepciones.CambiarContrasenaException;
+import com.facturpdr.aplicacion.usuarios.excepciones.ContrasenaIgualException;
+import com.facturpdr.aplicacion.usuarios.servicios.UsuarioServicio;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
+
+import java.util.Objects;
+
 public class ControladorGestionContrasena {
+    @FXML
+    private PasswordField contrasenaNueva;
 
-    private UsuarioRepositorio user = new UsuarioRepositorio();
-    @FXML private PasswordField contrasena_actual , contrasena_nueva , contrasena_nueva2;
+    @FXML
+    private PasswordField confirmarContrasenaNueva;
 
-    private boolean contrasena_regex(String contrasena) {
-        return contrasena.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)([A-Za-z\\d$@!%*?&]|[^ ]){8,}$");
-    }
-    private boolean comprueba_constrasenaactual()  {
-        if ( HashUtilidad.sha256(contrasena_actual.toString()) != ConfiguracionServicio.obtenerAtributo("contrasena")) return false ;
-        return true ;
-    }
+    private UsuarioServicio usuarioServicio = new UsuarioServicio();
 
-    private boolean contrasena_nueva() {
-       if (!contrasena_regex(contrasena_nueva.getText()) || !contrasena_regex(contrasena_nueva2.getText())) return false;
-       if (contrasena_nueva.toString() != contrasena_nueva2.toString()) return false ;
-       return true;
-    }
+    @FXML
+    public void manejarCambiarContrasena() {
+        int IDUsuario = PreferenciaUtilidad.obtenerIDUsuario();
 
-    @FXML public void GuardarCambios(ActionEvent event) {
-        if (!comprueba_constrasenaactual()) {
-            AlertaUtilidad.error("Mensaje de Error","La contraseña actual no es valida");
-            return;
-        }
-        if(!contrasena_nueva()) {
-            AlertaUtilidad.advertencia("Advertencia contraseñas", "Las contraseñas no son iguales o no cumplen los requisitos.");
+        boolean contrasenaNuevaValida = contrasenaNueva.getText().matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)([A-Za-z\\d$@!%*?&]|[^ ]){8,}$");
+        if (!contrasenaNuevaValida) {
+            AlertaUtilidad.error("La contraseña debe ser valida", "La contraseña debe tener al menos 8 caracteres, una mayúscula como mínimo, un número como mínimo.");
             return;
         }
 
-        if (user.cambiarContrasena(contrasena_nueva.toString(), PreferenciaUtilidad.obtenerIDUsuario())) {
-            AlertaUtilidad.confirmacion("Mensaje de Confirmacion",null,"Su contraseña ha sido modificada correctamente\"");
+        if (!Objects.equals(contrasenaNueva.getText(), confirmarContrasenaNueva.getText())) {
+            AlertaUtilidad.error("La contraseña y confirmar contraseña no coinciden", "La contraseña y la confirmación de la contraseña no coinciden.");
+            return;
         }
+
+        try {
+            usuarioServicio.cambiarContrasena(contrasenaNueva.getText(), IDUsuario);
+        } catch (CambiarContrasenaException e) {
+            AlertaUtilidad.error("Error al cambiar la contraseña", "Lo sentimos, se ha producido un error al registrar el usuario, vuelva a intentarlo.");
+            return;
+        } catch (ContrasenaIgualException e) {
+            AlertaUtilidad.error("Contraseña no modificada", "La contraseña nueva es igual a la actual");
+            return;
+        }
+
+        AlertaUtilidad.informacion("¡Contraseña cambiada con éxito!", "¡Contraseña cambiada con éxito! Disfruta de mayor seguridad.");
     }
 }
