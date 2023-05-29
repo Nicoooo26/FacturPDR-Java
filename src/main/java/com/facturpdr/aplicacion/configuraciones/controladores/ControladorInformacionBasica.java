@@ -2,6 +2,10 @@ package com.facturpdr.aplicacion.configuraciones.controladores;
 
 import com.facturpdr.aplicacion.configuraciones.servicios.ConfiguracionServicio;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
+import com.facturpdr.aplicacion.sesiones.utilidades.PreferenciaUtilidad;
+import com.facturpdr.aplicacion.usuarios.excepciones.CambiarCorreoElectronicoException;
+import com.facturpdr.aplicacion.usuarios.excepciones.CambiarNombreUsuarioException;
+import com.facturpdr.aplicacion.usuarios.servicios.UsuarioServicio;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,9 +19,10 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ControladorInformacionBasica implements Initializable {
+    private UsuarioServicio usuarioServicio = new UsuarioServicio();
 
-    @FXML private TextField NombreDeUsuario , mail , fechacreacion , telefono;
-    @FXML private Button Boton_Salir , Boton_Guardar , Boton_Modifica;
+    @FXML private TextField nombreUsuario, correoElectronico, fechaCreacion, telefono;
+    @FXML private Button botonSalir , botonGuardar , botonModifica;
 
     public static boolean cambiosSinGuardar = false;
 
@@ -27,35 +32,82 @@ public class ControladorInformacionBasica implements Initializable {
         return instancia;
     }
     public TextField getNombreDeUsuario() {
-        return NombreDeUsuario;
+        return nombreUsuario;
     }
     public void novisibles_nomodificables() {
-        NombreDeUsuario.setEditable(false);mail.setEditable(false);fechacreacion.setEditable(false);telefono.setEditable(false);
-        Boton_Salir.setVisible(false);Boton_Guardar.setVisible(false);
-        NombreDeUsuario.setStyle("-fx-background-color: transparent;");
-        mail.setStyle("-fx-background-color: transparent;");
+        nombreUsuario.setEditable(false);
+        correoElectronico.setEditable(false);
+        fechaCreacion.setEditable(false);
+        telefono.setEditable(false);
+        botonSalir.setVisible(false);
+        botonGuardar.setVisible(false);
+        nombreUsuario.setStyle("-fx-background-color: transparent;");
+        correoElectronico.setStyle("-fx-background-color: transparent;");
         telefono.setStyle("-fx-background-color: transparent;");
     }
 
     private void muestra_informacion_personal() {
-        NombreDeUsuario.setText(ConfiguracionServicio.obtenerAtributo("nombreUsuario").toString());
-        mail.setText(ConfiguracionServicio.obtenerAtributo("correoElectronico").toString());
-        fechacreacion.setText(ConfiguracionServicio.obtenerAtributo("fechaCreacion").toString());
+        nombreUsuario.setText(ConfiguracionServicio.obtenerAtributo("nombreUsuario").toString());
+        correoElectronico.setText(ConfiguracionServicio.obtenerAtributo("correoElectronico").toString());
+        fechaCreacion.setText(ConfiguracionServicio.obtenerAtributo("fechaCreacion").toString());
     }
 
-    @FXML public void PulsaGuardaCambios(ActionEvent event) {
+    @FXML
+    public void PulsaGuardaCambios() {
+        int IDUsuario = PreferenciaUtilidad.obtenerIDUsuario();
 
+        if (correoElectronico.getText().isEmpty()) {
+            AlertaUtilidad.error("Debes introducir un correo electrónico", "Por favor, introduce tu correo electrónico");
+            return;
+        }
+
+        boolean correoElectronicoValido = correoElectronico.getText().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+        if (!correoElectronicoValido) {
+            AlertaUtilidad.error("El correo electrónico debe ser válido", "Por favor, introduce un correo electrónico válido.");
+            return;
+        }
+
+        try {
+            usuarioServicio.cambiarCorreoElectronico(correoElectronico.getText(), IDUsuario);
+        } catch (CambiarCorreoElectronicoException e) {
+            AlertaUtilidad.error("Error al cambiar el correo electronico", " Por favor, intenta con otro nombre de usuario que tenga entre 4 y 15 caracteres, y que esté compuesto solo por letras mayúsculas o minúsculas, números y guiones bajos.");
+            return;
+        }
+
+        if (nombreUsuario.getText().isEmpty()) {
+            AlertaUtilidad.error("Debes introducir un nombre de usuario", "Por favor, introduce el nombre de usuario");
+            return;
+        }
+
+        boolean nombreUsuarioValido = nombreUsuario.getText().matches("^[a-zA-Z0-9_]{4,15}$");
+        if (!nombreUsuarioValido) {
+            AlertaUtilidad.error("El nombre de usuario debe ser válido", " Por favor, intenta con otro nombre de usuario que tenga entre 4 y 15 caracteres, y que esté compuesto solo por letras mayúsculas o minúsculas, números y guiones bajos.");
+            return;
+        }
+
+        try {
+            usuarioServicio.cambiarNombreUsuario(nombreUsuario.getText(), IDUsuario);
+        } catch (CambiarNombreUsuarioException e) {
+            AlertaUtilidad.error("Error al cambiar el nombre de usuario", " Por favor, intenta con otro nombre de usuario que tenga entre 4 y 15 caracteres, y que esté compuesto solo por letras mayúsculas o minúsculas, números y guiones bajos.");
+            return;
+        }
+
+        AlertaUtilidad.informacion("¡Contraseña cambiada con éxito!", "¡Contraseña cambiada con éxito! Disfruta de mayor seguridad.");
     }
 
-    @FXML public void PulsaModificaDatos(ActionEvent event) {
-        NombreDeUsuario.setEditable(true);mail.setEditable(true);telefono.setEditable(true);
-        Boton_Salir.setVisible(true);Boton_Guardar.setVisible(true);
-        NombreDeUsuario.setStyle("-fx-border-color: #9a9a9a; -fx-border-width: 2px;  -fx-shape: \"M30,30 L100,30 A70,70 0 0,1 100,100 L30,100 A70,70 0 0,1 30,30 Z\";");
-        mail.setStyle("-fx-border-color: #9a9a9a; -fx-border-width: 2px;  -fx-shape: \"M30,30 L100,30 A70,70 0 0,1 100,100 L30,100 A70,70 0 0,1 30,30 Z\";");
+    @FXML
+    public void PulsaModificaDatos() {
+        nombreUsuario.setEditable(true);
+        correoElectronico.setEditable(true);telefono.setEditable(true);
+        botonSalir.setVisible(true);
+        botonGuardar.setVisible(true);
+        nombreUsuario.setStyle("-fx-border-color: #9a9a9a; -fx-border-width: 2px;  -fx-shape: \"M30,30 L100,30 A70,70 0 0,1 100,100 L30,100 A70,70 0 0,1 30,30 Z\";");
+        correoElectronico.setStyle("-fx-border-color: #9a9a9a; -fx-border-width: 2px;  -fx-shape: \"M30,30 L100,30 A70,70 0 0,1 100,100 L30,100 A70,70 0 0,1 30,30 Z\";");
         telefono.setStyle("-fx-border-color: #9a9a9a; -fx-border-width: 2px; -fx-shape: \"M30,30 L100,30 A70,70 0 0,1 100,100 L30,100 A70,70 0 0,1 30,30 Z\";");
     }
 
-    @FXML public void PulsaBotonSalir() {
+    @FXML
+    public void PulsaBotonSalir() {
         novisibles_nomodificables();
     }
 
@@ -89,7 +141,7 @@ public class ControladorInformacionBasica implements Initializable {
         instancia = this;
         novisibles_nomodificables();
         muestra_informacion_personal();
-        NombreDeUsuario.textProperty().addListener((observable, oldValue, newValue) -> cambiosSinGuardar = true);
-        mail.textProperty().addListener((observable, oldValue, newValue) -> cambiosSinGuardar = true);
+        nombreUsuario.textProperty().addListener((observable, oldValue, newValue) -> cambiosSinGuardar = true);
+        correoElectronico.textProperty().addListener((observable, oldValue, newValue) -> cambiosSinGuardar = true);
     }
 }
