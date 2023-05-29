@@ -145,7 +145,6 @@ public class CrearClienteControlador{
 
             String mensajeError = "";
 
-
             String nombre = textNombre.getText();
             String apellidos = textApellidos.getText();
             String cuenta = textCuenta.getText();
