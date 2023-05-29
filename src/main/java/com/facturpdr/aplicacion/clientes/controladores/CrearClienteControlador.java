@@ -130,6 +130,17 @@ public class CrearClienteControlador{
             }
             VentanaExtension ventana = VentanaExtension.obtenerInstancia();
             ventana.cambiarEscena("clientes/clientes");
+            textDNI.clear();
+            textNombre.clear();
+            textApellidos.clear();
+            textMovil.clear();
+            textCiudad.clear();
+            textCodigo.clear();
+            textCuenta.clear();
+            textDireccion.clear();
+            textEmail.clear();
+            textFijo.clear();
+            textPais.clear();
         }
 
         /**
