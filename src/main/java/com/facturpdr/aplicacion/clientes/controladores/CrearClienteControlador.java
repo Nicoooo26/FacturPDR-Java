@@ -142,56 +142,60 @@ public class CrearClienteControlador{
 
             String mensajeError = "";
 
-            if (textNombre.getText().isEmpty()) {
+
+            String nombre = textNombre.getText();
+            String apellidos = textApellidos.getText();
+            String cuenta = textCuenta.getText();
+            String dni = textDNI.getText();
+            String movil = textMovil.getText();
+            String email = textEmail.getText();
+            String codigoPostal = textCodigo.getText();
+            String fijo = textFijo.getText();
+
+            if (nombre.isEmpty()) {
                 mensajeError += "El campo 'nombre' es obligatorio.\n";
             }
-            if (textApellidos.getText().isEmpty()) {
+            if (apellidos.isEmpty()) {
                 mensajeError += "El campo 'apellidos' es obligatorio.\n";
             }
-            if (textCuenta.getText().isEmpty()) {
+            if (cuenta.isEmpty()) {
                 mensajeError += "El campo 'cuenta' es obligatorio.\n";
-            }
-            else if(!textCuenta.getText().isEmpty() && !textCuenta.getText().matches("[A-Z]{2}\\d{22}")) {
+            } else if (!cuenta.matches("[A-Z]{2}\\d{22}")) {
                 mensajeError += "El formato 'cuenta' no es válido.\n";
             }
-            if (textDNI.getText().isEmpty()) {
+            if (dni.isEmpty()) {
                 mensajeError += "El campo 'DNI' es obligatorio.\n";
-            }
-            else if(!textDNI.getText().isEmpty() && !textDNI.getText().matches("\\d{8}[A-HJ-NP-TV-Z]")) {
+            } else if (!dni.matches("\\d{8}[A-HJ-NP-TV-Z]")) {
                 mensajeError += "El formato 'DNI' no es válido.\n";
             }
-            if(existeDNI(textDNI.getText())) {
-                mensajeError +="El DNI introducido ya existe en el sistema.\n";
+            if (existeDNI(dni)) {
+                mensajeError += "El DNI introducido ya existe en el sistema.\n";
             }
-            if (textMovil.getText().isEmpty()) {
-                mensajeError += "El campo 'Movil' es obligatorio.\n";
+            if (!movil.isEmpty() && !movil.matches("[67]\\d{8}")) {
+                mensajeError += "El formato del 'movil' no es válido.\n";
             }
-            else if(!textMovil.getText().isEmpty() && !textMovil.getText().matches("^[67]\\d{8}$")) {
-                mensajeError += "El formato 'movil' no es válido.\n";
+
+            if (movil.isEmpty()) {
+                mensajeError += "El campo 'movil' es obligatorio.\n";
+            } else if (existeMovil(Integer.parseInt(movil))) {
+                mensajeError += "El telefono movil introducido ya existe en el sistema.\n";
             }
-            if(existeMovil(Integer.parseInt(textMovil.getText()))) {
-                mensajeError +="El telefono movil introducido ya existe en el sistema.\n";
-            }
-            if(!textEmail.getText().matches("[a-zA-Z0-9_+&*-]+(?:\\."+
+            if (!email.matches("[a-zA-Z0-9_+&*-]+(?:\\." +
                     "[a-zA-Z0-9_+&*-]+)*@" +
                     "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
-                    "A-Z]{2,7}") && !textEmail.getText().isEmpty()) {
+                    "A-Z]{2,7}") && !email.isEmpty()) {
                 mensajeError += "El formato 'email' no es válido.\n";
             }
-
-            if(!textCodigo.getText().isEmpty() && !textCodigo.getText().matches("^\\d{5}$")) {
+            if (!codigoPostal.isEmpty() && !codigoPostal.matches("^\\d{5}$")) {
                 mensajeError += "El formato 'codigo postal' no es válido.\n";
             }
-
-            if(!textFijo.getText().isEmpty() && !textFijo.getText().matches("^9\\d{8}$")) {
+            if (!fijo.isEmpty() && !fijo.matches("^9\\d{8}$")) {
                 mensajeError += "El formato 'fijo' no es válido.\n";
             }
-
-
-            if (mensajeError.length() == 0) {
+            if (mensajeError.isEmpty()) {
                 return true;
             } else {
-                AlertaUtilidad.error("Datos no válidos",mensajeError);
+                AlertaUtilidad.error("Datos no válidos", mensajeError);
                 return false;
             }
 
