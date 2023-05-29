@@ -34,14 +34,12 @@ public class IniciarSesionControlador {
             AlertaUtilidad.error("Debes introducir una contraseña", "Por favor, introduce una contraseña.");
             return;
         }
-
-        /*
+        
         boolean contresenaValido = contrasena.getText().matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)([A-Za-z\\d$@!%*?&]|[^ ]){8,}$");
         if (!contresenaValido) {
             AlertaUtilidad.error("La contraseña debe ser valida", "La contraseña debe tener al menos 8 caracteres, una mayúscula como mínimo, un número como mínimo.");
             return;
         }
-        */
 
         int IDUsuario = authServicio.iniciarSesion(correoElectronico.getText(), contrasena.getText());
         if (IDUsuario == -1) {
