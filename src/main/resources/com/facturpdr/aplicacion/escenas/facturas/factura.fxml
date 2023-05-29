@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.clientes.controladores.ModificarClienteControlador">
     <children>
@@ -8,8 +10,30 @@
         <fx:include source="../inicio/panel-lateral.fxml" />
         <VBox prefHeight="600.0" prefWidth="763.0">
             <children>
-                <Pane prefHeight="235.0" prefWidth="756.0" style="-fx-background-color: #333337;" />
-                <Pane prefHeight="611.0" prefWidth="752.0" style="-fx-background-color: white;" />
+                <Pane prefHeight="600.0" prefWidth="756.0" style="-fx-background-color: #333337;">
+               <children>
+                      <Pane layoutX="176.0" layoutY="25.0" prefHeight="552.0" prefWidth="408.0" style="-fx-background-color: white;">
+                     <children>
+                        <Label layoutX="22.0" layoutY="22.0" prefHeight="21.0" prefWidth="104.0" text="FACTURPDR">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="19.0" layoutY="71.0" prefHeight="21.0" prefWidth="111.0" text="NÚMERO DE FACTURA:" textFill="#003af8" underline="true">
+                           <font>
+                              <Font size="10.0" />
+                           </font></Label>
+                        <Label layoutX="157.0" layoutY="71.0" prefHeight="21.0" prefWidth="104.0" text="FECHA DE FACTURA:" textFill="#003af8" underline="true">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="22.0" layoutY="99.0" prefHeight="21.0" prefWidth="104.0" />
+                        <Label layoutX="157.0" layoutY="101.0" prefHeight="21.0" prefWidth="104.0" />
+                     </children></Pane>
+                  <Button layoutX="28.0" layoutY="48.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Imprimir" />
+                  <Button layoutX="28.0" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Exportar" />
+               </children></Pane>
             </children>
         </VBox>
     </children></HBox>
