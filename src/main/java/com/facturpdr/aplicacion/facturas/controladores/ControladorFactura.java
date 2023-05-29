@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 public class ControladorFactura {
 
     private final VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-    @FXML public void añadir_factura(ActionEvent event) {
+    @FXML public void añadir_factura() {
         ventana.ventanaEmergente("facturas/crear-factura");
     }
 }
