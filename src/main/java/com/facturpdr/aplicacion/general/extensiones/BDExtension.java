@@ -12,7 +12,7 @@ import java.sql.*;
  */
 public class BDExtension {
     private static final String url = "jdbc:oracle:thin:@localhost:1521:xe";
-    private static final String usuario = "proyecto";
+    private static final String usuario = "facturpdr";
     private static final String contrasena = "123456";
 
     public static Connection conexion = null;
