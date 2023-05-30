@@ -28,8 +28,14 @@ public class ControladorAcercaDe {
         if (cuerpo.getText().isEmpty()) {
             AlertaUtilidad.advertencia("Advertencia Correo.", "El mensaje del correo está vacío.");
         } else {
-            CorreoUtilidad.enviar(ConfiguracionServicio.obtenerAtributo("correoElectronico").toString(), asunto.getText().toString(),
-                    cuerpo.getText().toString());
+            CorreoUtilidad.enviar(ConfiguracionServicio.obtenerAtributo("correoElectronico").toString(), "No contestar este mensaje.", "Mensaje recibidio : " + cuerpo.getText().toString() + "\nHemos recibido su mensaje y agradecemos su interés en contactar con nosotros en FACTUR PD. Lamentamos sinceramente cualquier inconveniente o molestia que haya experimentado.\n" +
+                    "\n" +
+                    "Nos comprometemos a investigar a fondo su caso y a tomar las medidas necesarias para abordar cualquier problema que haya surgido. Nuestro equipo de atención al cliente se pondrá en contacto con usted a la brevedad posible para brindarle una solución adecuada.\n" +
+                    "\n" +
+                    "Agradecemos su paciencia y comprensión mientras trabajamos para resolver este asunto. Su satisfacción es nuestra prioridad y haremos todo lo posible para asegurarnos de que su experiencia con nosotros sea satisfactoria.\n" +
+                    "\n" +
+                    "Atentamente,\n" +
+                    "El equipo de FACTUR PDR");
         }
     }
 }

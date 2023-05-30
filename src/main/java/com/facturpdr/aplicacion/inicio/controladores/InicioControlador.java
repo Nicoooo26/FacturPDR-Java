@@ -3,9 +3,14 @@
  */
 package com.facturpdr.aplicacion.inicio.controladores;
 
+import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,6 +30,21 @@ public class InicioControlador implements Initializable {
     @FXML
     private Label cantidadClientes;
 
+    public int count(String tabla) throws SQLException {
+        BDExtension.conectarse();
+        Connection conn = BDExtension.conexion;
+        String query = "SELECT COUNT(*) FROM "+tabla;
+        PreparedStatement pstmt = conn.prepareStatement(query);
+        ResultSet rs = pstmt.executeQuery();
+
+        int count = 0;
+        if (rs.next()) {
+            count = rs.getInt(1);
+        }
+
+        return count;
+    }
+
     /**
      * Inicializa el controlador después de que se haya cargado el archivo FXML.
      *
@@ -33,6 +53,15 @@ public class InicioControlador implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            cantidadClientes.setText(Integer.toString(count("CLIENTES")));
+            cantidadEmpleados.setText(Integer.toString(count("EMPLEADOS")));
+            cantidadFacturas.setText(Integer.toString(count("FACTURAS")));
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
         Tooltip informacion = new Tooltip("Nombre del proyecto: FacturPDR\n" +
                 "Desarrollado en: JavaFX\n" +
                 "Compilador: Gradle\n" +
