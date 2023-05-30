@@ -25,9 +25,9 @@
                         <TableView prefHeight="414.0" prefWidth="699.0" GridPane.rowIndex="1">
                             <columns>
                                 <TableColumn prefWidth="75.0" text="NIF EMPLEADO" />
-                                <TableColumn prefWidth="75.0" text="MATRICULA" />
                                 <TableColumn prefWidth="75.0" text="PRECIO TOTAL" />
                                 <TableColumn prefWidth="75.0" text="IDCLIENTE" />
+                                <TableColumn prefWidth="75.0" text="MATRICULA" />
                             </columns>
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

@@ -129,10 +129,14 @@ public class ControladorCrearFactura {
         String notaInterna = textNotaInterna.getText();
         String notaExterna = textNotaExterna.getText();
         LocalDate localDate = textFecha.getValue();
-
-
+        java.util.Date fechaActual = new java.util.Date();
+        java.sql.Date fechaCreacion = new java.sql.Date(fechaActual.getTime());
+        int valorPintura = tipoPintura.equalsIgnoreCase("SI") ? 1 : 0;
+        int valorAluminio = tipoAluminio.equalsIgnoreCase("SI") ? 1 : 0;
+        int valorMaterial = tipoMaterial.equalsIgnoreCase("SI") ? 1 : 0;
         BDExtension.conectarse();
         Connection conn = BDExtension.conexion;
+
         // Realizar la consulta para obtener el ID del cliente
         String query = "SELECT id FROM clientes WHERE nombre_completo = ?";
         PreparedStatement stmt = conn.prepareStatement(query);
@@ -142,50 +146,51 @@ public class ControladorCrearFactura {
         // Obtener el ID del cliente
         int idCliente = 0;
         if (rs.next()) {
-            idCliente = rs.getInt("id_cliente");
+            idCliente = rs.getInt("id");
         } else {
             System.out.println("No se encontró ningún cliente con el nombre completo especificado.");
             return;
         }
-        String insertSQL="INSERT INTO FACTURAS (id_cliente,NIF_empleado,coste_mano_obra,nota_interna,nota_externa,fecha_creacion,fecha_vencimiento,tipo,material,aluminio,pintura,tamano,cantidad,precio_unitario) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
+        String insertSQL = "INSERT INTO FACTURAS (id_cliente, NIF_empleado,matricula, coste_mano_obra, nota_interna, nota_externa, fecha_creacion, fecha_vencimiento, tipo, material, aluminio, pintura, tamano, cantidad, precio_unitario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         java.sql.Date fecha = null;
         if (localDate != null) {
             fecha = java.sql.Date.valueOf(localDate);
         }
+
         stmt = conn.prepareStatement(insertSQL);
-        int ID= PreferenciaUtilidad.obtenerIDUsuario();
-        stmt.setInt(1,idCliente);
-        stmt.setString(2,nifEmpleado);
-        stmt.setString(3,manoDeObra );
-        stmt.setString(4, notaInterna);
-        stmt.setString(5, notaExterna);
-        stmt.setObject(6, );
-        stmt.setString(7,nifEmpleado);
-        stmt.setString(8,manoDeObra );
-        stmt.setString(9, notaInterna);
-        stmt.setString(10, notaExterna);
-        stmt.setString(11,nifEmpleado);
-        stmt.setString(12,manoDeObra );
-        stmt.setString(13, notaInterna);
-        stmt.setString(14, notaExterna);
-    }else {
-        throw new SQLException("Error:Los datos no son válidos.");
-    }
-        try {
-        int rowsAffected = stmt.executeUpdate();
-        System.out.println(rowsAffected + " filas insertadas.");
-    } catch (SQLException e) {
-        System.out.println("Error al ejecutar la consulta: " + e.getMessage());
-    }
+        stmt.setInt(1, idCliente);
+        stmt.setString(2, nifEmpleado);
+        stmt.setString(3, manoDeObra);
+        stmt.setString(4, matricula);
+        stmt.setString(5, notaInterna);
+        stmt.setString(6, notaExterna);
+        stmt.setDate(7, fechaCreacion);
+        stmt.setDate(8, fecha); // Aquí debes proporcionar la fecha de vencimiento correspondiente
+        stmt.setString(9, tipoPieza);
+        stmt.setInt(10, valorMaterial);
+        stmt.setInt(11, valorAluminio);
+        stmt.setInt(12, valorPintura);
+        stmt.setInt(13, tipoTamanno);
+        stmt.setString(14, cantidad);
+        stmt.setString(15, precio);
 
         try {
-        stmt.close();
-    } catch (SQLException e) {
-        System.out.println("Error al cerrar el objeto PreparedStatement: " + e.getMessage());
-    }
-    Stage stage = (Stage) btnAnnadir.getScene().getWindow();
+            int rowsAffected = stmt.executeUpdate();
+            System.out.println(rowsAffected + " filas insertadas.");
+        } catch (SQLException e) {
+            System.out.println("Error al ejecutar la consulta: " + e.getMessage());
+        } finally {
+            try {
+                rs.close();
+                stmt.close();
+                conn.close();
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar los objetos ResultSet, PreparedStatement o Connection: " + e.getMessage());
+            }
+        }
+
+        Stage stage = (Stage) btnAnnadir.getScene().getWindow();
         stage.close();
-
     }
 }
