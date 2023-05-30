@@ -1,6 +1,7 @@
 package com.facturpdr.aplicacion.facturas.controladores;
 
 import com.facturpdr.aplicacion.general.extensiones.BDExtension;
+import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
 import com.facturpdr.aplicacion.sesiones.utilidades.PreferenciaUtilidad;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,14 +26,17 @@ public class ControladorCrearFactura {
     private ChoiceBox<Integer> textTipoTamanno;
     @FXML
     private ChoiceBox<String> listadoClientes;
+
+    @FXML
+    private ChoiceBox<String> listadoEmpleados;
     @FXML
     private TextField textTipoMaterial;
     @FXML
     private TextField textTipoPintura;
     @FXML
     private TextField textTipoAluminio;
-    @FXML
-    private ChoiceBox<String> listadoEmpleados;
+
+
 
     @FXML
     private TextField textMatricula;
@@ -115,82 +119,187 @@ public class ControladorCrearFactura {
 
     @FXML
     public void clickAnnadir() throws SQLException {
+        if (datosValidos()) {
+            String tipoPieza = textTipoPieza.getValue();
+            Integer tipoTamanno = textTipoTamanno.getValue();
+            String tipoMaterial = textTipoMaterial.getText();
+            String tipoPintura = textTipoPintura.getText();
+            String tipoAluminio = textTipoAluminio.getText();
+            String nombreCliente = listadoClientes.getValue();
+            String nifEmpleado = listadoEmpleados.getValue();
+            String matricula = textMatricula.getText();
+            String precio = textPrecio.getText();
+            String cantidad = textCantidad.getText();
+            String manoDeObra = textManoDeObra.getText();
+            String notaInterna = textNotaInterna.getText();
+            String notaExterna = textNotaExterna.getText();
+            LocalDate localDate = textFecha.getValue();
+            java.util.Date fechaActual = new java.util.Date();
+            java.sql.Date fechaCreacion = new java.sql.Date(fechaActual.getTime());
+            int valorPintura = tipoPintura.equalsIgnoreCase("SI") ? 1 : 0;
+            int valorAluminio = tipoAluminio.equalsIgnoreCase("SI") ? 1 : 0;
+            int valorMaterial = tipoMaterial.equalsIgnoreCase("SI") ? 1 : 0;
+            BDExtension.conectarse();
+            Connection conn = BDExtension.conexion;
+
+            // Realizar la consulta para obtener el ID del cliente
+            String query = "SELECT id FROM clientes WHERE nombre_completo = ?";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            stmt.setString(1, nombreCliente);
+            ResultSet rs = stmt.executeQuery();
+
+            // Obtener el ID del cliente
+            int idCliente = 0;
+            if (rs.next()) {
+                idCliente = rs.getInt("id");
+            } else {
+                System.out.println("No se encontró ningún cliente con el nombre completo especificado.");
+                return;
+            }
+
+            String insertSQL = "INSERT INTO FACTURAS (id_cliente, NIF_empleado,matricula, coste_mano_obra, nota_interna, nota_externa, fecha_creacion, fecha_vencimiento, tipo, material, aluminio, pintura, tamano, cantidad, precio_unitario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            java.sql.Date fecha = null;
+            if (localDate != null) {
+                fecha = java.sql.Date.valueOf(localDate);
+            }
+
+            stmt = conn.prepareStatement(insertSQL);
+            stmt.setInt(1, idCliente);
+            stmt.setString(2, nifEmpleado);
+            stmt.setString(3, matricula);
+            stmt.setInt(4, Integer.parseInt(manoDeObra));
+            stmt.setString(5, notaInterna);
+            stmt.setString(6, notaExterna);
+            stmt.setDate(7, fechaCreacion);
+            stmt.setDate(8, fecha); // Aquí debes proporcionar la fecha de vencimiento correspondiente
+            stmt.setString(9, tipoPieza);
+            stmt.setInt(10, valorMaterial);
+            stmt.setInt(11, valorAluminio);
+            stmt.setInt(12, valorPintura);
+            stmt.setInt(13, tipoTamanno);
+            stmt.setString(14, cantidad);
+            stmt.setString(15, precio);
+
+            try {
+                int rowsAffected = stmt.executeUpdate();
+                System.out.println(rowsAffected + " filas insertadas.");
+            } catch (SQLException e) {
+                System.out.println("Error al ejecutar la consulta: " + e.getMessage());
+            } finally {
+                try {
+                    rs.close();
+                    stmt.close();
+                    conn.close();
+                } catch (SQLException e) {
+                    System.out.println("Error al cerrar los objetos ResultSet, PreparedStatement o Connection: " + e.getMessage());
+                }
+            }
+
+            Stage stage = (Stage) btnAnnadir.getScene().getWindow();
+            stage.close();
+        }
+    }
+    private boolean datosValidos() throws SQLException {
+        String mensajeError = "";
+
         String tipoPieza = textTipoPieza.getValue();
         Integer tipoTamanno = textTipoTamanno.getValue();
+        String cliente = listadoClientes.getValue();
+        String empleado = listadoEmpleados.getValue();
         String tipoMaterial = textTipoMaterial.getText();
         String tipoPintura = textTipoPintura.getText();
         String tipoAluminio = textTipoAluminio.getText();
-        String nombreCliente = listadoClientes.getValue();
-        String nifEmpleado = listadoEmpleados.getValue();
         String matricula = textMatricula.getText();
         String precio = textPrecio.getText();
+        String notaExterna = textNotaExterna.getText();
+        String notaInterna = textNotaInterna.getText();
         String cantidad = textCantidad.getText();
         String manoDeObra = textManoDeObra.getText();
-        String notaInterna = textNotaInterna.getText();
-        String notaExterna = textNotaExterna.getText();
-        LocalDate localDate = textFecha.getValue();
-        java.util.Date fechaActual = new java.util.Date();
-        java.sql.Date fechaCreacion = new java.sql.Date(fechaActual.getTime());
-        int valorPintura = tipoPintura.equalsIgnoreCase("SI") ? 1 : 0;
-        int valorAluminio = tipoAluminio.equalsIgnoreCase("SI") ? 1 : 0;
-        int valorMaterial = tipoMaterial.equalsIgnoreCase("SI") ? 1 : 0;
-        BDExtension.conectarse();
-        Connection conn = BDExtension.conexion;
+        LocalDate fecha = textFecha.getValue();
 
-        // Realizar la consulta para obtener el ID del cliente
-        String query = "SELECT id FROM clientes WHERE nombre_completo = ?";
-        PreparedStatement stmt = conn.prepareStatement(query);
-        stmt.setString(1, nombreCliente);
-        ResultSet rs = stmt.executeQuery();
+        // Verificar campo tipoPieza
+        if (tipoPieza == null) {
+            mensajeError += "El campo Tipo de Pieza es obligatorio.\n";
+        }
 
-        // Obtener el ID del cliente
-        int idCliente = 0;
-        if (rs.next()) {
-            idCliente = rs.getInt("id");
+        // Verificar campo tipoTamanno
+        if (tipoTamanno == null) {
+            mensajeError += "El campo Tipo de Tamaño es obligatorio.\n";
+        }
+
+        // Verificar campo cliente
+        if (cliente == null) {
+            mensajeError += "El campo Cliente es obligatorio.\n";
+        }
+
+        // Verificar campo empleado
+        if (empleado == null) {
+            mensajeError += "El campo Empleado es obligatorio.\n";
+        }
+
+        // Verificar campo tipoMaterial
+        if (tipoMaterial.isEmpty()) {
+            mensajeError += "El campo Tipo de Material es obligatorio.\n";
+        } else if (!tipoMaterial.matches("(?i)^(SI|NO)$")) {
+            mensajeError += "El campo Tipo de Material solo acepta 'SI' o 'NO'.\n";
+        }
+
+        // Verificar campo tipoPintura
+        if (tipoPintura.isEmpty()) {
+            mensajeError += "El campo Tipo de Pintura es obligatorio.\n";
+        } else if (!tipoPintura.matches("(?i)^(SI|NO)$")) {
+            mensajeError += "El campo Tipo de Pintura solo acepta 'SI' o 'NO'.\n";
+        }
+
+        // Verificar campo tipoAluminio
+        if (tipoAluminio.isEmpty()) {
+            mensajeError += "El campo Tipo de Aluminio es obligatorio.\n";
+        } else if (!tipoAluminio.matches("(?i)^(SI|NO)$")) {
+            mensajeError += "El campo Tipo de Aluminio solo acepta 'SI' o 'NO'.\n";
+        }
+
+        // Verificar campo matricula
+        if (matricula.isEmpty()) {
+            mensajeError += "El campo Matrícula es obligatorio.\n";
+        } else if (!matricula.matches("^\\d{4}[A-Za-z]{3}$")) {
+            mensajeError += "El formato de la Matrícula no es válido (formato de matrícula española).\n";
+        }
+
+        // Verificar campo precio
+        if (precio.isEmpty()) {
+            mensajeError += "El campo Precio es obligatorio.\n";
+        }
+
+        // Verificar campo notaExterna
+        if (notaExterna.isEmpty()) {
+            mensajeError += "El campo Nota Externa es obligatorio.\n";
+        }
+
+        // Verificar campo notaInterna
+        if (notaInterna.isEmpty()) {
+            mensajeError += "El campo Nota Interna es obligatorio.\n";
+        }
+
+        // Verificar campo cantidad
+        if (cantidad.isEmpty()) {
+            mensajeError += "El campo Cantidad es obligatorio.\n";
+        }
+
+        // Verificar campo manoDeObra
+        if (manoDeObra.isEmpty()) {
+            mensajeError += "El campo Mano de Obra es obligatorio.\n";
+        }
+
+        // Verificar campo fecha
+        if (fecha == null) {
+            mensajeError += "El campo Fecha es obligatorio.\n";
+        }
+
+        if (mensajeError.isEmpty()) {
+            return true;
         } else {
-            System.out.println("No se encontró ningún cliente con el nombre completo especificado.");
-            return;
+            AlertaUtilidad.error("Datos no válidos", mensajeError);
+            return false;
         }
-
-        String insertSQL = "INSERT INTO FACTURAS (id_cliente, NIF_empleado,matricula, coste_mano_obra, nota_interna, nota_externa, fecha_creacion, fecha_vencimiento, tipo, material, aluminio, pintura, tamano, cantidad, precio_unitario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        java.sql.Date fecha = null;
-        if (localDate != null) {
-            fecha = java.sql.Date.valueOf(localDate);
-        }
-
-        stmt = conn.prepareStatement(insertSQL);
-        stmt.setInt(1, idCliente);
-        stmt.setString(2, nifEmpleado);
-        stmt.setString(3, matricula);
-        stmt.setInt(4, Integer.parseInt(manoDeObra));
-        stmt.setString(5, notaInterna);
-        stmt.setString(6, notaExterna);
-        stmt.setDate(7, fechaCreacion);
-        stmt.setDate(8, fecha); // Aquí debes proporcionar la fecha de vencimiento correspondiente
-        stmt.setString(9, tipoPieza);
-        stmt.setInt(10, valorMaterial);
-        stmt.setInt(11, valorAluminio);
-        stmt.setInt(12, valorPintura);
-        stmt.setInt(13, tipoTamanno);
-        stmt.setString(14, cantidad);
-        stmt.setString(15, precio);
-
-        try {
-            int rowsAffected = stmt.executeUpdate();
-            System.out.println(rowsAffected + " filas insertadas.");
-        } catch (SQLException e) {
-            System.out.println("Error al ejecutar la consulta: " + e.getMessage());
-        } finally {
-            try {
-                rs.close();
-                stmt.close();
-                conn.close();
-            } catch (SQLException e) {
-                System.out.println("Error al cerrar los objetos ResultSet, PreparedStatement o Connection: " + e.getMessage());
-            }
-        }
-
-        Stage stage = (Stage) btnAnnadir.getScene().getWindow();
-        stage.close();
     }
 }
