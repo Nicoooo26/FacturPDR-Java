@@ -161,8 +161,8 @@ public class ControladorCrearFactura {
         stmt = conn.prepareStatement(insertSQL);
         stmt.setInt(1, idCliente);
         stmt.setString(2, nifEmpleado);
-        stmt.setInt(3, Integer.parseInt(manoDeObra));
-        stmt.setString(4, matricula);
+        stmt.setString(3, matricula);
+        stmt.setInt(4, Integer.parseInt(manoDeObra));
         stmt.setString(5, notaInterna);
         stmt.setString(6, notaExterna);
         stmt.setDate(7, fechaCreacion);
