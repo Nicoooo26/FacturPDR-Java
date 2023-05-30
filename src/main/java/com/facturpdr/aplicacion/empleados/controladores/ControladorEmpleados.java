@@ -1,7 +1,6 @@
 package com.facturpdr.aplicacion.empleados.controladores;
 
-import com.facturpdr.aplicacion.clientes.controladores.ClienteControlador;
-import com.facturpdr.aplicacion.clientes.controladores.ModificarClienteControlador;
+
 import com.facturpdr.aplicacion.empleados.modelos.Empleado;
 import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
@@ -10,8 +9,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -71,11 +68,6 @@ public class ControladorEmpleados {
     @FXML
     public Button btnEliminar;
 
-    /**
-     * Botón para modificar un cliente seleccionado.
-     */
-    @FXML
-    public Button btnModificar;
 
     /**
      * Lista observable de clientes.

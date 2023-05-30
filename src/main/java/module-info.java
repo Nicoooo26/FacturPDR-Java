@@ -17,6 +17,7 @@ module com.facturpdr.aplicacion {
     requires com.oracle.database.jdbc;
     requires junit;
     requires org.junit.jupiter.api;
+    opens com.facturpdr.aplicacion.facturas.modelo to javafx.base;
     opens com.facturpdr.aplicacion.empleados.modelos to javafx.base;
     opens com.facturpdr.aplicacion.clientes.modelos to javafx.base;
     opens com.facturpdr.aplicacion to javafx.graphics, javafx.fxml;

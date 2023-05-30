@@ -1,6 +1,6 @@
 package com.facturpdr.aplicacion.facturas.controladores;
 
-import com.facturpdr.aplicacion.empleados.modelos.Empleado;
+import com.facturpdr.aplicacion.facturas.modelo.Factura;
 import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
 import com.facturpdr.aplicacion.general.utilidades.AlertaUtilidad;
@@ -21,31 +21,31 @@ public class ControladorFacturas {
      * TableView para mostrar la lista de clientes.
      */
     @FXML
-    public TableView<Empleado> tablaEmpleados;
+    public TableView<Factura> tablaFacturas;
 
     /**
      * Columna para mostrar el DNI del cliente.
      */
     @FXML
-    public TableColumn<Empleado, String> columnaNIF;
+    public TableColumn<Factura, String> columnaNIF;
 
     /**
      * Columna para mostrar el nombre completo del cliente.
      */
     @FXML
-    public TableColumn<Empleado, String> columnaNombre;
+    public TableColumn<Factura, String> columnaMatricula;
 
     /**
      * Columna para mostrar el teléfono del cliente.
      */
     @FXML
-    public TableColumn<Empleado, Integer> columnaTelefono;
+    public TableColumn<Factura, Integer> columnaPrecio;
 
     /**
      * Columna para mostrar la cuenta del cliente.
      */
     @FXML
-    public TableColumn<Empleado, String> columnaApellidos;
+    public TableColumn<Factura, Integer> columnaIDCliente;
 
     /**
      * Campo de texto para buscar clientes.
@@ -65,16 +65,11 @@ public class ControladorFacturas {
     @FXML
     public Button btnEliminar;
 
-    /**
-     * Botón para modificar un cliente seleccionado.
-     */
-    @FXML
-    public Button btnModificar;
 
     /**
      * Lista observable de clientes.
      */
-    ObservableList<Empleado> empleados = FXCollections.observableArrayList();
+    ObservableList<Factura> facturas = FXCollections.observableArrayList();
 
     /**
      * Método que se ejecuta al inicializar el controlador.
@@ -87,49 +82,47 @@ public class ControladorFacturas {
         }
         Connection conn = BDExtension.conexion;
 
-        String selectSQL = "SELECT NIF,NOMBRE,APELLIDOS,TELEFONO FROM EMPLEADOS";
+        String selectSQL = "SELECT NIF_EMPLEADO,PRECIOTOTAL,ID_CLIENTE,MATRICULA FROM FACTURAS";
         try {
             PreparedStatement stmt = conn.prepareStatement(selectSQL);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                String NIF = rs.getString("NIF");
-                String nombre = rs.getString("NOMBRE");
-                String apellidos = rs.getString("APELLIDOS");
-                int telefono = rs.getInt("TELEFONO");
-                Empleado empleado = new Empleado(NIF, nombre, apellidos, telefono);
-                empleados.add(empleado);
+                String NIF = rs.getString("NIF_EMPLEADO");
+                int preciototal = rs.getInt("PRECIOTOTAL");
+                int idCliente = rs.getInt("ID_CLIENTE");
+                String matricula = rs.getString("MATRICULA");
+                Factura factura = new Factura(NIF,preciototal,idCliente,matricula);
+                facturas.add(factura);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        columnaNIF.setCellValueFactory(new PropertyValueFactory<>("NIF"));
-        columnaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        columnaApellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
-        columnaTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
-        tablaEmpleados.setItems(empleados);
+        columnaNIF.setCellValueFactory(new PropertyValueFactory<>("nifEmpleado"));
+        columnaPrecio.setCellValueFactory(new PropertyValueFactory<>("precioTotal"));
+        columnaIDCliente.setCellValueFactory(new PropertyValueFactory<>("idCliente"));
+        columnaMatricula.setCellValueFactory(new PropertyValueFactory<>("matricula"));
+        tablaFacturas.setItems(facturas);
 
-        FilteredList<Empleado> empleadosFiltrados = new FilteredList<>(empleados);
+        FilteredList<Factura> facturasFiltrados = new FilteredList<>(facturas);
 
         buscador.textProperty().addListener((observable, oldValue, newValue) -> {
-            empleadosFiltrados.setPredicate(Busqueda -> {
+            facturasFiltrados.setPredicate(Busqueda -> {
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
 
                 String lowerCaseFilter = newValue.toLowerCase();
 
-                if (Busqueda.getNIF().toLowerCase().contains(lowerCaseFilter)) {
+                if (Busqueda.getMatricula().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
-                } else if (Busqueda.getNombre().toLowerCase().contains(lowerCaseFilter)) {
-                    return true;
-                } else if (Busqueda.getApellidos().toLowerCase().contains(lowerCaseFilter)) {
+                } else if (Busqueda.getNifEmpleado().toLowerCase().contains(lowerCaseFilter)) {
                     return true;
                 }
                 return false;
             });
         });
 
-        tablaEmpleados.setItems(empleadosFiltrados);
+        tablaFacturas.setItems(facturasFiltrados);
 
     }
 
@@ -139,7 +132,7 @@ public class ControladorFacturas {
     @FXML
     public void clickAnnadir() {
         VentanaExtension ventana = VentanaExtension.obtenerInstancia();
-        ventana.ventanaEmergente("empleados/crear-empleado");
+        ventana.ventanaEmergente("facturas/crear-factura");
 
     }
 
@@ -150,17 +143,17 @@ public class ControladorFacturas {
      */
     @FXML
     public void clickEliminar() throws SQLException {
-        int selectedIndex = tablaEmpleados.getSelectionModel().getSelectedIndex();
+        int selectedIndex = tablaFacturas.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             String dni = columnaNIF.getCellData(selectedIndex);
             BDExtension.conectarse();
             Connection conn = BDExtension.conexion;
             try {
-                String query = "DELETE FROM EMPLEADOS WHERE NIF = ?";
+                String query = "DELETE FROM FACTURAS WHERE NIF_EMPLEADO = ?";
                 PreparedStatement statement = conn.prepareStatement(query);
                 statement.setString(1, dni);
                 statement.executeUpdate();
-                tablaEmpleados.refresh();
+                tablaFacturas.refresh();
                 Statement refreshStatement = conn.createStatement();
                 refreshStatement.execute("COMMIT");
                 actualizarDatos();
@@ -168,7 +161,7 @@ public class ControladorFacturas {
                 e.printStackTrace();
             }
         } else {
-            AlertaUtilidad.advertencia("Empleado no seleccionado", "Por favor, seleccione un empleado de la tabla");
+            AlertaUtilidad.advertencia("Factura no seleccionado", "Por favor, seleccione una factura de la tabla");
         }
 
     }
@@ -185,8 +178,7 @@ public class ControladorFacturas {
      * Método para actualizar los datos en la tabla de clientes.
      */
     public void actualizarDatos() {
-        empleados.clear();
-
+        facturas.clear();
         try {
             BDExtension.conectarse();
         } catch (SQLException e) {
@@ -194,18 +186,17 @@ public class ControladorFacturas {
         }
         Connection conn = BDExtension.conexion;
 
-        String selectSQL = "SELECT NIF,NOMBRE,APELLIDOS,TELEFONO FROM EMPLEADOS";
-
+        String selectSQL = "SELECT NIF_EMPLEADO,PRECIOTOTAL,ID_CLIENTE,MATRICULA FROM FACTURAS";
         try {
             PreparedStatement stmt = conn.prepareStatement(selectSQL);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                String NIF = rs.getString("NIF");
-                String nombre = rs.getString("NOMBRE");
-                String apellidos = rs.getString("APELLIDOS");
-                int telefono = rs.getInt("TELEFONO");
-                Empleado empleado = new Empleado(NIF, nombre, apellidos, telefono);
-                empleados.add(empleado);
+                String NIF = rs.getString("NIF_EMPLEADO");
+                int preciototal = rs.getInt("PRECIOTOTAL");
+                int idCliente = rs.getInt("ID_CLIENTE");
+                String matricula = rs.getString("MATRICULA");
+                Factura factura = new Factura(NIF, preciototal, idCliente, matricula);
+                facturas.add(factura);
             }
         } catch (SQLException e) {
             e.printStackTrace();

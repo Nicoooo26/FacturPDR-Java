@@ -22,12 +22,12 @@
                         <RowConstraints maxHeight="438.64613960401573" minHeight="10.0" prefHeight="384.76923187797627" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                        <TableView prefHeight="414.0" prefWidth="699.0" GridPane.rowIndex="1">
+                        <TableView fx:id="tablaFacturas" prefHeight="414.0" prefWidth="699.0" GridPane.rowIndex="1">
                             <columns>
                                 <TableColumn fx:id="columnaNIF" prefWidth="75.0" text="NIF EMPLEADO" />
                                 <TableColumn fx:id="columnaPrecio" prefWidth="75.0" text="PRECIO TOTAL" />
                                 <TableColumn fx:id="columnaIDCliente" prefWidth="75.0" text="IDCLIENTE" />
-                                <TableColumn fx:id="colulmnaMatricula" prefWidth="75.0" text="MATRICULA" />
+                                <TableColumn fx:id="columnaMatricula" prefWidth="75.0" text="MATRICULA" />
                             </columns>
                             <columnResizePolicy>
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -58,6 +58,7 @@
                                         <Insets left="5.0" />
                                     </HBox.margin>
                                 </Button>
+                        <Button mnemonicParsing="false" onAction="#clickActualizar" prefHeight="31.0" prefWidth="88.0" text="Actualizar" />
                             </children>
                         </HBox>
                     </children>

@@ -1,10 +1,10 @@
 package com.facturpdr.aplicacion.facturas.modelo;
 import java.sql.Timestamp;
 
-public class factura {
+public class Factura {
     private int idCliente;
     private String nifEmpleado;
-    private String matricula ;
+    private String matricula;
     private double costeManoObra;
     private String notaInterna;
     private String notaExterna;
@@ -16,15 +16,16 @@ public class factura {
     private int pintura;
     private String tamano;
     private int precioUnitario;
-    private double precioTotal;
+    private int precioTotal;
 
-    public factura(int id, String dni, double precioTotal, String matricula) {
-        this.idCliente = id;
-        this.nifEmpleado = dni ;
+    public Factura(String nifEmpleado, int precioTotal, int idCliente, String matricula) {
+        this.idCliente = idCliente;
+        this.nifEmpleado = nifEmpleado;
         this.precioTotal = precioTotal;
-        this.matricula = matricula ;
+        this.matricula = matricula;
     }
-    public factura(int id, int idCliente, String nifEmpleado, double costeManoObra, String notaInterna, String notaExterna, Timestamp fechaCreacion, Timestamp fechaVencimiento, String tipo, int material, int aluminio, int pintura, String tamano, int precioUnitario, double precioTotal) {
+
+    public Factura(int id, int idCliente, String nifEmpleado, double costeManoObra, String notaInterna, String notaExterna, Timestamp fechaCreacion, Timestamp fechaVencimiento, String tipo, int material, int aluminio, int pintura, String tamano, int precioUnitario, int precioTotal) {
         this.idCliente = idCliente;
         this.nifEmpleado = nifEmpleado;
         this.costeManoObra = costeManoObra;
@@ -44,10 +45,11 @@ public class factura {
     // Getters y Setters para los atributos
 
     public String getMatricula() {
-        return this.matricula    ;
+        return matricula;
     }
-    public void setMatricula(String matri) {
-        this.matricula = matri;
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public int getIdCliente() {
@@ -154,11 +156,11 @@ public class factura {
         this.precioUnitario = precioUnitario;
     }
 
-    public double getPrecioTotal() {
+    public int getPrecioTotal() {
         return precioTotal;
     }
 
-    public void setPrecioTotal(double precioTotal) {
+    public void setPrecioTotal(int precioTotal) {
         this.precioTotal = precioTotal;
     }
 }
