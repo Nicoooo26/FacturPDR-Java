@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.facturas.controladores.ControladorFactura">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.facturas.controladores.ControladorFactura">
     <children>
         <VBox prefHeight="600.0" prefWidth="0.0" />
         <fx:include source="../inicio/panel-lateral.fxml" />
@@ -34,12 +30,12 @@
                         </Label>
                         <Label layoutX="22.0" layoutY="99.0" prefHeight="21.0" prefWidth="104.0" />
                         <Label layoutX="157.0" layoutY="101.0" prefHeight="21.0" prefWidth="104.0" />
-                        <Label layoutX="38.0" layoutY="91.0" text="No definido.">
+                        <Label fx:id="labelID" layoutX="38.0" layoutY="91.0" text="No definido.">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="172.0" layoutY="89.0" text="No definido.">
+                        <Label fx:id="labelFechaCreacion" layoutX="172.0" layoutY="89.0" text="No definido.">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -49,22 +45,17 @@
                               <Font size="10.0" />
                            </font>
                         </Label>
-                        <Label layoutX="22.0" layoutY="141.0" text="Nombre del cliente">
+                        <Label layoutX="22.0" layoutY="141.0" text="ID del cliente:">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="22.0" layoutY="160.0" text="Calle">
+                        <Label fx:id="labelIDCliente" layoutX="22.0" layoutY="160.0" prefHeight="19.0" prefWidth="71.0" text="rellenar">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="22.0" layoutY="179.0" text="Codigo postal">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="22.0" layoutY="198.0" prefHeight="21.0" prefWidth="80.0" text="Telefono">
+                        <Label layoutX="22.0" layoutY="198.0" prefHeight="21.0" prefWidth="80.0" text="Matricula:">
                            <font>
                               <Font size="13.0" />
                            </font>
@@ -84,32 +75,40 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Label layoutX="42.0" layoutY="350.0" text="Descripcion" />
+                        <Label layoutX="42.0" layoutY="350.0" text="Tamaño" />
                         <Label layoutX="176.0" layoutY="350.0" text="Unidades" />
                         <Label layoutX="314.0" layoutY="350.0" text="Precio" />
-                        <Label layoutX="40.0" layoutY="386.0" text="No definido." />
-                        <Label layoutX="171.0" layoutY="386.0" text="No definido." />
-                        <Label layoutX="296.0" layoutY="386.0" text="No definido." />
+                        <Label fx:id="labelTamanno" layoutX="40.0" layoutY="386.0" text="No definido." />
+                        <Label fx:id="labelCantidad" layoutX="171.0" layoutY="386.0" text="No definido." />
+                        <Label fx:id="labelPrecioUnitario" layoutX="324.0" layoutY="386.0" prefHeight="17.0" prefWidth="37.0" text="No definido." />
                         <Separator layoutX="8.0" layoutY="336.0" prefHeight="3.0" prefWidth="402.0" />
-                        <Label layoutX="289.0" layoutY="481.0" text="Total" />
+                        <Label layoutX="254.0" layoutY="481.0" text="Total" />
                         <Separator layoutX="247.0" layoutY="471.0" prefHeight="3.0" prefWidth="171.0" />
-                        <Label layoutX="333.0" layoutY="481.0" text="No definido." />
-                        <Label layoutX="22.0" layoutY="219.0" text="Fecha de vencimiento" />
-                        <Label layoutX="164.0" layoutY="219.0" text="No definido." />
+                        <Label fx:id="labelPrecioTotal" layoutX="313.0" layoutY="481.0" prefHeight="17.0" prefWidth="49.0" text="No definido." />
+                        <Label layoutX="22.0" layoutY="219.0" text="Fecha de vencimiento:" />
+                        <Label fx:id="labelFechaVencimiento" layoutX="164.0" layoutY="219.0" text="No definido." />
                         <Label layoutX="21.0" layoutY="246.0" text="Tipo:" />
-                        <Label layoutX="62.0" layoutY="246.0" text="No definido." />
+                        <Label fx:id="labelTipo" layoutX="62.0" layoutY="246.0" text="No definido." />
                         <Label layoutX="26.0" layoutY="276.0" text="Material :" />
-                        <Label layoutX="87.0" layoutY="276.0" text="No" />
+                        <Label fx:id="labelMaterial" layoutX="87.0" layoutY="276.0" text="No" />
                         <Label layoutX="122.0" layoutY="276.0" text="Pintura:" />
-                        <Label layoutX="172.0" layoutY="276.0" text="No" />
+                        <Label fx:id="labelPintura" layoutX="172.0" layoutY="276.0" text="No" />
                         <Label layoutX="203.0" layoutY="276.0" text="Aluminio:" />
-                        <Label layoutX="267.0" layoutY="276.0" text="Si" />
+                        <Label fx:id="labelAluminio" layoutX="267.0" layoutY="276.0" text="Si" />
                         <Label layoutX="21.0" layoutY="296.0" text="Notas :" />
-                        <Label layoutX="21.0" layoutY="316.0" text="LDSAFEVEAFVAREVRRRRRRRR" />
+                        <Label fx:id="labelNotas" layoutX="21.0" layoutY="316.0" prefHeight="17.0" prefWidth="388.0" text="LDSAFEVEAFVAREVRRRRRRRR" />
+                        <Label fx:id="labelMatricula" layoutX="157.0" layoutY="200.0" prefHeight="17.0" prefWidth="80.0" text="Label" />
+                        <Label layoutX="291.0" layoutY="24.0" prefHeight="17.0" prefWidth="111.0" text="Fue atendido por:" />
+                        <Label fx:id="labelNIF" layoutX="288.0" layoutY="43.0" prefHeight="17.0" prefWidth="104.0" text="Label" />
+                        <Label layoutX="285.0" layoutY="200.0" prefHeight="17.0" prefWidth="121.0" text="Precio mano de obra:" />
+                        <Label fx:id="labelManoDeObra" layoutX="313.0" layoutY="219.0" prefHeight="17.0" prefWidth="40.0" />
+                        <Label layoutX="366.0" layoutY="386.0" text="€" />
+                        <Label layoutX="365.0" layoutY="481.0" text="€" />
+                        <Label layoutX="358.0" layoutY="219.0" text="€" />
                      </children></Pane>
                   <Button layoutX="28.0" layoutY="48.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Imprimir" />
                   <Button layoutX="28.0" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Exportar" />
-                  <Button layoutX="28.0" layoutY="138.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Cancelar" />
+                  <Button fx:id="btnCancelar" layoutX="28.0" layoutY="138.0" mnemonicParsing="false" onAction="#clickCancelar" prefHeight="25.0" prefWidth="121.0" text="Cancelar" />
                </children></Pane>
             </children>
         </VBox>

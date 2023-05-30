@@ -1,5 +1,7 @@
 package com.facturpdr.aplicacion.facturas.controladores;
 
+import com.facturpdr.aplicacion.clientes.controladores.ClienteControlador;
+import com.facturpdr.aplicacion.clientes.modelos.Cliente;
 import com.facturpdr.aplicacion.facturas.modelo.Factura;
 import com.facturpdr.aplicacion.general.extensiones.BDExtension;
 import com.facturpdr.aplicacion.general.extensiones.VentanaExtension;
@@ -8,12 +10,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class ControladorFacturas {
@@ -102,6 +108,28 @@ public class ControladorFacturas {
         columnaIDCliente.setCellValueFactory(new PropertyValueFactory<>("idCliente"));
         columnaMatricula.setCellValueFactory(new PropertyValueFactory<>("matricula"));
         tablaFacturas.setItems(facturas);
+
+        // Configurar el evento de doble clic en la tabla
+        tablaFacturas.setOnMouseClicked((MouseEvent event) -> {
+            if (event.getClickCount() == 2) {
+                Factura facturaSeleccionado = tablaFacturas.getSelectionModel().getSelectedItem();
+                if (facturaSeleccionado != null) {
+                    String dni = facturaSeleccionado.getNifEmpleado();
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/facturpdr/aplicacion/escenas/facturas/factura.fxml"));
+                        Parent root = loader.load();
+                        ControladorFactura controladora = loader.getController();
+                        controladora.cargarDatos(dni);
+
+                        VentanaExtension ventanaExtension = VentanaExtension.obtenerInstancia();
+                        ventanaExtension.cambiarEscenaConParent("facturas/factura", root);
+
+                    } catch (IOException | SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        });
 
         FilteredList<Factura> facturasFiltrados = new FilteredList<>(facturas);
 
