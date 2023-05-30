@@ -26,7 +26,7 @@
                             <columns>
                                 <TableColumn prefWidth="75.0" text="NIF EMPLEADO" />
                                 <TableColumn prefWidth="75.0" text="MATRICULA" />
-                                <TableColumn prefWidth="75.0" text="NBASTIDOR" />
+                                <TableColumn prefWidth="75.0" text="PRECIO TOTAL" />
                                 <TableColumn prefWidth="75.0" text="IDCLIENTE" />
                             </columns>
                             <columnResizePolicy>

@@ -62,7 +62,7 @@
                 <TextField fx:id="textManoDeObra" layoutX="401.0" layoutY="218.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
                 <Separator layoutX="391.0" layoutY="242.0" prefHeight="3.0" prefWidth="180.0" style="-fx-background-color: #000000;" />
                 <Label layoutX="74.0" layoutY="14.0" text="Cliente" />
-                <ChoiceBox fx:id="listadoClientes" layoutX="25.0" layoutY="34.0" prefHeight="27.0" prefWidth="138.0" style="-fx-background-color: #9a9a9a;" />
+                <ChoiceBox fx:id="listadoClientes" layoutX="28.0" layoutY="35.0" prefHeight="27.0" prefWidth="138.0" style="-fx-background-color: #9a9a9a;" />
             <Label alignment="CENTER" layoutX="400.0" layoutY="10.0" prefHeight="25.0" prefWidth="162.0" text="Empleado" />
             <ChoiceBox fx:id="listadoEmpleados" layoutX="400.0" layoutY="34.0" prefHeight="29.0" prefWidth="162.0" />
             <TextField fx:id="textTipoMaterial" layoutX="200.0" layoutY="140.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
@@ -72,7 +72,7 @@
             <TextField fx:id="textTipoPintura" layoutX="607.0" layoutY="140.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
             <Separator layoutX="601.0" layoutY="168.0" prefHeight="3.0" prefWidth="162.0" style="-fx-background-color: #000000;" />
             <Label alignment="CENTER" layoutX="615.0" layoutY="180.0" prefHeight="25.0" prefWidth="138.0" text="PrecioUnitario" />
-            <TextField layoutX="618.0" layoutY="211.0" style="-fx-background-color: white;" />
+            <TextField fx:id="textPrecio" layoutX="618.0" layoutY="211.0" style="-fx-background-color: white;" />
             <Separator layoutX="610.0" layoutY="243.0" prefHeight="3.0" prefWidth="162.0" style="-fx-background-color: BLACK;" />
 
             </children>
