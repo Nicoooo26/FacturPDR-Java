@@ -62,4 +62,7 @@ module com.facturpdr.aplicacion {
 
     exports com.facturpdr.aplicacion.auth.test;
     exports com.facturpdr.aplicacion.general.test;
+
+    exports com.facturpdr.aplicacion.facturas.modelo;
+    exports com.facturpdr.aplicacion.facturas.controladores;
 }
