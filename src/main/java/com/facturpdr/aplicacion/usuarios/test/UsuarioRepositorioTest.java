@@ -1,10 +1,10 @@
-package com.facturpdr.aplicacion.usuarios.repositorios;
+package com.facturpdr.aplicacion.usuarios.test;
 
 import com.facturpdr.aplicacion.auth.modelos.Usuario;
 import com.facturpdr.aplicacion.usuarios.repositorios.UsuarioRepositorio;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.Date;
 import java.util.List;
@@ -13,7 +13,7 @@ public class UsuarioRepositorioTest {
 
     private UsuarioRepositorio usuarioRepositorio;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         usuarioRepositorio = new UsuarioRepositorio();
     }
@@ -21,22 +21,22 @@ public class UsuarioRepositorioTest {
     @Test
     public void obtenerUsuarios_DebeDevolverListaNoVacia() {
         List<Usuario> usuarios = usuarioRepositorio.obtenerUsuarios();
-        Assertions.assertFalse(usuarios.isEmpty(), "La lista de usuarios no debe estar vacía");
+        Assert.assertFalse("La lista de usuarios no debe estar vacía", usuarios.isEmpty());
     }
 
     @Test
     public void obtenerUsuarioCorreo_Existente_DebeDevolverUsuarioCorrecto() {
         String correo = "ejemplo@correo.com";
         Usuario usuario = usuarioRepositorio.obtenerUsuarioCorreo(correo);
-        Assertions.assertNotNull(usuario, "El usuario no debe ser nulo");
-        Assertions.assertEquals(correo, usuario.getCorreoElectronico(), "El correo electrónico debe coincidir");
+        Assert.assertNotNull("El usuario no debe ser nulo", usuario);
+        Assert.assertEquals("El correo electrónico debe coincidir", correo, usuario.getCorreoElectronico());
     }
 
     @Test
     public void obtenerUsuarioCorreo_NoExistente_DebeDevolverNull() {
         String correo = "correo@inexistente.com";
         Usuario usuario = usuarioRepositorio.obtenerUsuarioCorreo(correo);
-        Assertions.assertNull(usuario, "El usuario debe ser nulo");
+        Assert.assertNull("El usuario debe ser nulo", usuario);
     }
 
     // Agrega más pruebas para los demás métodos de la clase UsuarioRepositorio...

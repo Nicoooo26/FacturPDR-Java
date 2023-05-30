@@ -84,23 +84,28 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Separator layoutX="9.0" layoutY="217.0" prefHeight="3.0" prefWidth="402.0" />
-                        <Label layoutX="20.0" layoutY="232.0" text="Descripcion" />
-                        <Label layoutX="186.0" layoutY="232.0" text="Unidades" />
-                        <Label layoutX="304.0" layoutY="232.0" text="Precio" />
-                        <Label layoutX="26.0" layoutY="252.0" text="No definido." />
-                        <Label layoutX="177.0" layoutY="252.0" text="No definido." />
-                        <Label layoutX="297.0" layoutY="252.0" text="No definido." />
-                        <Separator layoutX="9.0" layoutY="367.0" prefHeight="3.0" prefWidth="402.0" />
-                        <Label layoutX="260.0" layoutY="389.0" text="Subtotal" />
-                        <Label layoutX="260.0" layoutY="415.0" text="Descuento" />
-                        <Label layoutX="281.0" layoutY="442.0" text="IVA" />
-                        <Label layoutX="333.0" layoutY="389.0" text="No definido." />
-                        <Label layoutX="333.0" layoutY="415.0" text="No definido." />
-                        <Label layoutX="333.0" layoutY="442.0" text="No definido." />
+                        <Label layoutX="42.0" layoutY="350.0" text="Descripcion" />
+                        <Label layoutX="176.0" layoutY="350.0" text="Unidades" />
+                        <Label layoutX="314.0" layoutY="350.0" text="Precio" />
+                        <Label layoutX="40.0" layoutY="386.0" text="No definido." />
+                        <Label layoutX="171.0" layoutY="386.0" text="No definido." />
+                        <Label layoutX="296.0" layoutY="386.0" text="No definido." />
+                        <Separator layoutX="8.0" layoutY="336.0" prefHeight="3.0" prefWidth="402.0" />
                         <Label layoutX="289.0" layoutY="481.0" text="Total" />
                         <Separator layoutX="247.0" layoutY="471.0" prefHeight="3.0" prefWidth="171.0" />
                         <Label layoutX="333.0" layoutY="481.0" text="No definido." />
+                        <Label layoutX="22.0" layoutY="219.0" text="Fecha de vencimiento" />
+                        <Label layoutX="164.0" layoutY="219.0" text="No definido." />
+                        <Label layoutX="21.0" layoutY="246.0" text="Tipo:" />
+                        <Label layoutX="62.0" layoutY="246.0" text="No definido." />
+                        <Label layoutX="26.0" layoutY="276.0" text="Material :" />
+                        <Label layoutX="87.0" layoutY="276.0" text="No" />
+                        <Label layoutX="122.0" layoutY="276.0" text="Pintura:" />
+                        <Label layoutX="172.0" layoutY="276.0" text="No" />
+                        <Label layoutX="203.0" layoutY="276.0" text="Aluminio:" />
+                        <Label layoutX="267.0" layoutY="276.0" text="Si" />
+                        <Label layoutX="21.0" layoutY="296.0" text="Notas :" />
+                        <Label layoutX="21.0" layoutY="316.0" text="LDSAFEVEAFVAREVRRRRRRRR" />
                      </children></Pane>
                   <Button layoutX="28.0" layoutY="48.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Imprimir" />
                   <Button layoutX="28.0" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="121.0" text="Exportar" />

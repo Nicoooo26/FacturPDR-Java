@@ -17,7 +17,6 @@ module com.facturpdr.aplicacion {
     requires com.oracle.database.jdbc;
     requires junit;
     requires org.junit.jupiter.api;
-
     opens com.facturpdr.aplicacion.empleados.modelos to javafx.base;
     opens com.facturpdr.aplicacion.clientes.modelos to javafx.base;
     opens com.facturpdr.aplicacion to javafx.graphics, javafx.fxml;
@@ -58,5 +57,8 @@ module com.facturpdr.aplicacion {
 
     exports com.facturpdr.aplicacion.usuarios.servicios;
     exports com.facturpdr.aplicacion.configuraciones.test;
+    exports com.facturpdr.aplicacion.usuarios.test;
 
+    exports com.facturpdr.aplicacion.auth.test;
+    exports com.facturpdr.aplicacion.general.test;
 }
