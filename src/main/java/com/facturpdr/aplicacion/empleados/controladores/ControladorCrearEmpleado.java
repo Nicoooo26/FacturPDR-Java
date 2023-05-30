@@ -40,7 +40,6 @@ public class ControladorCrearEmpleado {
     public Button btnCancelar;
 
 
-
     @FXML
     public Button btnAnnadir;
 
