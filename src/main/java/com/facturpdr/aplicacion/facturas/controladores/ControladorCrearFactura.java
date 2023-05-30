@@ -16,24 +16,32 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
-public class ControladorCrearFactura {
-
-    @FXML ChoiceBox<String> textTipoPieza;
-    @FXML ChoiceBox<Integer> textTipoTamanno;
-    @FXML ChoiceBox<String> listadoClientes ;
-    @FXML ChoiceBox<String> textTipoMaterial;
-    @FXML ChoiceBox<String> textTipoPintura;
-    @FXML ChoiceBox<String> textTipoAluminio;
-    @FXML ChoiceBox<String> listadoEmpleados;
-
-    @FXML TextField textMatricula,textBastidor,textCantidad,textManoDeObra,textNotaInterna,textNotaExterna;
-    @FXML DatePicker textFecha ;
+public class ControladorCrearFactura implements Initializable {
 
     @FXML
-    public Button btnCancelar;
+    private ChoiceBox<String> textTipoPieza;
+    @FXML
+    private ChoiceBox<Integer> textTipoTamanno;
+    @FXML
+    private ChoiceBox<String> listadoClientes;
+    @FXML
+    private TextField textTipoMaterial;
+    @FXML
+    private TextField textTipoPintura;
+    @FXML
+    private TextField textTipoAluminio;
+    @FXML
+    private ChoiceBox<String> listadoEmpleados;
 
     @FXML
-    public Button btnAnnadir;
+    private TextField textMatricula, textBastidor, textCantidad, textManoDeObra, textNotaInterna, textNotaExterna;
+    @FXML
+    private DatePicker textFecha;
+
+    @FXML
+    private Button btnCancelar;
+    @FXML
+    private Button btnAnnadir;
 
     private void rellenapiezas() {
         // Obtener la lista de elementos del ChoiceBox
@@ -52,8 +60,13 @@ public class ControladorCrearFactura {
         }
     }
 
-    public void initialize() throws SQLException {
-        BDExtension.conectarse();
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            BDExtension.conectarse();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         Connection conn = BDExtension.conexion;
         rellenapiezas();
         rellenatamano();
@@ -82,16 +95,20 @@ public class ControladorCrearFactura {
             e.printStackTrace();
         }
     }
-    public void clickCancelar(){
+
+    @FXML
+    public void clickCancelar() {
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
     }
-    public void clickAnnadir(){
+
+    @FXML
+    public void clickAnnadir() {
         String tipoPieza = textTipoPieza.getValue();
         Integer tipoTamanno = textTipoTamanno.getValue();
-        String tipoMaterial = textTipoMaterial.getValue();
-        String tipoPintura = textTipoPintura.getValue();
-        String tipoAluminio = textTipoAluminio.getValue();
+        String tipoMaterial = textTipoMaterial.getText();
+        String tipoPintura = textTipoPintura.getText();
+        String tipoAluminio = textTipoAluminio.getText();
         String nombreCliente = listadoClientes.getValue();
         String nifEmpleado = listadoEmpleados.getValue();
         // Obtener la información de los TextField
@@ -117,24 +134,23 @@ public class ControladorCrearFactura {
             if (clienteResult.next()) {
                 int idCliente = clienteResult.getInt("id");
 
-                    java.sql.Date fecha = null;
-                    if (localDate != null) {
-                        fecha = java.sql.Date.valueOf(localDate);
-                    }
-                    // Insertar los datos en la tabla "FACTURAS"
-                    String insertQuery = "INSERT INTO FACTURAS (id_cliente, NIF_empleado, coste_mano_obra, nota_interna, nota_externa, fecha_creacion, fecha_vencimiento) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                    PreparedStatement insertStatement = conn.prepareStatement(insertQuery);
-                    insertStatement.setInt(1, idCliente);
-                    insertStatement.setString(2, nifEmpleado);
-                    insertStatement.setDouble(3, Double.parseDouble(manoDeObra));
-                    insertStatement.setString(4, notaInterna);
-                    insertStatement.setString(5, notaExterna);
-                    insertStatement.setTimestamp(6, Timestamp.valueOf(LocalDateTime.now()));
-                    insertStatement.setObject(7, fecha);
+                java.sql.Date fecha = null;
+                if (localDate != null) {
+                    fecha = java.sql.Date.valueOf(localDate);
+                }
+                // Insertar los datos en la tabla "FACTURAS"
+                String insertQuery = "INSERT INTO FACTURAS (id_cliente,id_empleado,coste_mano_obra, nota_interna, nota_externa, fecha_creacion, fecha_vencimiento) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                PreparedStatement insertStatement = conn.prepareStatement(insertQuery);
+                insertStatement.setInt(1, idCliente);
+                insertStatement.setString(2, nifEmpleado);
+                insertStatement.setDouble(3, Double.parseDouble(manoDeObra));
+                insertStatement.setString(4, notaInterna);
+                insertStatement.setString(5, notaExterna);
+                insertStatement.setTimestamp(6, Timestamp.valueOf(LocalDateTime.now()));
+                insertStatement.setObject(7, fecha);
 
-                    insertStatement.executeUpdate();
-                    insertStatement.close();
-
+                insertStatement.executeUpdate();
+                insertStatement.close();
             }
 
             clienteResult.close();

@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.*?>
-<?import java.lang.*?>
-<?import javafx.collections.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.facturas.controladores.ControladorCrearFactura">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="509.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.facturas.controladores.ControladorCrearFactura">
     <children>
         <Pane prefHeight="52.0" prefWidth="1001.0" style="-fx-background-color: #262626;">
             <children>
@@ -68,35 +73,14 @@
                 <Separator layoutX="391.0" layoutY="242.0" prefHeight="3.0" prefWidth="180.0" style="-fx-background-color: #000000;" />
                 <Label layoutX="74.0" layoutY="14.0" text="Cliente" />
                 <ChoiceBox fx:id="listadoClientes" layoutX="25.0" layoutY="34.0" prefHeight="27.0" prefWidth="138.0" style="-fx-background-color: #9a9a9a;" />
-
-                <ChoiceBox fx:id="textTipoMaterial" layoutX="215.0" layoutY="140.0" prefWidth="150.0" style="-fx-background-color: #9a9a9a;">
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <Boolean fx:id="trueOption" fx:value="true" />
-                            <Boolean fx:id="falseOption" fx:value="false" />
-                        </FXCollections>
-                    </items>
-                </ChoiceBox>
-
-                <ChoiceBox fx:id="textTipoAluminio" layoutX="411.0" layoutY="142.0" prefWidth="150.0" style="-fx-background-color: #9a9a9a;">
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <Boolean fx:value="true" />
-                            <Boolean fx:value="false" />
-                        </FXCollections>
-                    </items>
-                </ChoiceBox>
-
-                <ChoiceBox fx:id="textTipoPintura" layoutX="617.0" layoutY="141.0" prefWidth="150.0" style="-fx-background-color: #9a9a9a;">
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <Boolean fx:value="true" />
-                            <Boolean fx:value="false" />
-                        </FXCollections>
-                    </items>
-                </ChoiceBox>
             <Label alignment="CENTER" layoutX="607.0" layoutY="183.0" prefHeight="25.0" prefWidth="162.0" text="Empleado" />
             <ChoiceBox fx:id="listadoEmpleados" layoutX="605.0" layoutY="216.0" prefHeight="29.0" prefWidth="162.0" />
+            <TextField fx:id="textTipoMaterial" layoutX="200.0" layoutY="140.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+            <Separator layoutX="195.0" layoutY="168.0" prefHeight="3.0" prefWidth="162.0" style="-fx-background-color: #000000;" />
+            <TextField fx:id="textTipoAluminio" layoutX="401.0" layoutY="140.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+            <Separator layoutX="405.0" layoutY="170.0" prefHeight="3.0" prefWidth="162.0" style="-fx-background-color: #000000;" />
+            <TextField fx:id="textTipoPintura" layoutX="607.0" layoutY="140.0" prefHeight="29.0" prefWidth="170.0" style="-fx-background-color: transparent;" />
+            <Separator layoutX="601.0" layoutY="168.0" prefHeight="3.0" prefWidth="162.0" style="-fx-background-color: #000000;" />
 
             </children>
         </Pane>

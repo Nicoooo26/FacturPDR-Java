@@ -16,6 +16,7 @@ module com.facturpdr.aplicacion {
     requires java.mail;
     requires com.oracle.database.jdbc;
     requires junit;
+    requires org.junit.jupiter.api;
 
     opens com.facturpdr.aplicacion.empleados.modelos to javafx.base;
     opens com.facturpdr.aplicacion.clientes.modelos to javafx.base;
