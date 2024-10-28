@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="600.0" prefWidth="252.0" styleClass="vboxPrincipal" stylesheets="@../../estilos/inicio.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.facturpdr.aplicacion.inicio.controladores.LateralControlador">
+
+        <children>
+            <Pane prefHeight="112.0" prefWidth="292.0" styleClass="paneLateral">
+                <children>
+                    <FontAwesomeIconView glyphName="XING" layoutX="50.0" layoutY="75.0" size="40" wrappingWidth="35.55766582489014" />
+                    <Label layoutX="86.0" layoutY="45.0" prefHeight="31.0" prefWidth="119.0" style="-fx-font-size: 18;" text="FACTUR PDR" />
+                </children>
+            </Pane>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" mnemonicParsing="false" onAction="#manejarInicio" prefHeight="37.0" prefWidth="350.0" text="Home">
+                <graphic>
+                    <FontAwesomeIconView glyphName="HOME" />
+                </graphic>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <padding>
+                    <Insets left="60.0" />
+                </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#manejarClientes" prefHeight="37.0" prefWidth="350.0" text="Gestion de clientes">
+                <graphic>
+                    <FontAwesomeIconView glyphName="USERS" />
+                </graphic>
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <padding>
+                    <Insets left="60.0" />
+                </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="48.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="350.0" text="Gestion de empleados">
+                <graphic>
+                    <FontAwesomeIconView glyphName="USER_SECRET" />
+                </graphic>
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <padding>
+                    <Insets left="60.0" />
+                </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="85.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="350.0" text="Gestion de facturas">
+                <graphic>
+                    <FontAwesomeIconView glyphName="FILE" />
+                </graphic>
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <padding>
+                    <Insets left="60.0" />
+                </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="123.0" mnemonicParsing="false" onAction="#manejarConfiguracion" prefHeight="37.0" prefWidth="350.0" text="Configuración">
+                <graphic>
+                    <FontAwesomeIconView glyphName="GEAR" />
+                </graphic>
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+                <padding>
+                    <Insets left="60.0" />
+                </padding>
+            </Button>
+            <Button alignment="BASELINE_LEFT" graphicTextGap="6.0" layoutX="10.0" layoutY="273.0" mnemonicParsing="false" onAction="#manejarCerrarSesion" prefHeight="30.0" prefWidth="292.0" styleClass="CerrarSesion" text="Cerrar Sesión">
+                <graphic>
+                    <FontAwesomeIconView glyphName="SIGN_OUT" rotate="180.0" />
+                </graphic>
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <VBox.margin>
+                    <Insets top="270.0" />
+                </VBox.margin>
+                <padding>
+                    <Insets left="60.0" />
+                </padding>
+            </Button>
+        </children>
+    </VBox>

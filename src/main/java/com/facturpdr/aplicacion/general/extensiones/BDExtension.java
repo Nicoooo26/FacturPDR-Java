@@ -11,9 +11,9 @@ import java.sql.*;
  * La clase `BDExtension` proporciona métodos para interactuar con una base de datos.
  */
 public class BDExtension {
-    private static final String url = ConfiguracionUtilidad.obtenerValor("bd.url");
-    private static final String usuario = ConfiguracionUtilidad.obtenerValor("bd.usuario");
-    private static final String contrasena = ConfiguracionUtilidad.obtenerValor("bd.contrasena");
+    private static final String url = ("jdbc:oracle:thin:@localhost:1521:xe");
+    private static final String usuario = ("facturpdr");
+    private static final String contrasena = ("123456");
 
     public static Connection conexion = null;
     private static PreparedStatement sentencia = null;

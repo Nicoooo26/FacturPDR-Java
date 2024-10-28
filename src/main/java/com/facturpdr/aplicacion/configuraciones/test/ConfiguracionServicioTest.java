@@ -9,7 +9,7 @@ public class ConfiguracionServicioTest {
     @Test
     public void testObtenerAtributo_nombreUsuario() {
         String atributo = "nombreUsuario";
-        String expected = "john.doe";
+        String expected = "dario26";
 
         Object result = ConfiguracionServicio.obtenerAtributo(atributo);
 
@@ -19,7 +19,7 @@ public class ConfiguracionServicioTest {
     @Test
     public void testObtenerAtributo_correoElectronico() {
         String atributo = "correoElectronico";
-        String expected = "john.doe@example.com";
+        String expected = "dario.quinde0@gmail.com";
 
         Object result = ConfiguracionServicio.obtenerAtributo(atributo);
 
